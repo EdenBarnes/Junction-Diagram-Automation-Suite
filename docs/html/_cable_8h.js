@@ -9,11 +9,11 @@ var _cable_8h =
       [ "WIRE7", "_cable_8h.html#af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f", null ]
     ] ],
     [ "IOType", "_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507", [
-      [ "DIGITAL", "_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a", null ],
-      [ "ANALOG", "_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6", null ]
+      [ "ANALOG", "_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6", null ],
+      [ "DIGITAL", "_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a", null ]
     ] ],
     [ "SystemType", "_cable_8h.html#a922f019f64e4183a18638787f6ba539b", [
-      [ "SAFETY", "_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e", null ],
-      [ "CONTROL", "_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08", null ]
+      [ "CONTROL", "_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08", null ],
+      [ "SAFETY", "_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e", null ]
     ] ]
 ];

@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.5.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.0.0</span>
    </div>
    <div id="projectbrief">An AutoCAD-integrated tool that automates the generation of cable junction diagrams from structured configuration data.</div>
   </td>
@@ -116,15 +116,15 @@ $(function(){initNavTree('_cable_8h_source.html','',''); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
 <div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539b">   41</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539b">SystemType</a> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e">   42</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e">SAFETY</a>, </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08">   43</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08">CONTROL</a> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08">   42</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08">CONTROL</a>,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e">   43</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e">SAFETY</a>  </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
 <div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507">   50</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a">   51</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a">DIGITAL</a>, </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6">   52</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6">ANALOG</a>   </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6">   51</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6">ANALOG</a>, </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a">   52</a></span>    <a class="code hl_enumvalue" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a">DIGITAL</a> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
 </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
@@ -172,21 +172,18 @@ $(function(){initNavTree('_cable_8h_source.html','',''); });
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_class" href="class_device.html">Device</a> <a class="code hl_function" href="class_cable.html#a6efb3b4d303e29ec8430cfb0a971f697">operator[]</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span></div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cable.html#a35317f53c9c2ac467c6ba92ed05d2a37">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_cable.html#a83fbd4930297376e2f3d02f54e5a2941">Cable</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment">// TODO: REMOVE</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    std::string textDesc() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>};</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>};</div>
 </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
 <div class="ttc" id="a_cable_8h_html_a2634dc8f796d724e921dc6a0edb43507"><div class="ttname"><a href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a></div><div class="ttdeci">IOType</div><div class="ttdoc">Enumerates the input/output types supported by cables.</div><div class="ttdef"><b>Definition</b> Cable.h:50</div></div>
-<div class="ttc" id="a_cable_8h_html_a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a"><div class="ttname"><a href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a">DIGITAL</a></div><div class="ttdeci">@ DIGITAL</div><div class="ttdoc">Digital signals (e.g., on/off).</div><div class="ttdef"><b>Definition</b> Cable.h:51</div></div>
-<div class="ttc" id="a_cable_8h_html_a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6"><div class="ttname"><a href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6">ANALOG</a></div><div class="ttdeci">@ ANALOG</div><div class="ttdoc">Analog signals (e.g., varying voltage).</div><div class="ttdef"><b>Definition</b> Cable.h:52</div></div>
+<div class="ttc" id="a_cable_8h_html_a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a"><div class="ttname"><a href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a">DIGITAL</a></div><div class="ttdeci">@ DIGITAL</div><div class="ttdoc">Digital signals (e.g., on/off).</div><div class="ttdef"><b>Definition</b> Cable.h:52</div></div>
+<div class="ttc" id="a_cable_8h_html_a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6"><div class="ttname"><a href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6">ANALOG</a></div><div class="ttdeci">@ ANALOG</div><div class="ttdoc">Analog signals (e.g., varying voltage).</div><div class="ttdef"><b>Definition</b> Cable.h:51</div></div>
 <div class="ttc" id="a_cable_8h_html_a922f019f64e4183a18638787f6ba539b"><div class="ttname"><a href="_cable_8h.html#a922f019f64e4183a18638787f6ba539b">SystemType</a></div><div class="ttdeci">SystemType</div><div class="ttdoc">Enumerates the types of systems that can use cables.</div><div class="ttdef"><b>Definition</b> Cable.h:41</div></div>
-<div class="ttc" id="a_cable_8h_html_a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e"><div class="ttname"><a href="_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e">SAFETY</a></div><div class="ttdeci">@ SAFETY</div><div class="ttdoc">Cables used in safety-critical systems.</div><div class="ttdef"><b>Definition</b> Cable.h:42</div></div>
-<div class="ttc" id="a_cable_8h_html_a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08"><div class="ttname"><a href="_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08">CONTROL</a></div><div class="ttdeci">@ CONTROL</div><div class="ttdoc">Cables used in control systems.</div><div class="ttdef"><b>Definition</b> Cable.h:43</div></div>
+<div class="ttc" id="a_cable_8h_html_a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e"><div class="ttname"><a href="_cable_8h.html#a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e">SAFETY</a></div><div class="ttdeci">@ SAFETY</div><div class="ttdoc">Cables used in safety-critical systems.</div><div class="ttdef"><b>Definition</b> Cable.h:43</div></div>
+<div class="ttc" id="a_cable_8h_html_a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08"><div class="ttname"><a href="_cable_8h.html#a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08">CONTROL</a></div><div class="ttdeci">@ CONTROL</div><div class="ttdoc">Cables used in control systems.</div><div class="ttdef"><b>Definition</b> Cable.h:42</div></div>
 <div class="ttc" id="a_cable_8h_html_af7f183521e6232c305ffd7f37dd5a92b"><div class="ttname"><a href="_cable_8h.html#af7f183521e6232c305ffd7f37dd5a92b">CableType</a></div><div class="ttdeci">CableType</div><div class="ttdoc">Enumerates the different types of cables.</div><div class="ttdef"><b>Definition</b> Cable.h:29</div></div>
 <div class="ttc" id="a_cable_8h_html_af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f"><div class="ttname"><a href="_cable_8h.html#af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f">WIRE7</a></div><div class="ttdeci">@ WIRE7</div><div class="ttdoc">A seven-wire cable configuration.</div><div class="ttdef"><b>Definition</b> Cable.h:34</div></div>
 <div class="ttc" id="a_cable_8h_html_af7f183521e6232c305ffd7f37dd5a92ba91467812130663f75214cd6f25b49e77"><div class="ttname"><a href="_cable_8h.html#af7f183521e6232c305ffd7f37dd5a92ba91467812130663f75214cd6f25b49e77">PAIR2</a></div><div class="ttdeci">@ PAIR2</div><div class="ttdoc">A cable with 2 pairs configuration.</div><div class="ttdef"><b>Definition</b> Cable.h:31</div></div>

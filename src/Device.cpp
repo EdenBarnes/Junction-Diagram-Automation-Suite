@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.5.0
+ * @version 1.0.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -98,7 +98,6 @@ int Device::getTerminalFootprint() const {
 }
 
 int Device::footprintFromCells(const std::string& combinedTag, const std::string& instrumentSpec) {
-    // TODO: Add support for triads
     std::string tag = combinedTag.substr(0, combinedTag.find(" "));
 
     if (tag == "LSLL" || tag == "LSHH" || tag == "LS") {
@@ -111,6 +110,10 @@ int Device::footprintFromCells(const std::string& combinedTag, const std::string
         if (instrumentSpec == "ULTRASONIC FLOW" || instrumentSpec == "CORIOLIS FLOW") {
             return 6;
         }
+    }
+
+    if (tag == "TT" && instrumentSpec == "RTD") {
+        return 4;
     }
 
     return 3;

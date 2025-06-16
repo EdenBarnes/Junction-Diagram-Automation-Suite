@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.5.0
+ * @version 1.0.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -184,62 +184,12 @@ Device Cable::operator[](int index) const{
 }
 
 // For sorting
-bool Cable::operator<(const Cable& rhs) const{
+bool Cable::operator<(const Cable& rhs) const {
     if (_sysType != rhs._sysType)
-        return _sysType == SystemType::CONTROL; // CONTROL before SAFETY
+        return _sysType < rhs._sysType; // assuming CONTROL < SAFETY
 
     if (_ioType != rhs._ioType)
-        return _ioType == IOType::ANALOG; // ANALOG before DIGITAL
+        return _ioType < rhs._ioType; // assuming ANALOG < DIGITAL
 
-    return _devices.at(0) < rhs._devices.at(0); // fallback: sort by first device
-}
-
-// TODO: REMOVE
-std::string Cable::textDesc() const{
-    std::string desc = "";
-
-    switch (_cableType)
-    {
-    case CableType::PAIR1 :
-        desc += "1 PAIR";
-        break;
-    case CableType::PAIR2 :
-        desc += "2 PAIR";
-        break;
-    case CableType::PAIR4 :
-        desc += "4 PAIR";
-        break;
-    case CableType::TRIAD1 :
-        desc += "1 TRIAD";
-        break;
-    case CableType::WIRE7 :
-        desc += "7 WIRE";
-        break;
-    }
-
-    desc += ", ";
-
-    switch (_sysType)
-    {
-    case SystemType::SAFETY :
-        desc += "Safety";
-        break;
-    case SystemType::CONTROL :
-        desc += "Control";
-        break;
-    }
-
-    desc += ", ";
-
-    switch (_ioType)
-    {
-    case IOType::DIGITAL :
-        desc += "Digital";
-        break;
-    case IOType::ANALOG :
-        desc += "Analog";
-        break;
-    }
-
-    return desc;
+    return _devices.at(0) < rhs._devices.at(0); // compare device tags alphabetically
 }

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS OFF)
 
-project(JunctionBuilder VERSION 0.5.0 LANGUAGES CXX)
+project(JunctionBuilder VERSION 1.0.0 LANGUAGES CXX)
 
 # Automatic project versioning
 set(PROJECT_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})

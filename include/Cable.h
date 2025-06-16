@@ -39,8 +39,8 @@ enum CableType {
  * @brief Enumerates the types of systems that can use cables.
  */
 enum SystemType {
-    SAFETY, ///< Cables used in safety-critical systems.
-    CONTROL ///< Cables used in control systems.
+    CONTROL,///< Cables used in control systems.
+    SAFETY  ///< Cables used in safety-critical systems.
 };
 
 /**
@@ -48,8 +48,8 @@ enum SystemType {
  * @brief Enumerates the input/output types supported by cables.
  */
 enum IOType {
-    DIGITAL, ///< Digital signals (e.g., on/off).
-    ANALOG   ///< Analog signals (e.g., varying voltage).
+    ANALOG, ///< Analog signals (e.g., varying voltage).
+    DIGITAL ///< Digital signals (e.g., on/off).
 };
 
 /**
@@ -186,9 +186,6 @@ public:
      * @return True if this cable is considered less than rhs, otherwise false.
      */
     bool operator<(const Cable& rhs) const;
-    
-    // TODO: REMOVE
-    std::string textDesc() const;
 };
 
 

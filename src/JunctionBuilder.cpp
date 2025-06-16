@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.5.0
+ * @version 1.0.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -192,14 +192,65 @@ void buildJunctionBox() {
 
     std::wstring junctionTag(result.selectedTag.begin(), result.selectedTag.end());
 
-    // AcGePoint3d origin(19.3750, 12.4977, 0.0);
+    AcGePoint3d origin(0.0, 0.0, 0.0);
 
-    AcGePoint3d origin(50.0, 0.0, 0.0);
+    switch (result.selectedSize)
+    {
+    case BoxSize::LARGE :
+        origin.set(11.1875, 18.3250, 0.0);
+        break;
+
+    case BoxSize::MEDIUM :
+        origin.set(19.3750, 14.7500, 0.0);
+        break;
+
+    case BoxSize::SMALL :
+        origin.set(19.3750, 12.4977, 0.0);
+        break;
+    
+    default:
+        break;
+    }
+
     int terminal = 1;
+    int table = 1;
+    bool flip = false;
     for (int i = 0; i < cables.size(); i++) {
         Cable cable = cables[i];
 
-        cable.draw(origin, terminal, true, junctionTag.c_str(), 1);
+        std::string tag = cable[0].getCombinedTag();
+        std::wstring tag_W(tag.begin(), tag.end());
+
+        // Move over to the other side if possible (Only affects large boxes)
+        if (result.selectedSize == BoxSize::LARGE) {
+            // If the rest of the cables take more space than in table 2, dont split
+            int sizeOfRest = 0;
+            for (int j = i ; j < cables.size(); j++) {
+                sizeOfRest += cables[j].getTerminalFootprint();
+            }
+
+            if (sizeOfRest <= 72 && i != 0 && !flip) {
+
+                // If the current cable is a safety cable, but the last cable is control, split
+                if (cable.getSystemType() == SystemType::SAFETY && cables[i - 1].getSystemType() == SystemType::CONTROL) {
+                    origin.set(21.8125, 18.3250, 0.0);
+                    terminal = 1;
+                    table = 2;
+                    flip = true;
+                }
+
+                // If we've reached the end of the table, split
+                if (terminal + cable.getTerminalFootprint() - 1 > 72) {
+                    origin.set(21.8125, 18.3250, 0.0);
+                    terminal = 1;
+                    table = 2;
+                    flip = true;
+                }
+                
+            }
+        }
+
+        cable.draw(origin, terminal, flip, junctionTag.c_str(), table);
 
         int terminalFootprint = cable.getTerminalFootprint();
 
