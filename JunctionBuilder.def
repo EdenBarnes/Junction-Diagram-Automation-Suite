@@ -1,0 +1,4 @@
+LIBRARY "JunctionBuilder.arx"
+EXPORTS
+    acrxEntryPoint
+    acrxGetApiVersion

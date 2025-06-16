@@ -1,0 +1,45 @@
+# Ignore Visual Studio Code configuration
+.vscode/
+
+# Build directories and generated files
+build/
+cmake/
+
+# External libraries (if they contain compiled or temporary files)
+external/*
+
+# Ignore build artifacts from CMake
+CMakeFiles/
+*.dir/
+
+# Ignore specific build tools' cache directories
+*.tlog/
+tmp/
+
+# Ignore release and debug binaries
+Release/
+Debug/
+x64/
+
+# Exclude any .user files, which can contain local settings
+*.*.sw[op]
+
+# Ignore OS-specific temporary files
+.DS_Store  # macOS
+Thumbs.db   # Windows
+
+# Ignore all compiled object files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+
+# Compiled dynamic libraries and static libraries
+*.lib
+*.la
+
+# Executables from build processes
+*.out
