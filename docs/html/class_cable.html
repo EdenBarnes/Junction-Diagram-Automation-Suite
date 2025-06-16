@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.3.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.4.0</span>
    </div>
    <div id="projectbrief">An AutoCAD-integrated tool that automates the generation of cable junction diagrams from structured configuration data.</div>
   </td>
@@ -102,8 +102,8 @@ $(function(){initNavTree('class_cable.html','','class_cable-members'); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a83fbd4930297376e2f3d02f54e5a2941" id="r_a83fbd4930297376e2f3d02f54e5a2941"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83fbd4930297376e2f3d02f54e5a2941">Cable</a> (<a class="el" href="_cable_8h.html#af7f183521e6232c305ffd7f37dd5a92b">CableType</a> cableType, <a class="el" href="_cable_8h.html#a922f019f64e4183a18638787f6ba539b">SystemType</a> sysType, <a class="el" href="_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507">IOType</a> ioType)</td></tr>
 <tr class="memdesc:a83fbd4930297376e2f3d02f54e5a2941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a> object with specified types.  <br /></td></tr>
-<tr class="memitem:a9448137d1a7ef8f3d11db6c0c6dff757" id="r_a9448137d1a7ef8f3d11db6c0c6dff757"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9448137d1a7ef8f3d11db6c0c6dff757">draw</a> (AcGePoint3d origin) const</td></tr>
-<tr class="memdesc:a9448137d1a7ef8f3d11db6c0c6dff757"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the cable starting from a given origin.  <br /></td></tr>
+<tr class="memitem:a5fb4e11d4b1f9145f81ddc4a3caed5d0" id="r_a5fb4e11d4b1f9145f81ddc4a3caed5d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fb4e11d4b1f9145f81ddc4a3caed5d0">draw</a> (AcGePoint3d origin, int terminalNumber, bool flip, const wchar_t *junctionTag, int tableNumber) const</td></tr>
+<tr class="memdesc:a5fb4e11d4b1f9145f81ddc4a3caed5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the cable starting from a given origin.  <br /></td></tr>
 <tr class="memitem:acf691698d71cb5e2e9784cde9f34cdfd" id="r_acf691698d71cb5e2e9784cde9f34cdfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf691698d71cb5e2e9784cde9f34cdfd">addDevice</a> (<a class="el" href="class_device.html">Device</a> device)</td></tr>
 <tr class="memdesc:acf691698d71cb5e2e9784cde9f34cdfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a device to the cable's list of connected devices.  <br /></td></tr>
 <tr class="memitem:aee35fac251317365d466708446dfb4c3" id="r_aee35fac251317365d466708446dfb4c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_cable_8h.html#af7f183521e6232c305ffd7f37dd5a92b">CableType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee35fac251317365d466708446dfb4c3">getCableType</a> () const</td></tr>
@@ -198,8 +198,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9448137d1a7ef8f3d11db6c0c6dff757" name="a9448137d1a7ef8f3d11db6c0c6dff757"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9448137d1a7ef8f3d11db6c0c6dff757">&#9670;&#160;</a></span>draw()</h2>
+<a id="a5fb4e11d4b1f9145f81ddc4a3caed5d0" name="a5fb4e11d4b1f9145f81ddc4a3caed5d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb4e11d4b1f9145f81ddc4a3caed5d0">&#9670;&#160;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,8 +207,27 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Cable::draw </td>
           <td>(</td>
-          <td class="paramtype">AcGePoint3d</td>          <td class="paramname"><span class="paramname"><em>origin</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">AcGePoint3d</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>terminalNumber</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>flip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const wchar_t *</td>          <td class="paramname"><span class="paramname"><em>junctionTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>tableNumber</em></span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -217,6 +236,10 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">origin</td><td>The starting point for drawing. </td></tr>
+    <tr><td class="paramname">terminalNumber</td><td>The number of the first terminal the cable connects to (from top to bottom). </td></tr>
+    <tr><td class="paramname">flip</td><td>Direction of the cable. true if the cable should be drawn from to the right instead of to the left, false otherwise. </td></tr>
+    <tr><td class="paramname">junctionTag</td><td>Tag of the junction box this cable is attached to. Used for creating field tags. </td></tr>
+    <tr><td class="paramname">tableNumber</td><td>Number indicating which table this cable is attached to (e.g., 1 for TB1). </td></tr>
   </table>
   </dd>
 </dl>

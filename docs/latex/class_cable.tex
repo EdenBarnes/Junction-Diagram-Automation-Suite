@@ -14,7 +14,7 @@ Represents a cable with specific attributes and devices connected to it.
 \item 
 \mbox{\hyperlink{class_cable_a83fbd4930297376e2f3d02f54e5a2941}{Cable}} (\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} cable\+Type, \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} sys\+Type, \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} io\+Type)
 \begin{DoxyCompactList}\small\item\em Construct a \doxylink{class_cable}{Cable} object with specified types. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757}{draw}} (Ac\+Ge\+Point3d origin) const
+void \mbox{\hyperlink{class_cable_a5fb4e11d4b1f9145f81ddc4a3caed5d0}{draw}} (Ac\+Ge\+Point3d origin, int terminal\+Number, bool flip, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}junction\+Tag, int table\+Number) const
 \begin{DoxyCompactList}\small\item\em Draw the cable starting from a given origin. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_cable_acf691698d71cb5e2e9784cde9f34cdfd}{add\+Device}} (\mbox{\hyperlink{class_device}{Device}} device)
 \begin{DoxyCompactList}\small\item\em Add a device to the cable\textquotesingle{}s list of connected devices. \end{DoxyCompactList}\item 
@@ -93,11 +93,11 @@ Add a device to the cable\textquotesingle{}s list of connected devices.
 {\em device} & \doxylink{class_device}{Device} object to be added. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757}\index{Cable@{Cable}!draw@{draw}}
+\Hypertarget{class_cable_a5fb4e11d4b1f9145f81ddc4a3caed5d0}\index{Cable@{Cable}!draw@{draw}}
 \index{draw@{draw}!Cable@{Cable}}
 \doxysubsubsection{\texorpdfstring{draw()}{draw()}}
-{\footnotesize\ttfamily \label{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757} 
-void Cable\+::draw (\begin{DoxyParamCaption}\item[{Ac\+Ge\+Point3d}]{origin}{}\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{class_cable_a5fb4e11d4b1f9145f81ddc4a3caed5d0} 
+void Cable\+::draw (\begin{DoxyParamCaption}\item[{Ac\+Ge\+Point3d}]{origin}{, }\item[{int}]{terminal\+Number}{, }\item[{bool}]{flip}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{junction\+Tag}{, }\item[{int}]{table\+Number}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -106,6 +106,14 @@ Draw the cable starting from a given origin.
 
 \begin{DoxyParams}{Parameters}
 {\em origin} & The starting point for drawing. \\
+\hline
+{\em terminal\+Number} & The number of the first terminal the cable connects to (from top to bottom). \\
+\hline
+{\em flip} & Direction of the cable. true if the cable should be drawn from to the right instead of to the left, false otherwise. \\
+\hline
+{\em junction\+Tag} & Tag of the junction box this cable is attached to. Used for creating field tags. \\
+\hline
+{\em table\+Number} & Number indicating which table this cable is attached to (e.\+g., 1 for TB1). \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_cable_aee35fac251317365d466708446dfb4c3}\index{Cable@{Cable}!getCableType@{getCableType}}
