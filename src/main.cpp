@@ -6,7 +6,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.4.0
+ * @version 0.5.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC

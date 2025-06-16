@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.4.0
+ * @version 0.5.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -15,6 +15,10 @@
 #pragma once
 
 #include <string>
+
+#include "actrans.h"
+
+#include "helpers.h"
 
 /**
  * @class Device
@@ -39,6 +43,14 @@ public:
      * @param footprint The footprint value representing the number of terminals.
      */
     Device(std::string combinedTag, int footprint);
+
+    /**
+     * @brief Draw the device starting from a given origin.
+     * 
+     * @param origin The starting point for drawing.
+     * @param flip Direction of the device. true if the cable should be drawn to the right instead of to the left, false otherwise.
+     */
+    void draw(AcGePoint3d origin, bool flip) const;
 
     /* ----- Setters ----- */
 

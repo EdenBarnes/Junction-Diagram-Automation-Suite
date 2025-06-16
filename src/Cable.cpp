@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.4.0
+ * @version 0.5.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -117,6 +117,15 @@ void Cable::draw(AcGePoint3d origin, int terminalNumber, bool flip, const wchar_
 
         acadSetBlockAttribute(junctionTermId, tagName, fldtag);
         acadSetBlockAttribute(fldDevTermId, tagName, fldtag);
+    }
+
+    // Draw every device
+    AcGeVector3d deviceOffset(0.0, -0.25, 0.0);
+    int numTerms = 0;
+    for (Device device : _devices) {
+        device.draw(origin + fldDevOffset + deviceOffset * numTerms, flip);
+
+        numTerms += device.getTerminalFootprint();
     }
 }
 

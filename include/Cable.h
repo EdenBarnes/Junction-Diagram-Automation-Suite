@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.4.0
+ * @version 0.5.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -88,7 +88,7 @@ public:
      * 
      * @param origin The starting point for drawing.
      * @param terminalNumber The number of the first terminal the cable connects to (from top to bottom).
-     * @param flip Direction of the cable. true if the cable should be drawn from to the right instead of to the left, false otherwise.
+     * @param flip Direction of the cable. true if the cable should be drawn to the right instead of to the left, false otherwise.
      * @param junctionTag Tag of the junction box this cable is attached to. Used for creating field tags.
      * @param tableNumber Number indicating which table this cable is attached to (e.g., 1 for TB1).
      */
