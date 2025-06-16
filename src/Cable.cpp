@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.3.0
+ * @version 0.4.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -29,7 +29,7 @@ std::wstring Cable::_getVisState() const{
     switch (_cableType)
     {
     case CableType::WIRE7:
-        if (getTerminalFootprint() <= 6) return L"Show 6";
+        if (getTerminalFootprint() <= 9) return L"Show 6";
         return L"Show All";
     
     case CableType::TRIAD1:
@@ -49,13 +49,75 @@ std::wstring Cable::_getVisState() const{
     return L"1 Pair";
 }
 
-void Cable::draw(AcGePoint3d origin) const{
-    // TODO : If the cable is 7-wire. there are seperate junction termination and field device terminations
+void Cable::draw(AcGePoint3d origin, int terminalNumber, bool flip, const wchar_t *junctionTag, int tableNumber) const{
+    AcGeVector3d fldDevOffset(-9.0, 0.0, 0.0);
+    if (flip) fldDevOffset *= -1;
+    
+    AcDbObjectId junctionTermId;
+    AcDbObjectId fldDevTermId;
 
-    AcDbObjectId junctionTermId = acadInsertBlock(L"Junction Termination", origin);
+    // 7-Wire cables have their own block
+    if (_cableType == CableType::WIRE7) {
+        junctionTermId = acadInsertBlock(L"Junction Termination (7 Wire)", origin);
+        fldDevTermId = acadInsertBlock(L"Field Device Termination (7 Wire)", origin + fldDevOffset);
+    } else {
+        junctionTermId = acadInsertBlock(L"Junction Termination", origin);
+        fldDevTermId = acadInsertBlock(L"Field Device Termination", origin + fldDevOffset);
+    }
+
+    // The blocks must be flipped if the whole cable is flipped
+    acadSetDynBlockProperty(junctionTermId, L"Flip state1", AcDbEvalVariant((short)(flip ? 1 : 0)));
+    acadSetDynBlockProperty(fldDevTermId, L"Flip state1", AcDbEvalVariant((short)(flip ? 1 : 0)));
 
     acadSetDynBlockProperty(junctionTermId, L"Visibility1", AcDbEvalVariant(_getVisState().c_str()));
+    acadSetDynBlockProperty(fldDevTermId, L"Visibility1", AcDbEvalVariant(_getVisState().c_str()));
+
     acadSetObjectProperty(junctionTermId, AcDb::kDxfLayerName, L"SKID WIRE DC");
+    acadSetObjectProperty(fldDevTermId, AcDb::kDxfLayerName, L"SKID WIRE DC");
+
+    acadSetDynBlockProperty(fldDevTermId, L"Distance1", AcDbEvalVariant(3.0));
+
+    // Cable lables
+    std::string firstDevTag = _devices.at(0).getCombinedTag();
+    std::wstring firstDevTag_W(firstDevTag.begin(), firstDevTag.end());
+    firstDevTag_W.replace(firstDevTag_W.find(L' '), 1, L"-");
+
+    wchar_t cabelLabel[32];
+    swprintf(cabelLabel, L"%ls-%ls", (_ioType == IOType::DIGITAL ? L"C" : L"I"), firstDevTag_W.c_str());
+
+    acadSetBlockAttribute(fldDevTermId, L"CL", cabelLabel);
+
+    // Set FLDTAG attributes (different for 7 wire)
+    int numFldTags = 9;
+    if (_cableType == CableType::WIRE7) {
+        numFldTags = 7;
+    }
+
+    for (int i = 1; i <= numFldTags; ++i) {
+        int wireTerminal = terminalNumber + (i - 1);
+
+        // Deal with gaps
+        if (_cableType == CableType::WIRE7) {
+            // There os a gap between tag 2 and 3, 4 and 5, and 6 and 7
+            if (i > 2) wireTerminal++;
+            if (i > 4) wireTerminal++;
+            if (i > 6) wireTerminal++;
+        } else {
+            // There is a gap between tag 5 and 6 as well as 7 and 8 
+            if (i > 5) wireTerminal++;
+            if (i > 7) wireTerminal++;
+        }
+
+
+        wchar_t fldtag[32];
+        swprintf(fldtag, L"%ls-TB%d(%d)", junctionTag, tableNumber, wireTerminal);
+
+        wchar_t tagName[32];
+        swprintf(tagName, L"FLDTAG%d", i);
+
+        acadSetBlockAttribute(junctionTermId, tagName, fldtag);
+        acadSetBlockAttribute(fldDevTermId, tagName, fldtag);
+    }
 }
 
 void Cable::addDevice(Device device) {
@@ -123,6 +185,7 @@ bool Cable::operator<(const Cable& rhs) const{
     return _devices.at(0) < rhs._devices.at(0); // fallback: sort by first device
 }
 
+// TODO: REMOVE
 std::string Cable::textDesc() const{
     std::string desc = "";
 

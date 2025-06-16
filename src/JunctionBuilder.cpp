@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.3.0
+ * @version 0.4.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -153,6 +153,7 @@ void buildJunctionBox() {
             1. The filename and location of the .xlsx file to read from
             2. The size of junction box to be built
     */
+   
     DialogResult result;
 
     HMODULE hModule = nullptr;
@@ -177,6 +178,7 @@ void buildJunctionBox() {
             2. Analog cables before digital cables
             3. Alphabetically by first device tag
     */
+
     std::sort(cables.begin(), cables.end());
 
     /*
@@ -187,11 +189,22 @@ void buildJunctionBox() {
         blocks. If this is not possible, present a warning to the user and place the extra
         cables off to the side
     */
-    AcGePoint3d origin(19.3750, 12.4977, 0.0);
-    for (Cable cable : cables) {
-        cable.draw(origin);
 
-        origin += AcGeVector3d(0.0, -0.25, 0.0) * cable.getTerminalFootprint();
+    std::wstring junctionTag(result.selectedTag.begin(), result.selectedTag.end());
+
+    // AcGePoint3d origin(19.3750, 12.4977, 0.0);
+
+    AcGePoint3d origin(50.0, 0.0, 0.0);
+    int terminal = 1;
+    for (int i = 0; i < cables.size(); i++) {
+        Cable cable = cables[i];
+
+        cable.draw(origin, terminal, true, junctionTag.c_str(), 1);
+
+        int terminalFootprint = cable.getTerminalFootprint();
+
+        terminal += terminalFootprint;
+        origin += AcGeVector3d(0.0, -0.25, 0.0) * terminalFootprint;
     }
 
     /*

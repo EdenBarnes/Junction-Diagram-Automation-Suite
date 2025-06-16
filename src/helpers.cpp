@@ -5,7 +5,7 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 0.3.0
+ * @version 0.4.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
  * @date 2025-06-16
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
@@ -101,12 +101,19 @@ AcDbObjectId acadInsertBlock(const wchar_t* blockName, const AcGePoint3d& origin
             AcGePoint3d worldPos = pBlockRef->blockTransform() * localPos;
             pAtt->setPosition(worldPos);                                    // Set transformed position
 
+            pAtt->setJustification(pAttDef->justification());               // Match justification
+
+            AcGePoint3d localAlign = pAttDef->alignmentPoint();
+            AcGePoint3d worldAlign = pBlockRef->blockTransform() * localAlign;
+            pAtt->setAlignmentPoint(worldAlign);                            // This must happen after justification
+
             pAtt->setHeight(pAttDef->height());                             // Match text height
             pAtt->setRotation(pAttDef->rotation());                         // Match rotation
             pAtt->setTag(pAttDef->tag());                                   // Match tag
             pAtt->setFieldLength(pAttDef->fieldLength());                   // Match field length
             pAtt->setWidthFactor(pAttDef->widthFactor());                   // Match the width factor
             pAtt->setLockPositionInBlock(pAttDef->lockPositionInBlock());   // Match Lock Position
+
             pAtt->setTextString(pAttDef->textString());                     // Use default value
 
             // Append the attribute to the block reference
@@ -127,7 +134,6 @@ AcDbObjectId acadInsertBlock(const wchar_t* blockName, const AcGePoint3d& origin
     return blockRefId;
 }
 
-// Sets a dynamic property on a block reference given its tag (property name) and value
 Acad::ErrorStatus acadSetDynBlockProperty(
     const AcDbObjectId& blockRefId,
     const wchar_t* propName,
@@ -168,7 +174,6 @@ Acad::ErrorStatus acadSetDynBlockProperty(
     return Acad::eKeyNotFound;
 }
 
-// Sets an attribute on a block reference by tag name
 Acad::ErrorStatus acadSetBlockAttribute(
     const AcDbObjectId& blockRefId,
     const wchar_t* tagName,
@@ -198,6 +203,7 @@ Acad::ErrorStatus acadSetBlockAttribute(
         if (acdbOpenObject(pAtt, attId, AcDb::kForWrite) == Acad::eOk && pAtt) {
             if (_wcsicmp(pAtt->tag(), tagName) == 0) {
                 pAtt->setTextString(newValue);
+                pAtt->adjustAlignment();
                 pAtt->close();
                 delete pIter;
                 pBlkRef->close();
@@ -214,8 +220,6 @@ Acad::ErrorStatus acadSetBlockAttribute(
     return Acad::eKeyNotFound;
 }
 
-// Sets a property on any object by DXF group code (e.g., 8 = Layer, 62 = Color)
-// Sets known properties on common entity types (like layer, color, linetype)
 Acad::ErrorStatus acadSetObjectProperty(
     const AcDbObjectId& objId,
     AcDb::DxfCode groupCode,
