@@ -1,0 +1,36 @@
+\doxysection{helpers.\+h}
+\hypertarget{helpers_8h_source}{}\label{helpers_8h_source}\index{include/helpers.h@{include/helpers.h}}
+\mbox{\hyperlink{helpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}dbents.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}dbapserv.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}dbdynblk.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}dbeval.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}acdb.h"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}rxregsvc.h"{}}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00037\ AcDbObjectId\ \mbox{\hyperlink{helpers_8h_ae053a4de4bf3d9931c6bfb8e3aab1b32}{acadInsertBlock}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ blockName,\ \textcolor{keyword}{const}\ AcGePoint3d\&\ origin);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00053\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_a7d6c0df2f87377e54a207d9e925b3726}{acadSetDynBlockProperty}}(}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ blockRefId,}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ propName,}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ AcDbEvalVariant\&\ newValue}
+\DoxyCodeLine{00057\ );}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00072\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_ab7c7fb31b58fd0f92543dac69958cb25}{acadSetBlockAttribute}}(}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ blockRefId,}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ tagName,}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ newValue}
+\DoxyCodeLine{00076\ );}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00091\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_abce2e51eb25963d2e787f9c9b7057d29}{acadSetObjectProperty}}(}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00093\ \ \ \ \ AcDb::DxfCode\ groupCode,}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ value}
+\DoxyCodeLine{00095\ );}
+
+\end{DoxyCode}

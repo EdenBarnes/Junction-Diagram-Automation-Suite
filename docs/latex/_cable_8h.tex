@@ -1,0 +1,133 @@
+\doxysection{include/\+Cable.h File Reference}
+\hypertarget{_cable_8h}{}\label{_cable_8h}\index{include/Cable.h@{include/Cable.h}}
+
+
+Interface for the \doxylink{class_cable}{Cable} class.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}actrans.\+h"{}}\newline
+{\ttfamily \#include "{}Device.\+h"{}}\newline
+{\ttfamily \#include "{}helpers.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_cable}{Cable}}
+\begin{DoxyCompactList}\small\item\em Represents a cable with specific attributes and devices connected to it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} \{ \newline
+\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bac87b9643f8af49a790bc8e4ebfd3111e}{PAIR1}}
+, \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba91467812130663f75214cd6f25b49e77}{PAIR2}}
+, \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bab5e2200e7322612e1ea5aaf021d5a27b}{PAIR4}}
+, \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92baacc88a2fec9a2d65c1191bbb195c9168}{TRIAD1}}
+, \newline
+\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f}{WIRE7}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerates the different types of cables. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} \{ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e}{SAFETY}}
+, \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08}{CONTROL}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerates the types of systems that can use cables. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} \{ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a}{DIGITAL}}
+, \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6}{ANALOG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerates the input/output types supported by cables. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for the \doxylink{class_cable}{Cable} class. 
+
+This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
+
+\begin{DoxyVersion}{Version}
+0.\+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/06-\/16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
+\end{DoxyCopyright}
+
+
+\label{doc-enum-members}
+\Hypertarget{_cable_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}\index{Cable.h@{Cable.h}!CableType@{CableType}}
+\index{CableType@{CableType}!Cable.h@{Cable.h}}
+\doxysubsubsection{\texorpdfstring{CableType}{CableType}}
+{\footnotesize\ttfamily \label{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b} 
+enum \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}}}
+
+
+
+Enumerates the different types of cables. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAIR1@{PAIR1}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!PAIR1@{PAIR1}}}\Hypertarget{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bac87b9643f8af49a790bc8e4ebfd3111e}\label{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bac87b9643f8af49a790bc8e4ebfd3111e} 
+PAIR1&A cable with 1 pair configuration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAIR2@{PAIR2}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!PAIR2@{PAIR2}}}\Hypertarget{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba91467812130663f75214cd6f25b49e77}\label{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba91467812130663f75214cd6f25b49e77} 
+PAIR2&A cable with 2 pairs configuration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAIR4@{PAIR4}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!PAIR4@{PAIR4}}}\Hypertarget{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bab5e2200e7322612e1ea5aaf021d5a27b}\label{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bab5e2200e7322612e1ea5aaf021d5a27b} 
+PAIR4&A cable with 4 pairs configuration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRIAD1@{TRIAD1}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!TRIAD1@{TRIAD1}}}\Hypertarget{_cable_8h_af7f183521e6232c305ffd7f37dd5a92baacc88a2fec9a2d65c1191bbb195c9168}\label{_cable_8h_af7f183521e6232c305ffd7f37dd5a92baacc88a2fec9a2d65c1191bbb195c9168} 
+TRIAD1&A cable with a triad configuration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WIRE7@{WIRE7}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!WIRE7@{WIRE7}}}\Hypertarget{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f}\label{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f} 
+WIRE7&A seven-\/wire cable configuration. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}\index{Cable.h@{Cable.h}!IOType@{IOType}}
+\index{IOType@{IOType}!Cable.h@{Cable.h}}
+\doxysubsubsection{\texorpdfstring{IOType}{IOType}}
+{\footnotesize\ttfamily \label{_cable_8h_a2634dc8f796d724e921dc6a0edb43507} 
+enum \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}
+
+
+
+Enumerates the input/output types supported by cables. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DIGITAL@{DIGITAL}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!DIGITAL@{DIGITAL}}}\Hypertarget{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a}\label{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a} 
+DIGITAL&Digital signals (e.\+g., on/off). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ANALOG@{ANALOG}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!ANALOG@{ANALOG}}}\Hypertarget{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6}\label{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6} 
+ANALOG&Analog signals (e.\+g., varying voltage). \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_cable_8h_a922f019f64e4183a18638787f6ba539b}\index{Cable.h@{Cable.h}!SystemType@{SystemType}}
+\index{SystemType@{SystemType}!Cable.h@{Cable.h}}
+\doxysubsubsection{\texorpdfstring{SystemType}{SystemType}}
+{\footnotesize\ttfamily \label{_cable_8h_a922f019f64e4183a18638787f6ba539b} 
+enum \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}}}
+
+
+
+Enumerates the types of systems that can use cables. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SAFETY@{SAFETY}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!SAFETY@{SAFETY}}}\Hypertarget{_cable_8h_a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e}\label{_cable_8h_a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e} 
+SAFETY&Cables used in safety-\/critical systems. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONTROL@{CONTROL}!Cable.h@{Cable.h}}\index{Cable.h@{Cable.h}!CONTROL@{CONTROL}}}\Hypertarget{_cable_8h_a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08}\label{_cable_8h_a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08} 
+CONTROL&Cables used in control systems. \\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,16 +1,16 @@
-/******************************************************************************
- * \file JunctionBuilder.h
- * \brief Interface for building junction boxes.
+/**
+ * @file JunctionBuilder.h
+ * @brief Interface for building junction boxes.
  *
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * \version 0.3.0
- * \author Ethan Barnes <ebarnes@gastecheng.com>
- * \date 2025-06-16
- * \copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
+ * @version 0.3.0
+ * @author Ethan Barnes <ebarnes@gastecheng.com>
+ * @date 2025-06-16
+ * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
- ******************************************************************************/
+ */
 
 #pragma once
 
@@ -29,7 +29,7 @@
 #include "resource.h"
 
 /**
- * \brief Build a junction box based on the provided specifications.
+ * @brief Build a junction box based on the provided specifications.
  *
  * This function is responsible for constructing a junction box by utilizing 
  * available data such as device and cable information. It involves generating

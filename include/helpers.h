@@ -1,16 +1,16 @@
-/******************************************************************************
- * \file helpers.h
- * \brief Interface for helper functions related to database operations.
+/**
+ * @file helpers.h
+ * @brief Interface for helper functions related to database operations.
  *
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * \version 0.3.0
- * \author Ethan Barnes <ebarnes@gastecheng.com>
- * \date 2025-06-16
- * \copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
+ * @version 0.3.0
+ * @author Ethan Barnes <ebarnes@gastecheng.com>
+ * @date 2025-06-16
+ * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
- ******************************************************************************/
+ */
 
 #pragma once
 
@@ -22,33 +22,33 @@
 #include "rxregsvc.h"
 
 /**
- * \brief Insert a block into the database at a specified origin point.
+ * @brief Insert a block into the database at a specified origin point.
  *
  * This function inserts a block with the given name into the database at the
  * provided origin point and returns the object ID of the inserted block.
  *
- * \param blockName The name of the block to be inserted. Must be a valid 
+ * @param blockName The name of the block to be inserted. Must be a valid 
  *                  string representing an existing block definition.
- * \param origin    The 3D point where the block should be placed in the database.
+ * @param origin    The 3D point where the block should be placed in the database.
  *
- * \return The AcDbObjectId of the newly inserted block, or an invalid ID if
+ * @return The AcDbObjectId of the newly inserted block, or an invalid ID if
  *         insertion fails.
  */
 AcDbObjectId acadInsertBlock(const wchar_t* blockName, const AcGePoint3d& origin);
 
 /**
- * \brief Set a dynamic block property to a new value.
+ * @brief Set a dynamic block property to a new value.
  *
  * This function updates the specified property of a dynamic block reference 
  * with a new value.
  *
- * \param blockRefId The object ID of the block reference whose property is being set.
- * \param propName   The name of the property to be updated. Must exist in the
+ * @param blockRefId The object ID of the block reference whose property is being set.
+ * @param propName   The name of the property to be updated. Must exist in the
  *                   dynamic block definition.
- * \param newValue   The new value for the specified property, encapsulated as an 
+ * @param newValue   The new value for the specified property, encapsulated as an 
  *                   AcDbEvalVariant.
  *
- * \return Acad::ErrorStatus indicating success or failure of the operation.
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
  */
 Acad::ErrorStatus acadSetDynBlockProperty(
     const AcDbObjectId& blockRefId,
@@ -57,17 +57,17 @@ Acad::ErrorStatus acadSetDynBlockProperty(
 );
 
 /**
- * \brief Set a block attribute to a new value.
+ * @brief Set a block attribute to a new value.
  *
  * This function updates the specified attribute of a block reference with a 
  * new value.
  *
- * \param blockRefId The object ID of the block reference whose attribute is being set.
- * \param tagName    The name of the tag associated with the attribute. Must exist in
+ * @param blockRefId The object ID of the block reference whose attribute is being set.
+ * @param tagName    The name of the tag associated with the attribute. Must exist in
  *                   the block definition.
- * \param newValue   A wide string pointer to the new value for the specified attribute.
+ * @param newValue   A wide string pointer to the new value for the specified attribute.
  *
- * \return Acad::ErrorStatus indicating success or failure of the operation.
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
  */
 Acad::ErrorStatus acadSetBlockAttribute(
     const AcDbObjectId& blockRefId,
@@ -76,17 +76,17 @@ Acad::ErrorStatus acadSetBlockAttribute(
 );
 
 /**
- * \brief Set a general object property to a new value.
+ * @brief Set a general object property to a new value.
  *
  * This function updates the specified property of an object with a new value, 
  * identified by a DXF group code.
  *
- * \param objId      The object ID of the entity whose property is being set.
- * \param groupCode  The DXF group code representing the property type to be updated.
+ * @param objId      The object ID of the entity whose property is being set.
+ * @param groupCode  The DXF group code representing the property type to be updated.
  *                   For example, AcDb::kDxfLayerName for the layer name.
- * \param value      A wide string pointer to the new value for the specified property.
+ * @param value      A wide string pointer to the new value for the specified property.
  *
- * \return Acad::ErrorStatus indicating success or failure of the operation.
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
  */
 Acad::ErrorStatus acadSetObjectProperty(
     const AcDbObjectId& objId,

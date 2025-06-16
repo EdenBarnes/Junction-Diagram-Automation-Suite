@@ -1,0 +1,233 @@
+\doxysection{src/\+Junction\+Builder.cpp File Reference}
+\hypertarget{_junction_builder_8cpp}{}\label{_junction_builder_8cpp}\index{src/JunctionBuilder.cpp@{src/JunctionBuilder.cpp}}
+
+
+Definitons for building junction boxes.  
+
+
+{\ttfamily \#include "{}Junction\+Builder.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_dialog_result}{Dialog\+Result}}
+\begin{DoxyCompactList}\small\item\em Aggregates the data collected from the user via the dialog box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}} \{ \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cecaea5e596a553757a677cb4da4c8a1f935}{SMALL}}
+, \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64}{MEDIUM}}
+, \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310}{LARGE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Predefined enclosure footprints supported by the tool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_cable}{Cable}} $>$ \mbox{\hyperlink{_junction_builder_8cpp_a47704ceed78a1325245f454fc42497c6}{\+\_\+xlsx\+Get\+Cables}} (HWND h\+Dlg, const std\+::string \&filename, const std\+::string \&junction\+Tag)
+\begin{DoxyCompactList}\small\item\em Parse the provided \doxylink{class_cable}{Cable} Schedule workbook and create a list of {\ttfamily \doxylink{class_cable}{Cable}} objects for the specified junction tag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8cpp_a2ac539ff9368dd29485de79fe80899af}{\+\_\+xlsx\+Get\+Junction\+Tags}} (HWND h\+Dlg, const std\+::string \&filename, std\+::vector$<$ std\+::string $>$ \&tags)
+\begin{DoxyCompactList}\small\item\em Collect all unique junction tags found in the \doxylink{class_cable}{Cable} Schedule sheet of the workbook. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_junction_builder_8cpp_aa03429b38a4bf326466af2d50410a7d3}{\+\_\+xlsx\+Get\+Junction\+Footprint}} (HWND h\+Dlg, std\+::string filename, std\+::string junction\+Tag)
+\begin{DoxyCompactList}\small\item\em Calculate the total number of terminals required by all cables that terminate in the given junction tag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8cpp_a613989fed4b3260ab88b217a2c94de5d}{\+\_\+update\+Size\+Radio\+Buttons}} (HWND h\+Dlg, const std\+::vector$<$ HWND $>$ \&size\+Buttons, const std\+::vector$<$ int $>$ \&spare\+Counts)
+\item 
+void \mbox{\hyperlink{_junction_builder_8cpp_a75eba94ec93a3b08713a21c8c4661f2f}{\+\_\+rebuild\+Dialog\+Box}} (const std\+::vector$<$ std\+::string $>$ \&junction\+Tags, std\+::vector$<$ HWND $>$ \&tag\+Radio\+Buttons, std\+::vector$<$ HWND $>$ \&size\+Radio\+Buttons, const std\+::vector$<$ int $>$ \&spare\+Counts, HWND h\+Dlg)
+\begin{DoxyCompactList}\small\item\em Rebuild (or build) the dialog‑box controls for junction‑tag and box‑ size selection. \end{DoxyCompactList}\item 
+INT\+\_\+\+PTR CALLBACK \mbox{\hyperlink{_junction_builder_8cpp_a5bd9b4335464b5d5f361b2ad15e2745e}{\+\_\+\+Dialog\+Proc}} (HWND h\+Dlg, UINT message, WPARAM w\+Param, LPARAM l\+Param)
+\begin{DoxyCompactList}\small\item\em Dialog‑box procedure that handles all messages for the Junction Box Builder dialog. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8cpp_a27067b8fdd503477397487d3fed9eb65}{build\+Junction\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Build a junction box based on the provided specifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definitons for building junction boxes. 
+
+This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
+
+\begin{DoxyVersion}{Version}
+0.\+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/06-\/16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
+\end{DoxyCopyright}
+
+
+\label{doc-enum-members}
+\Hypertarget{_junction_builder_8cpp_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!BoxSize@{BoxSize}}
+\index{BoxSize@{BoxSize}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{BoxSize}{BoxSize}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec} 
+enum \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}}}
+
+
+
+Predefined enclosure footprints supported by the tool. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SMALL@{SMALL}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!SMALL@{SMALL}}}\Hypertarget{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cecaea5e596a553757a677cb4da4c8a1f935}\label{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cecaea5e596a553757a677cb4da4c8a1f935} 
+SMALL&12"{} × 12"{} × 6"{} enclosure \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MEDIUM@{MEDIUM}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!MEDIUM@{MEDIUM}}}\Hypertarget{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64}\label{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64} 
+MEDIUM&16"{} × 16"{} × 6"{} enclosure \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LARGE@{LARGE}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!LARGE@{LARGE}}}\Hypertarget{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310}\label{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310} 
+LARGE&24"{} × 24"{} × 8"{} enclosure \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{_junction_builder_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_junction_builder_8cpp_a5bd9b4335464b5d5f361b2ad15e2745e}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_DialogProc@{\_DialogProc}}
+\index{\_DialogProc@{\_DialogProc}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_DialogProc()}{\_DialogProc()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a5bd9b4335464b5d5f361b2ad15e2745e} 
+INT\+\_\+\+PTR CALLBACK \+\_\+\+Dialog\+Proc (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{UINT}]{message}{, }\item[{WPARAM}]{w\+Param}{, }\item[{LPARAM}]{l\+Param}{}\end{DoxyParamCaption})}
+
+
+
+Dialog‑box procedure that handles all messages for the Junction Box Builder dialog. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Dlg} & Dialog window handle. \\
+\hline
+{\em message} & Windows message identifier. \\
+\hline
+{\em w\+Param} & Additional message information. \\
+\hline
+{\em l\+Param} & Additional message information (custom for WM\+\_\+\+INITDIALOG).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE if the message was processed, FALSE otherwise (per Windows API requirements for dialog procedures). 
+\end{DoxyReturn}
+\Hypertarget{_junction_builder_8cpp_a75eba94ec93a3b08713a21c8c4661f2f}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_rebuildDialogBox@{\_rebuildDialogBox}}
+\index{\_rebuildDialogBox@{\_rebuildDialogBox}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_rebuildDialogBox()}{\_rebuildDialogBox()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a75eba94ec93a3b08713a21c8c4661f2f} 
+void \+\_\+rebuild\+Dialog\+Box (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{junction\+Tags}{, }\item[{std\+::vector$<$ HWND $>$ \&}]{tag\+Radio\+Buttons}{, }\item[{std\+::vector$<$ HWND $>$ \&}]{size\+Radio\+Buttons}{, }\item[{const std\+::vector$<$ int $>$ \&}]{spare\+Counts}{, }\item[{HWND}]{h\+Dlg}{}\end{DoxyParamCaption})}
+
+
+
+Rebuild (or build) the dialog‑box controls for junction‑tag and box‑ size selection. 
+
+The function is called after selecting a new XLSX file and whenever the spare‑terminal counts must be refreshed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em junction\+Tags} & List of available junction tags. \\
+\hline
+{\em tag\+Radio\+Buttons} & Vector that will receive handles to dynamically created tag buttons (output). \\
+\hline
+{\em size\+Radio\+Buttons} & Vector that will receive handles to size buttons (output). \\
+\hline
+{\em spare\+Counts} & Spare‑terminal counts for each predefined box size. \\
+\hline
+{\em h\+Dlg} & Dialog window handle. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_junction_builder_8cpp_a613989fed4b3260ab88b217a2c94de5d}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_updateSizeRadioButtons@{\_updateSizeRadioButtons}}
+\index{\_updateSizeRadioButtons@{\_updateSizeRadioButtons}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_updateSizeRadioButtons()}{\_updateSizeRadioButtons()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a613989fed4b3260ab88b217a2c94de5d} 
+void \+\_\+update\+Size\+Radio\+Buttons (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{const std\+::vector$<$ HWND $>$ \&}]{size\+Buttons}{, }\item[{const std\+::vector$<$ int $>$ \&}]{spare\+Counts}{}\end{DoxyParamCaption})}
+
+brief Update the size‑selection radio buttons to show how many spare terminals each box size would have after the current selection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Dlg} & Dialog‑box window handle. \\
+\hline
+{\em size\+Buttons} & Handles of size radio buttons in dialog. \\
+\hline
+{\em spare\+Counts} & Spare‑terminal counts (same order as {\ttfamily size\+Buttons}). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_junction_builder_8cpp_a47704ceed78a1325245f454fc42497c6}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_xlsxGetCables@{\_xlsxGetCables}}
+\index{\_xlsxGetCables@{\_xlsxGetCables}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_xlsxGetCables()}{\_xlsxGetCables()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a47704ceed78a1325245f454fc42497c6} 
+std\+::vector$<$ \mbox{\hyperlink{class_cable}{Cable}} $>$ \+\_\+xlsx\+Get\+Cables (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{const std\+::string \&}]{filename}{, }\item[{const std\+::string \&}]{junction\+Tag}{}\end{DoxyParamCaption})}
+
+
+
+Parse the provided \doxylink{class_cable}{Cable} Schedule workbook and create a list of {\ttfamily \doxylink{class_cable}{Cable}} objects for the specified junction tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Dlg} & Parent‑window handle used for any error message boxes. \\
+\hline
+{\em filename} & Absolute path to the Excel (.xlsx) file. \\
+\hline
+{\em junction\+Tag} & Tag (e.\+g. "{}\+IJB-\/810"{}) identifying the junction whose cables should be extracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of fully‑populated {\ttfamily \doxylink{class_cable}{Cable}} objects. If the file fails to open or is incompatible, an empty vector is returned. 
+\end{DoxyReturn}
+\Hypertarget{_junction_builder_8cpp_aa03429b38a4bf326466af2d50410a7d3}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_xlsxGetJunctionFootprint@{\_xlsxGetJunctionFootprint}}
+\index{\_xlsxGetJunctionFootprint@{\_xlsxGetJunctionFootprint}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_xlsxGetJunctionFootprint()}{\_xlsxGetJunctionFootprint()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_aa03429b38a4bf326466af2d50410a7d3} 
+int \+\_\+xlsx\+Get\+Junction\+Footprint (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{std\+::string}]{filename}{, }\item[{std\+::string}]{junction\+Tag}{}\end{DoxyParamCaption})}
+
+
+
+Calculate the total number of terminals required by all cables that terminate in the given junction tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Dlg} & Parent‑window handle for error dialogs. \\
+\hline
+{\em filename} & Path to the Excel workbook. \\
+\hline
+{\em junction\+Tag} & Junction tag whose footprint is required. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Terminal count ("{}footprint"{}). 
+\end{DoxyReturn}
+\Hypertarget{_junction_builder_8cpp_a2ac539ff9368dd29485de79fe80899af}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_xlsxGetJunctionTags@{\_xlsxGetJunctionTags}}
+\index{\_xlsxGetJunctionTags@{\_xlsxGetJunctionTags}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_xlsxGetJunctionTags()}{\_xlsxGetJunctionTags()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a2ac539ff9368dd29485de79fe80899af} 
+void \+\_\+xlsx\+Get\+Junction\+Tags (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{const std\+::string \&}]{filename}{, }\item[{std\+::vector$<$ std\+::string $>$ \&}]{tags}{}\end{DoxyParamCaption})}
+
+
+
+Collect all unique junction tags found in the \doxylink{class_cable}{Cable} Schedule sheet of the workbook. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Dlg} & Parent‑window handle for error dialogs. \\
+\hline
+{\em filename} & Path to the Excel workbook. \\
+\hline
+{\em tags} & Reference that will be filled with unique tags (output). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_junction_builder_8cpp_a27067b8fdd503477397487d3fed9eb65}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!buildJunctionBox@{buildJunctionBox}}
+\index{buildJunctionBox@{buildJunctionBox}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{buildJunctionBox()}{buildJunctionBox()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a27067b8fdd503477397487d3fed9eb65} 
+void build\+Junction\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Build a junction box based on the provided specifications. 
+
+This function is responsible for constructing a junction box by utilizing available data such as device and cable information. It involves generating the layout, placing components appropriately within the Auto\+CAD environment, and ensuring all connections are accurately represented.
+
+The process may include reading from an Excel file to gather necessary input data, interacting with Auto\+CAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. 

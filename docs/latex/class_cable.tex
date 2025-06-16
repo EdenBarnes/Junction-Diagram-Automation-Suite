@@ -1,0 +1,278 @@
+\doxysection{Cable Class Reference}
+\hypertarget{class_cable}{}\label{class_cable}\index{Cable@{Cable}}
+
+
+Represents a cable with specific attributes and devices connected to it.  
+
+
+
+
+{\ttfamily \#include $<$Cable.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cable_a83fbd4930297376e2f3d02f54e5a2941}{Cable}} (\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} cable\+Type, \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} sys\+Type, \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} io\+Type)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{class_cable}{Cable} object with specified types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757}{draw}} (Ac\+Ge\+Point3d origin) const
+\begin{DoxyCompactList}\small\item\em Draw the cable starting from a given origin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cable_acf691698d71cb5e2e9784cde9f34cdfd}{add\+Device}} (\mbox{\hyperlink{class_device}{Device}} device)
+\begin{DoxyCompactList}\small\item\em Add a device to the cable\textquotesingle{}s list of connected devices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} \mbox{\hyperlink{class_cable_aee35fac251317365d466708446dfb4c3}{get\+Cable\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get the type of this cable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} \mbox{\hyperlink{class_cable_a4b4720cd8de22185d12f826e96595081}{get\+System\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Get the system type associated with this cable. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} \mbox{\hyperlink{class_cable_a03a0714c1d8d9fb107a17a65da691661}{get\+IOType}} () const
+\begin{DoxyCompactList}\small\item\em Get the input/output type of this cable. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_device}{Device}} $>$ \mbox{\hyperlink{class_cable_a4134cd38e23a776acc876917d48ccdbf}{get\+Devices}} () const
+\begin{DoxyCompactList}\small\item\em Get all devices connected to this cable. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cable_a8b5690fd8fc0c1022927dfef18ae6f67}{get\+Terminal\+Footprint}} () const
+\begin{DoxyCompactList}\small\item\em Calculate and return the terminal footprint count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_device}{Device}} \mbox{\hyperlink{class_cable_a6efb3b4d303e29ec8430cfb0a971f697}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+\begin{DoxyCompactList}\small\item\em Access a device by index from the list of connected devices. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_cable_a35317f53c9c2ac467c6ba92ed05d2a37}{operator$<$}} (const \mbox{\hyperlink{class_cable}{Cable}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare this cable with another based on the following criteria\+: \end{DoxyCompactList}\item 
+\Hypertarget{class_cable_a470fdcb3e4677a5a9ddc238a0dea84ae}\label{class_cable_a470fdcb3e4677a5a9ddc238a0dea84ae} 
+std\+::string {\bfseries text\+Desc} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} \mbox{\hyperlink{class_cable_a88e221a7fa2f4df9407ba916a288febf}{get\+Wire\+Type\+From\+Cell}} (const std\+::string \&cell)
+\begin{DoxyCompactList}\small\item\em Determine the \doxylink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type} from a given cell string identifier. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} \mbox{\hyperlink{class_cable_af63a2f38dd4078b5b3a1962fab339866}{get\+System\+Type\+From\+Cell}} (const std\+::string \&cell)
+\begin{DoxyCompactList}\small\item\em Determine the \doxylink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type} from a given cell string identifier. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} \mbox{\hyperlink{class_cable_a63d81d7603df8d1a7cbb0ff94e88268d}{get\+IOType\+From\+Cell}} (const std\+::string \&cell)
+\begin{DoxyCompactList}\small\item\em Determine the \doxylink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType} from a given cell string identifier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a cable with specific attributes and devices connected to it. 
+
+The {\ttfamily \doxylink{class_cable}{Cable}} class encapsulates information about a cable including its type, system usage, input/output characteristics, and the devices it connects to. 
+
+\label{doc-constructors}
+\Hypertarget{class_cable_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cable_a83fbd4930297376e2f3d02f54e5a2941}\index{Cable@{Cable}!Cable@{Cable}}
+\index{Cable@{Cable}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{Cable()}{Cable()}}
+{\footnotesize\ttfamily \label{class_cable_a83fbd4930297376e2f3d02f54e5a2941} 
+Cable\+::\+Cable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}}}]{cable\+Type}{, }\item[{\mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}}}]{sys\+Type}{, }\item[{\mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}}]{io\+Type}{}\end{DoxyParamCaption})}
+
+
+
+Construct a \doxylink{class_cable}{Cable} object with specified types. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cable\+Type} & Type of the cable. \\
+\hline
+{\em sys\+Type} & System type (e.\+g., SAFETY or CONTROL). \\
+\hline
+{\em io\+Type} & Input/output type (e.\+g., DIGITAL or ANALOG). \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_cable_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cable_acf691698d71cb5e2e9784cde9f34cdfd}\index{Cable@{Cable}!addDevice@{addDevice}}
+\index{addDevice@{addDevice}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{addDevice()}{addDevice()}}
+{\footnotesize\ttfamily \label{class_cable_acf691698d71cb5e2e9784cde9f34cdfd} 
+void Cable\+::add\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Add a device to the cable\textquotesingle{}s list of connected devices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & \doxylink{class_device}{Device} object to be added. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757}\index{Cable@{Cable}!draw@{draw}}
+\index{draw@{draw}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757} 
+void Cable\+::draw (\begin{DoxyParamCaption}\item[{Ac\+Ge\+Point3d}]{origin}{}\end{DoxyParamCaption}) const}
+
+
+
+Draw the cable starting from a given origin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & The starting point for drawing. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cable_aee35fac251317365d466708446dfb4c3}\index{Cable@{Cable}!getCableType@{getCableType}}
+\index{getCableType@{getCableType}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getCableType()}{getCableType()}}
+{\footnotesize\ttfamily \label{class_cable_aee35fac251317365d466708446dfb4c3} 
+\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} Cable\+::get\+Cable\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the type of this cable. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type} representing the type of this cable. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a4134cd38e23a776acc876917d48ccdbf}\index{Cable@{Cable}!getDevices@{getDevices}}
+\index{getDevices@{getDevices}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getDevices()}{getDevices()}}
+{\footnotesize\ttfamily \label{class_cable_a4134cd38e23a776acc876917d48ccdbf} 
+std\+::vector$<$ \mbox{\hyperlink{class_device}{Device}} $>$ Cable\+::get\+Devices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get all devices connected to this cable. 
+
+\begin{DoxyReturn}{Returns}
+A vector containing all \doxylink{class_device}{Device} objects connected to this cable. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a03a0714c1d8d9fb107a17a65da691661}\index{Cable@{Cable}!getIOType@{getIOType}}
+\index{getIOType@{getIOType}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getIOType()}{getIOType()}}
+{\footnotesize\ttfamily \label{class_cable_a03a0714c1d8d9fb107a17a65da691661} 
+\mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} Cable\+::get\+IOType (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the input/output type of this cable. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType} representing either DIGITAL or ANALOG. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a63d81d7603df8d1a7cbb0ff94e88268d}\index{Cable@{Cable}!getIOTypeFromCell@{getIOTypeFromCell}}
+\index{getIOTypeFromCell@{getIOTypeFromCell}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getIOTypeFromCell()}{getIOTypeFromCell()}}
+{\footnotesize\ttfamily \label{class_cable_a63d81d7603df8d1a7cbb0ff94e88268d} 
+\mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}} Cable\+::get\+IOType\+From\+Cell (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Determine the \doxylink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType} from a given cell string identifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & A string representing the cell information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding \doxylink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a4b4720cd8de22185d12f826e96595081}\index{Cable@{Cable}!getSystemType@{getSystemType}}
+\index{getSystemType@{getSystemType}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getSystemType()}{getSystemType()}}
+{\footnotesize\ttfamily \label{class_cable_a4b4720cd8de22185d12f826e96595081} 
+\mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} Cable\+::get\+System\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the system type associated with this cable. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type} indicating whether it\textquotesingle{}s a SAFETY or CONTROL system. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_af63a2f38dd4078b5b3a1962fab339866}\index{Cable@{Cable}!getSystemTypeFromCell@{getSystemTypeFromCell}}
+\index{getSystemTypeFromCell@{getSystemTypeFromCell}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getSystemTypeFromCell()}{getSystemTypeFromCell()}}
+{\footnotesize\ttfamily \label{class_cable_af63a2f38dd4078b5b3a1962fab339866} 
+\mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}} Cable\+::get\+System\+Type\+From\+Cell (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Determine the \doxylink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type} from a given cell string identifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & A string representing the cell information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding \doxylink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{System\+Type}. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a8b5690fd8fc0c1022927dfef18ae6f67}\index{Cable@{Cable}!getTerminalFootprint@{getTerminalFootprint}}
+\index{getTerminalFootprint@{getTerminalFootprint}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getTerminalFootprint()}{getTerminalFootprint()}}
+{\footnotesize\ttfamily \label{class_cable_a8b5690fd8fc0c1022927dfef18ae6f67} 
+int Cable\+::get\+Terminal\+Footprint (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Calculate and return the terminal footprint count. 
+
+\begin{DoxyReturn}{Returns}
+The number of terminals on the cable must connect to. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a88e221a7fa2f4df9407ba916a288febf}\index{Cable@{Cable}!getWireTypeFromCell@{getWireTypeFromCell}}
+\index{getWireTypeFromCell@{getWireTypeFromCell}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{getWireTypeFromCell()}{getWireTypeFromCell()}}
+{\footnotesize\ttfamily \label{class_cable_a88e221a7fa2f4df9407ba916a288febf} 
+\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}} Cable\+::get\+Wire\+Type\+From\+Cell (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cell}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Determine the \doxylink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type} from a given cell string identifier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & A string representing the cell information. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding \doxylink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{Cable\+Type}. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a35317f53c9c2ac467c6ba92ed05d2a37}\index{Cable@{Cable}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{class_cable_a35317f53c9c2ac467c6ba92ed05d2a37} 
+bool Cable\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cable}{Cable}} \&}]{rhs}{}\end{DoxyParamCaption}) const}
+
+
+
+Compare this cable with another based on the following criteria\+: 
+
+
+\begin{DoxyEnumerate}
+\item All CONTROL cables are less than all SAFETY cables.
+\item All ANALOG cables are less than all DIGITAL cables.
+\item Cables with lesser devices are lesser cables.
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & Right-\/hand side \doxylink{class_cable}{Cable} object for comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this cable is considered less than rhs, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{class_cable_a6efb3b4d303e29ec8430cfb0a971f697}\index{Cable@{Cable}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Cable@{Cable}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{class_cable_a6efb3b4d303e29ec8430cfb0a971f697} 
+\mbox{\hyperlink{class_device}{Device}} Cable\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+Access a device by index from the list of connected devices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the device to access. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{class_device}{Device} object at the specified index. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_cable_8h}{Cable.\+h}}\item 
+src/\mbox{\hyperlink{_cable_8cpp}{Cable.\+cpp}}\end{DoxyCompactItemize}

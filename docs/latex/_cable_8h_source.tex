@@ -1,0 +1,87 @@
+\doxysection{Cable.\+h}
+\hypertarget{_cable_8h_source}{}\label{_cable_8h_source}\index{include/Cable.h@{include/Cable.h}}
+\mbox{\hyperlink{_cable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}actrans.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_device_8h}{Device.h}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{helpers_8h}{helpers.h}}"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{CableType}}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bac87b9643f8af49a790bc8e4ebfd3111e}{PAIR1}},\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba91467812130663f75214cd6f25b49e77}{PAIR2}},\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92bab5e2200e7322612e1ea5aaf021d5a27b}{PAIR4}},\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92baacc88a2fec9a2d65c1191bbb195c9168}{TRIAD1}},}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92ba80abc4d4c82c3002b4b5d671cd07308f}{WIRE7}}\ \ }
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{SystemType}}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539ba9a3d61fa63d68a1c52b97789ba764b8e}{SAFETY}},\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539baf722a5faa36087c914da53ebe4711f08}{CONTROL}}\ }
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a0da6c680b2b129d86740b118d1f8307a}{DIGITAL}},\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6}{ANALOG}}\ \ \ }
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cable_a83fbd4930297376e2f3d02f54e5a2941}{Cable}}}
+\DoxyCodeLine{00063\ \{}
+\DoxyCodeLine{00064\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{CableType}}\ \_cableType;\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{SystemType}}\ \_sysType;\ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ \_ioType;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ std::vector<Device>\ \_devices;\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::wstring\ \_getVisState()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_cable_a83fbd4930297376e2f3d02f54e5a2941}{Cable}}(\mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{CableType}}\ cableType,\ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{SystemType}}\ sysType,\ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ ioType);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cable_a9448137d1a7ef8f3d11db6c0c6dff757}{draw}}(AcGePoint3d\ origin)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/\ Setters\ -\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cable_acf691698d71cb5e2e9784cde9f34cdfd}{addDevice}}(\mbox{\hyperlink{class_device}{Device}}\ device);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/\ Getters\ -\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{CableType}}\ \mbox{\hyperlink{class_cable_aee35fac251317365d466708446dfb4c3}{getCableType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{SystemType}}\ \mbox{\hyperlink{class_cable_a4b4720cd8de22185d12f826e96595081}{getSystemType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ \mbox{\hyperlink{class_cable_a03a0714c1d8d9fb107a17a65da691661}{getIOType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \ \ \ \ std::vector<Device>\ \mbox{\hyperlink{class_cable_a4134cd38e23a776acc876917d48ccdbf}{getDevices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cable_a8b5690fd8fc0c1022927dfef18ae6f67}{getTerminalFootprint}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/\ Helpers\ -\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_cable_8h_af7f183521e6232c305ffd7f37dd5a92b}{CableType}}\ \mbox{\hyperlink{class_cable_a88e221a7fa2f4df9407ba916a288febf}{getWireTypeFromCell}}(\textcolor{keyword}{const}\ std::string\&\ cell);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_cable_8h_a922f019f64e4183a18638787f6ba539b}{SystemType}}\ \mbox{\hyperlink{class_cable_af63a2f38dd4078b5b3a1962fab339866}{getSystemTypeFromCell}}(\textcolor{keyword}{const}\ std::string\&\ cell);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{_cable_8h_a2634dc8f796d724e921dc6a0edb43507}{IOType}}\ \mbox{\hyperlink{class_cable_a63d81d7603df8d1a7cbb0ff94e88268d}{getIOTypeFromCell}}(\textcolor{keyword}{const}\ std::string\&\ cell);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/\ Operators\ -\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00173\ \ \ \ \ \mbox{\hyperlink{class_device}{Device}}\ \mbox{\hyperlink{class_cable_a6efb3b4d303e29ec8430cfb0a971f697}{operator[]}}(\textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cable_a35317f53c9c2ac467c6ba92ed05d2a37}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cable_a83fbd4930297376e2f3d02f54e5a2941}{Cable}}\&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00185\ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{comment}{//\ TODO:\ REMOVE}}
+\DoxyCodeLine{00187\ \ \ \ \ std::string\ textDesc()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00188\ \};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ }
+
+\end{DoxyCode}

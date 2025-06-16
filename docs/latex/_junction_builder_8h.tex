@@ -1,0 +1,58 @@
+\doxysection{include/\+Junction\+Builder.h File Reference}
+\hypertarget{_junction_builder_8h}{}\label{_junction_builder_8h}\index{include/JunctionBuilder.h@{include/JunctionBuilder.h}}
+
+
+Interface for building junction boxes.  
+
+
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$commdlg.\+h$>$}\newline
+{\ttfamily \#include "{}acedads.\+h"{}}\newline
+{\ttfamily \#include "{}Open\+XLSX.\+hpp"{}}\newline
+{\ttfamily \#include "{}Cable.\+h"{}}\newline
+{\ttfamily \#include "{}Device.\+h"{}}\newline
+{\ttfamily \#include "{}resource.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_junction_builder_8h_a27067b8fdd503477397487d3fed9eb65}{build\+Junction\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Build a junction box based on the provided specifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for building junction boxes. 
+
+This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
+
+\begin{DoxyVersion}{Version}
+0.\+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/06-\/16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
+\end{DoxyCopyright}
+
+
+\label{doc-func-members}
+\Hypertarget{_junction_builder_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_junction_builder_8h_a27067b8fdd503477397487d3fed9eb65}\index{JunctionBuilder.h@{JunctionBuilder.h}!buildJunctionBox@{buildJunctionBox}}
+\index{buildJunctionBox@{buildJunctionBox}!JunctionBuilder.h@{JunctionBuilder.h}}
+\doxysubsubsection{\texorpdfstring{buildJunctionBox()}{buildJunctionBox()}}
+{\footnotesize\ttfamily \label{_junction_builder_8h_a27067b8fdd503477397487d3fed9eb65} 
+void build\+Junction\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Build a junction box based on the provided specifications. 
+
+This function is responsible for constructing a junction box by utilizing available data such as device and cable information. It involves generating the layout, placing components appropriately within the Auto\+CAD environment, and ensuring all connections are accurately represented.
+
+The process may include reading from an Excel file to gather necessary input data, interacting with Auto\+CAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. 

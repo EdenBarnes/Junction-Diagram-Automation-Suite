@@ -1,16 +1,16 @@
-/******************************************************************************
- * \file JunctionBuilder.cpp
- * \brief Definitons for building junction boxes.
+/**
+ * @file JunctionBuilder.cpp
+ * @brief Definitons for building junction boxes.
  *
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * \version 0.3.0
- * \author Ethan Barnes <ebarnes\gastecheng.com>
- * \date 2025-06-16
- * \copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
+ * @version 0.3.0
+ * @author Ethan Barnes <ebarnes@gastecheng.com>
+ * @date 2025-06-16
+ * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
- ******************************************************************************/
+ */
 
 #include "JunctionBuilder.h"
 
@@ -19,8 +19,8 @@
 // -----------------------------------------------------------------------------
 
 /**
- * \enum BoxSize
- * \brief Predefined enclosure footprints supported by the tool.
+ * @enum BoxSize
+ * @brief Predefined enclosure footprints supported by the tool.
  */
 enum BoxSize {
     SMALL,  ///< 12" × 12" × 6" enclosure
@@ -29,8 +29,8 @@ enum BoxSize {
 };
 
 /**
- * \struct DialogResult
- * \brief Aggregates the data collected from the user via the dialog box.
+ * @struct DialogResult
+ * @brief Aggregates the data collected from the user via the dialog box.
  */
 struct DialogResult {
     std::string filename;    ///< Absolute path to the workbook selected by the user.
@@ -44,14 +44,14 @@ struct DialogResult {
 // -----------------------------------------------------------------------------
 
 /**
- * \brief Parse the provided Cable Schedule workbook and create a list of
- *        \c Cable objects for the specified junction tag.
+ * @brief Parse the provided Cable Schedule workbook and create a list of
+ *        `Cable` objects for the specified junction tag.
  *
- * \param hDlg        Parent‑window handle used for any error message boxes.
- * \param filename    Absolute path to the Excel (.xlsx) file.
- * \param junctionTag Tag (e.g. "IJB-810") identifying the junction whose
+ * @param hDlg        Parent‑window handle used for any error message boxes.
+ * @param filename    Absolute path to the Excel (.xlsx) file.
+ * @param junctionTag Tag (e.g. "IJB-810") identifying the junction whose
  *                    cables should be extracted.
- * \return            Vector of fully‑populated \c Cable objects. If the file
+ * @return            Vector of fully‑populated `Cable` objects. If the file
  *                    fails to open or is incompatible, an empty vector is
  *                    returned.
  */
@@ -60,25 +60,25 @@ std::vector<Cable> _xlsxGetCables(HWND hDlg,
                                   const std::string& junctionTag);
 
 /**
- * \brief Collect all unique junction tags found in the Cable Schedule sheet of
+ * @brief Collect all unique junction tags found in the Cable Schedule sheet of
  *        the workbook.
  *
- * \param hDlg     Parent‑window handle for error dialogs.
- * \param filename Path to the Excel workbook.
- * \param tags     Reference that will be filled with unique tags (output).
+ * @param hDlg     Parent‑window handle for error dialogs.
+ * @param filename Path to the Excel workbook.
+ * @param tags     Reference that will be filled with unique tags (output).
  */
 void _xlsxGetJunctionTags(HWND hDlg,
                            const std::string& filename,
                            std::vector<std::string>& tags);
 
 /**
- * \brief Calculate the total number of terminals required by all cables that
+ * @brief Calculate the total number of terminals required by all cables that
  *        terminate in the given junction tag.
  *
- * \param hDlg        Parent‑window handle for error dialogs.
- * \param filename    Path to the Excel workbook.
- * \param junctionTag Junction tag whose footprint is required.
- * \return            Terminal count ("footprint").
+ * @param hDlg        Parent‑window handle for error dialogs.
+ * @param filename    Path to the Excel workbook.
+ * @param junctionTag Junction tag whose footprint is required.
+ * @return            Terminal count ("footprint").
  */
 int _xlsxGetJunctionFootprint(HWND hDlg,
                               std::string filename,
@@ -88,28 +88,28 @@ int _xlsxGetJunctionFootprint(HWND hDlg,
  * brief Update the size‑selection radio buttons to show how many spare
  *        terminals each box size would have after the current selection.
  *
- * \param hDlg        Dialog‑box window handle.
- * \param sizeButtons Handles of size radio buttons in dialog.
- * \param spareCounts Spare‑terminal counts (same order as \c sizeButtons).
+ * @param hDlg        Dialog‑box window handle.
+ * @param sizeButtons Handles of size radio buttons in dialog.
+ * @param spareCounts Spare‑terminal counts (same order as `sizeButtons`).
  */
 void _updateSizeRadioButtons(HWND hDlg,
                              const std::vector<HWND>& sizeButtons,
                              const std::vector<int>& spareCounts);
 
 /**
- * \brief Rebuild (or build) the dialog‑box controls for junction‑tag and box‑
+ * @brief Rebuild (or build) the dialog‑box controls for junction‑tag and box‑
  *        size selection.
  *
  * The function is called after selecting a new XLSX file and whenever the
  * spare‑terminal counts must be refreshed.
  *
- * \param junctionTags   List of available junction tags.
- * \param tagRadioButtons Vector that will receive handles to dynamically
+ * @param junctionTags   List of available junction tags.
+ * @param tagRadioButtons Vector that will receive handles to dynamically
  *                        created tag buttons (output).
- * \param sizeRadioButtons Vector that will receive handles to size buttons
+ * @param sizeRadioButtons Vector that will receive handles to size buttons
  *                         (output).
- * \param spareCounts    Spare‑terminal counts for each predefined box size.
- * \param hDlg           Dialog window handle.
+ * @param spareCounts    Spare‑terminal counts for each predefined box size.
+ * @param hDlg           Dialog window handle.
  */
 void _rebuildDialogBox(const std::vector<std::string>& junctionTags,
                        std::vector<HWND>& tagRadioButtons,
@@ -118,15 +118,15 @@ void _rebuildDialogBox(const std::vector<std::string>& junctionTags,
                        HWND hDlg);
 
 /**
- * \brief Dialog‑box procedure that handles all messages for the Junction Box
+ * @brief Dialog‑box procedure that handles all messages for the Junction Box
  *        Builder dialog.
  *
- * \param hDlg    Dialog window handle.
- * \param message Windows message identifier.
- * \param wParam  Additional message information.
- * \param lParam  Additional message information (custom for WM_INITDIALOG).
+ * @param hDlg    Dialog window handle.
+ * @param message Windows message identifier.
+ * @param wParam  Additional message information.
+ * @param lParam  Additional message information (custom for WM_INITDIALOG).
  *
- * \return TRUE if the message was processed, FALSE otherwise (per Windows API
+ * @return TRUE if the message was processed, FALSE otherwise (per Windows API
  *         requirements for dialog procedures).
  */
 INT_PTR CALLBACK _DialogProc(HWND hDlg,

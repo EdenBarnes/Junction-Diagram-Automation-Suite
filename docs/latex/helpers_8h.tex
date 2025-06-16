@@ -1,0 +1,142 @@
+\doxysection{include/helpers.h File Reference}
+\hypertarget{helpers_8h}{}\label{helpers_8h}\index{include/helpers.h@{include/helpers.h}}
+
+
+Interface for helper functions related to database operations.  
+
+
+{\ttfamily \#include "{}dbents.\+h"{}}\newline
+{\ttfamily \#include "{}dbapserv.\+h"{}}\newline
+{\ttfamily \#include "{}dbdynblk.\+h"{}}\newline
+{\ttfamily \#include "{}dbeval.\+h"{}}\newline
+{\ttfamily \#include "{}acdb.\+h"{}}\newline
+{\ttfamily \#include "{}rxregsvc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Ac\+Db\+Object\+Id \mbox{\hyperlink{helpers_8h_ae053a4de4bf3d9931c6bfb8e3aab1b32}{acad\+Insert\+Block}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}block\+Name, const Ac\+Ge\+Point3d \&origin)
+\begin{DoxyCompactList}\small\item\em Insert a block into the database at a specified origin point. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8h_a7d6c0df2f87377e54a207d9e925b3726}{acad\+Set\+Dyn\+Block\+Property}} (const Ac\+Db\+Object\+Id \&block\+Ref\+Id, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}prop\+Name, const Ac\+Db\+Eval\+Variant \&new\+Value)
+\begin{DoxyCompactList}\small\item\em Set a dynamic block property to a new value. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8h_ab7c7fb31b58fd0f92543dac69958cb25}{acad\+Set\+Block\+Attribute}} (const Ac\+Db\+Object\+Id \&block\+Ref\+Id, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}tag\+Name, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}new\+Value)
+\begin{DoxyCompactList}\small\item\em Set a block attribute to a new value. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8h_abce2e51eb25963d2e787f9c9b7057d29}{acad\+Set\+Object\+Property}} (const Ac\+Db\+Object\+Id \&obj\+Id, Ac\+Db\+::\+Dxf\+Code group\+Code, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}value)
+\begin{DoxyCompactList}\small\item\em Set a general object property to a new value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for helper functions related to database operations. 
+
+This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
+
+\begin{DoxyVersion}{Version}
+0.\+3.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2025-\/06-\/16 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
+\end{DoxyCopyright}
+
+
+\label{doc-func-members}
+\Hypertarget{helpers_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{helpers_8h_ae053a4de4bf3d9931c6bfb8e3aab1b32}\index{helpers.h@{helpers.h}!acadInsertBlock@{acadInsertBlock}}
+\index{acadInsertBlock@{acadInsertBlock}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{acadInsertBlock()}{acadInsertBlock()}}
+{\footnotesize\ttfamily \label{helpers_8h_ae053a4de4bf3d9931c6bfb8e3aab1b32} 
+Ac\+Db\+Object\+Id acad\+Insert\+Block (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{block\+Name}{, }\item[{const Ac\+Ge\+Point3d \&}]{origin}{}\end{DoxyParamCaption})}
+
+
+
+Insert a block into the database at a specified origin point. 
+
+This function inserts a block with the given name into the database at the provided origin point and returns the object ID of the inserted block.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Name} & The name of the block to be inserted. Must be a valid string representing an existing block definition. \\
+\hline
+{\em origin} & The 3D point where the block should be placed in the database.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Ac\+Db\+Object\+Id of the newly inserted block, or an invalid ID if insertion fails. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8h_ab7c7fb31b58fd0f92543dac69958cb25}\index{helpers.h@{helpers.h}!acadSetBlockAttribute@{acadSetBlockAttribute}}
+\index{acadSetBlockAttribute@{acadSetBlockAttribute}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{acadSetBlockAttribute()}{acadSetBlockAttribute()}}
+{\footnotesize\ttfamily \label{helpers_8h_ab7c7fb31b58fd0f92543dac69958cb25} 
+Acad\+::\+Error\+Status acad\+Set\+Block\+Attribute (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{block\+Ref\+Id}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{tag\+Name}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{new\+Value}{}\end{DoxyParamCaption})}
+
+
+
+Set a block attribute to a new value. 
+
+This function updates the specified attribute of a block reference with a new value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Ref\+Id} & The object ID of the block reference whose attribute is being set. \\
+\hline
+{\em tag\+Name} & The name of the tag associated with the attribute. Must exist in the block definition. \\
+\hline
+{\em new\+Value} & A wide string pointer to the new value for the specified attribute.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure of the operation. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8h_a7d6c0df2f87377e54a207d9e925b3726}\index{helpers.h@{helpers.h}!acadSetDynBlockProperty@{acadSetDynBlockProperty}}
+\index{acadSetDynBlockProperty@{acadSetDynBlockProperty}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{acadSetDynBlockProperty()}{acadSetDynBlockProperty()}}
+{\footnotesize\ttfamily \label{helpers_8h_a7d6c0df2f87377e54a207d9e925b3726} 
+Acad\+::\+Error\+Status acad\+Set\+Dyn\+Block\+Property (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{block\+Ref\+Id}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{prop\+Name}{, }\item[{const Ac\+Db\+Eval\+Variant \&}]{new\+Value}{}\end{DoxyParamCaption})}
+
+
+
+Set a dynamic block property to a new value. 
+
+This function updates the specified property of a dynamic block reference with a new value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Ref\+Id} & The object ID of the block reference whose property is being set. \\
+\hline
+{\em prop\+Name} & The name of the property to be updated. Must exist in the dynamic block definition. \\
+\hline
+{\em new\+Value} & The new value for the specified property, encapsulated as an Ac\+Db\+Eval\+Variant.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure of the operation. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8h_abce2e51eb25963d2e787f9c9b7057d29}\index{helpers.h@{helpers.h}!acadSetObjectProperty@{acadSetObjectProperty}}
+\index{acadSetObjectProperty@{acadSetObjectProperty}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{acadSetObjectProperty()}{acadSetObjectProperty()}}
+{\footnotesize\ttfamily \label{helpers_8h_abce2e51eb25963d2e787f9c9b7057d29} 
+Acad\+::\+Error\+Status acad\+Set\+Object\+Property (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{obj\+Id}{, }\item[{Ac\+Db\+::\+Dxf\+Code}]{group\+Code}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Set a general object property to a new value. 
+
+This function updates the specified property of an object with a new value, identified by a DXF group code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+Id} & The object ID of the entity whose property is being set. \\
+\hline
+{\em group\+Code} & The DXF group code representing the property type to be updated. For example, Ac\+Db\+::k\+Dxf\+Layer\+Name for the layer name. \\
+\hline
+{\em value} & A wide string pointer to the new value for the specified property.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure of the operation. 
+\end{DoxyReturn}

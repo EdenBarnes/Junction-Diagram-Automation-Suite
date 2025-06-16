@@ -1,16 +1,16 @@
-/******************************************************************************
- * \file helpers.cpp
- * \brief Helper functions related to database operations.
+/**
+ * @file helpers.cpp
+ * @brief Helper functions related to database operations.
  *
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * \version 0.3.0
- * \author Ethan Barnes <ebarnes@gastecheng.com>
- * \date 2025-06-16
- * \copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
+ * @version 0.3.0
+ * @author Ethan Barnes <ebarnes@gastecheng.com>
+ * @date 2025-06-16
+ * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
- ******************************************************************************/
+ */
 
 #include "helpers.h"
 

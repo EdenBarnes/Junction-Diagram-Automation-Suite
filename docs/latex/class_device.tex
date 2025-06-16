@@ -1,0 +1,159 @@
+\doxysection{Device Class Reference}
+\hypertarget{class_device}{}\label{class_device}\index{Device@{Device}}
+
+
+Represents a device within the Junction Diagram Automation Suite.  
+
+
+
+
+{\ttfamily \#include $<$Device.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_device_af1e371e23e161fdb76dde9e00877babf}{Device}} (std\+::string combined\+Tag, int footprint)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{class_device}{Device} object with combined tag and footprint. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_device_ab1f85a24465a511996fcb9c158e0c7cc}{get\+Tag}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the device\textquotesingle{}s tag. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_device_adb746e5280ef0044fd1063cf2897a297}{get\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the device\textquotesingle{}s number or identifier. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_device_a57304a04bfd07fa81c6e32399f8ef1fa}{get\+Combined\+Tag}} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the combined tag and number for the device. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_device_a8a73f2c1a9a70e2d953cf4f2bd0db8fe}{get\+Terminal\+Footprint}} () const
+\begin{DoxyCompactList}\small\item\em Get the terminal footprint of the device. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_device_a4fbe3d67c3ff7068da99e55b74050251}{operator$<$}} (const \mbox{\hyperlink{class_device}{Device}} \&rhs) const
+\begin{DoxyCompactList}\small\item\em Compare this device with another based on their combined tags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_device_a15e8a381c0f507699f55e46a469671e3}{footprint\+From\+Cells}} (const std\+::string \&combined\+Tag, const std\+::string \&instrument\+Spec)
+\begin{DoxyCompactList}\small\item\em Calculate and return the footprint from a combined tag and instrument specification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a device within the Junction Diagram Automation Suite. 
+
+The {\ttfamily \doxylink{class_device}{Device}} class encapsulates information about a device, including its tag, number, and footprint characteristics. It provides methods to retrieve these details as well as utility functions for processing device data. 
+
+\label{doc-constructors}
+\Hypertarget{class_device_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_device_af1e371e23e161fdb76dde9e00877babf}\index{Device@{Device}!Device@{Device}}
+\index{Device@{Device}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{Device()}{Device()}}
+{\footnotesize\ttfamily \label{class_device_af1e371e23e161fdb76dde9e00877babf} 
+Device\+::\+Device (\begin{DoxyParamCaption}\item[{std\+::string}]{combined\+Tag}{, }\item[{int}]{footprint}{}\end{DoxyParamCaption})}
+
+
+
+Construct a \doxylink{class_device}{Device} object with combined tag and footprint. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em combined\+Tag} & A string that combines both tag and number (e.\+g., "{}\+R123"{}). \\
+\hline
+{\em footprint} & The footprint value representing the number of terminals. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_device_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_device_a15e8a381c0f507699f55e46a469671e3}\index{Device@{Device}!footprintFromCells@{footprintFromCells}}
+\index{footprintFromCells@{footprintFromCells}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{footprintFromCells()}{footprintFromCells()}}
+{\footnotesize\ttfamily \label{class_device_a15e8a381c0f507699f55e46a469671e3} 
+int Device\+::footprint\+From\+Cells (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{combined\+Tag}{, }\item[{const std\+::string \&}]{instrument\+Spec}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate and return the footprint from a combined tag and instrument specification. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em combined\+Tag} & A string that combines both tag and number (e.\+g., "{}\+LSLL 100\+A"{}). \\
+\hline
+{\em instrument\+Spec} & Additional specification of the instrument (e.\+g., "{}\+ULTRASONICE SW"{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The calculated footprint as an integer representing terminal connections. 
+\end{DoxyReturn}
+\Hypertarget{class_device_a57304a04bfd07fa81c6e32399f8ef1fa}\index{Device@{Device}!getCombinedTag@{getCombinedTag}}
+\index{getCombinedTag@{getCombinedTag}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getCombinedTag()}{getCombinedTag()}}
+{\footnotesize\ttfamily \label{class_device_a57304a04bfd07fa81c6e32399f8ef1fa} 
+std\+::string Device\+::get\+Combined\+Tag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the combined tag and number for the device. 
+
+\begin{DoxyReturn}{Returns}
+A string that combines both tag and number (e.\+g., "{}\+SDV 60\+A"{}). 
+\end{DoxyReturn}
+\Hypertarget{class_device_adb746e5280ef0044fd1063cf2897a297}\index{Device@{Device}!getNumber@{getNumber}}
+\index{getNumber@{getNumber}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getNumber()}{getNumber()}}
+{\footnotesize\ttfamily \label{class_device_adb746e5280ef0044fd1063cf2897a297} 
+std\+::string Device\+::get\+Number (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the device\textquotesingle{}s number or identifier. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the specific number of the device. 
+\end{DoxyReturn}
+\Hypertarget{class_device_ab1f85a24465a511996fcb9c158e0c7cc}\index{Device@{Device}!getTag@{getTag}}
+\index{getTag@{getTag}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getTag()}{getTag()}}
+{\footnotesize\ttfamily \label{class_device_ab1f85a24465a511996fcb9c158e0c7cc} 
+std\+::string Device\+::get\+Tag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Retrieve the device\textquotesingle{}s tag. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the device\textquotesingle{}s tag (e.\+g., "{}\+SDV"{} for Shutdown Valve). 
+\end{DoxyReturn}
+\Hypertarget{class_device_a8a73f2c1a9a70e2d953cf4f2bd0db8fe}\index{Device@{Device}!getTerminalFootprint@{getTerminalFootprint}}
+\index{getTerminalFootprint@{getTerminalFootprint}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getTerminalFootprint()}{getTerminalFootprint()}}
+{\footnotesize\ttfamily \label{class_device_a8a73f2c1a9a70e2d953cf4f2bd0db8fe} 
+int Device\+::get\+Terminal\+Footprint (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the terminal footprint of the device. 
+
+\begin{DoxyReturn}{Returns}
+The integer value representing the number of terminals. 
+\end{DoxyReturn}
+\Hypertarget{class_device_a4fbe3d67c3ff7068da99e55b74050251}\index{Device@{Device}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{class_device_a4fbe3d67c3ff7068da99e55b74050251} 
+bool Device\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_device}{Device}} \&}]{rhs}{}\end{DoxyParamCaption}) const}
+
+
+
+Compare this device with another based on their combined tags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & Right-\/hand side \doxylink{class_device}{Device} object for comparison. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this device is considered less than rhs, otherwise false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_device_8h}{Device.\+h}}\item 
+src/\mbox{\hyperlink{_device_8cpp}{Device.\+cpp}}\end{DoxyCompactItemize}
