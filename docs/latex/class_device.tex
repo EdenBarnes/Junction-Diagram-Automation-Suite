@@ -14,6 +14,8 @@ Represents a device within the Junction Diagram Automation Suite.
 \item 
 \mbox{\hyperlink{class_device_af1e371e23e161fdb76dde9e00877babf}{Device}} (std\+::string combined\+Tag, int footprint)
 \begin{DoxyCompactList}\small\item\em Construct a \doxylink{class_device}{Device} object with combined tag and footprint. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_a8312478556ecef4aae65e1bef919f717}{draw}} (Ac\+Ge\+Point3d origin, bool flip) const
+\begin{DoxyCompactList}\small\item\em Draw the device starting from a given origin. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_device_ab1f85a24465a511996fcb9c158e0c7cc}{get\+Tag}} () const
 \begin{DoxyCompactList}\small\item\em Retrieve the device\textquotesingle{}s tag. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_device_adb746e5280ef0044fd1063cf2897a297}{get\+Number}} () const
@@ -61,6 +63,23 @@ Construct a \doxylink{class_device}{Device} object with combined tag and footpri
 \label{doc-func-members}
 \Hypertarget{class_device_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_device_a8312478556ecef4aae65e1bef919f717}\index{Device@{Device}!draw@{draw}}
+\index{draw@{draw}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily \label{class_device_a8312478556ecef4aae65e1bef919f717} 
+void Device\+::draw (\begin{DoxyParamCaption}\item[{Ac\+Ge\+Point3d}]{origin}{, }\item[{bool}]{flip}{}\end{DoxyParamCaption}) const}
+
+
+
+Draw the device starting from a given origin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & The starting point for drawing. \\
+\hline
+{\em flip} & Direction of the device. true if the cable should be drawn to the right instead of to the left, false otherwise. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_device_a15e8a381c0f507699f55e46a469671e3}\index{Device@{Device}!footprintFromCells@{footprintFromCells}}
 \index{footprintFromCells@{footprintFromCells}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{footprintFromCells()}{footprintFromCells()}}

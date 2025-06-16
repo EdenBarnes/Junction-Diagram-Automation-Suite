@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.4.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.5.0</span>
    </div>
    <div id="projectbrief">An AutoCAD-integrated tool that automates the generation of cable junction diagrams from structured configuration data.</div>
   </td>
@@ -97,46 +97,54 @@ $(function(){initNavTree('_device_8h_source.html','',''); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_device.html">   27</a></span><span class="keyword">class </span><a class="code hl_function" href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device</a></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::string _tag; </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    std::string _number; </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">int</span> _footprint; </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_function" href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device</a>(std::string combinedTag, <span class="keywordtype">int</span> footprint);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">/* ----- Setters ----- */</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">/* ----- Getters ----- */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;actrans.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;<a class="code" href="helpers_8h.html">helpers.h</a>&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_device.html">   31</a></span><span class="keyword">class </span><a class="code hl_function" href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::string _tag; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::string _number; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> _footprint; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_function" href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device</a>(std::string combinedTag, <span class="keywordtype">int</span> footprint);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::string <a class="code hl_function" href="class_device.html#ab1f85a24465a511996fcb9c158e0c7cc">getTag</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::string <a class="code hl_function" href="class_device.html#adb746e5280ef0044fd1063cf2897a297">getNumber</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::string <a class="code hl_function" href="class_device.html#a57304a04bfd07fa81c6e32399f8ef1fa">getCombinedTag</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_device.html#a8a73f2c1a9a70e2d953cf4f2bd0db8fe">getTerminalFootprint</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">/* ----- Helpers ----- */</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_device.html#a15e8a381c0f507699f55e46a469671e3">footprintFromCells</a>(<span class="keyword">const</span> std::string&amp; combinedTag, <span class="keyword">const</span> std::string&amp; instrumentSpec);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">/* ----- Operators ----- */</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_device.html#a4fbe3d67c3ff7068da99e55b74050251">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device</a>&amp; rhs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_device.html#a8312478556ecef4aae65e1bef919f717">draw</a>(AcGePoint3d origin, <span class="keywordtype">bool</span> flip) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">/* ----- Setters ----- */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">/* ----- Getters ----- */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string <a class="code hl_function" href="class_device.html#ab1f85a24465a511996fcb9c158e0c7cc">getTag</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::string <a class="code hl_function" href="class_device.html#adb746e5280ef0044fd1063cf2897a297">getNumber</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    std::string <a class="code hl_function" href="class_device.html#a57304a04bfd07fa81c6e32399f8ef1fa">getCombinedTag</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_device.html#a8a73f2c1a9a70e2d953cf4f2bd0db8fe">getTerminalFootprint</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment">/* ----- Helpers ----- */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_device.html#a15e8a381c0f507699f55e46a469671e3">footprintFromCells</a>(<span class="keyword">const</span> std::string&amp; combinedTag, <span class="keyword">const</span> std::string&amp; instrumentSpec);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">/* ----- Operators ----- */</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_device.html#a4fbe3d67c3ff7068da99e55b74050251">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device</a>&amp; rhs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>};</div>
 </div>
-<div class="ttc" id="aclass_device_html_a15e8a381c0f507699f55e46a469671e3"><div class="ttname"><a href="class_device.html#a15e8a381c0f507699f55e46a469671e3">Device::footprintFromCells</a></div><div class="ttdeci">static int footprintFromCells(const std::string &amp;combinedTag, const std::string &amp;instrumentSpec)</div><div class="ttdoc">Calculate and return the footprint from a combined tag and instrument specification.</div><div class="ttdef"><b>Definition</b> Device.cpp:44</div></div>
-<div class="ttc" id="aclass_device_html_a4fbe3d67c3ff7068da99e55b74050251"><div class="ttname"><a href="class_device.html#a4fbe3d67c3ff7068da99e55b74050251">Device::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Device &amp;rhs) const</div><div class="ttdoc">Compare this device with another based on their combined tags.</div><div class="ttdef"><b>Definition</b> Device.cpp:63</div></div>
-<div class="ttc" id="aclass_device_html_a57304a04bfd07fa81c6e32399f8ef1fa"><div class="ttname"><a href="class_device.html#a57304a04bfd07fa81c6e32399f8ef1fa">Device::getCombinedTag</a></div><div class="ttdeci">std::string getCombinedTag() const</div><div class="ttdoc">Retrieve the combined tag and number for the device.</div><div class="ttdef"><b>Definition</b> Device.cpp:36</div></div>
-<div class="ttc" id="aclass_device_html_a8a73f2c1a9a70e2d953cf4f2bd0db8fe"><div class="ttname"><a href="class_device.html#a8a73f2c1a9a70e2d953cf4f2bd0db8fe">Device::getTerminalFootprint</a></div><div class="ttdeci">int getTerminalFootprint() const</div><div class="ttdoc">Get the terminal footprint of the device.</div><div class="ttdef"><b>Definition</b> Device.cpp:40</div></div>
-<div class="ttc" id="aclass_device_html_ab1f85a24465a511996fcb9c158e0c7cc"><div class="ttname"><a href="class_device.html#ab1f85a24465a511996fcb9c158e0c7cc">Device::getTag</a></div><div class="ttdeci">std::string getTag() const</div><div class="ttdoc">Retrieve the device&#39;s tag.</div><div class="ttdef"><b>Definition</b> Device.cpp:28</div></div>
-<div class="ttc" id="aclass_device_html_adb746e5280ef0044fd1063cf2897a297"><div class="ttname"><a href="class_device.html#adb746e5280ef0044fd1063cf2897a297">Device::getNumber</a></div><div class="ttdeci">std::string getNumber() const</div><div class="ttdoc">Retrieve the device&#39;s number or identifier.</div><div class="ttdef"><b>Definition</b> Device.cpp:32</div></div>
+<div class="ttc" id="aclass_device_html_a15e8a381c0f507699f55e46a469671e3"><div class="ttname"><a href="class_device.html#a15e8a381c0f507699f55e46a469671e3">Device::footprintFromCells</a></div><div class="ttdeci">static int footprintFromCells(const std::string &amp;combinedTag, const std::string &amp;instrumentSpec)</div><div class="ttdoc">Calculate and return the footprint from a combined tag and instrument specification.</div><div class="ttdef"><b>Definition</b> Device.cpp:100</div></div>
+<div class="ttc" id="aclass_device_html_a4fbe3d67c3ff7068da99e55b74050251"><div class="ttname"><a href="class_device.html#a4fbe3d67c3ff7068da99e55b74050251">Device::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Device &amp;rhs) const</div><div class="ttdoc">Compare this device with another based on their combined tags.</div><div class="ttdef"><b>Definition</b> Device.cpp:119</div></div>
+<div class="ttc" id="aclass_device_html_a57304a04bfd07fa81c6e32399f8ef1fa"><div class="ttname"><a href="class_device.html#a57304a04bfd07fa81c6e32399f8ef1fa">Device::getCombinedTag</a></div><div class="ttdeci">std::string getCombinedTag() const</div><div class="ttdoc">Retrieve the combined tag and number for the device.</div><div class="ttdef"><b>Definition</b> Device.cpp:92</div></div>
+<div class="ttc" id="aclass_device_html_a8312478556ecef4aae65e1bef919f717"><div class="ttname"><a href="class_device.html#a8312478556ecef4aae65e1bef919f717">Device::draw</a></div><div class="ttdeci">void draw(AcGePoint3d origin, bool flip) const</div><div class="ttdoc">Draw the device starting from a given origin.</div><div class="ttdef"><b>Definition</b> Device.cpp:28</div></div>
+<div class="ttc" id="aclass_device_html_a8a73f2c1a9a70e2d953cf4f2bd0db8fe"><div class="ttname"><a href="class_device.html#a8a73f2c1a9a70e2d953cf4f2bd0db8fe">Device::getTerminalFootprint</a></div><div class="ttdeci">int getTerminalFootprint() const</div><div class="ttdoc">Get the terminal footprint of the device.</div><div class="ttdef"><b>Definition</b> Device.cpp:96</div></div>
+<div class="ttc" id="aclass_device_html_ab1f85a24465a511996fcb9c158e0c7cc"><div class="ttname"><a href="class_device.html#ab1f85a24465a511996fcb9c158e0c7cc">Device::getTag</a></div><div class="ttdeci">std::string getTag() const</div><div class="ttdoc">Retrieve the device&#39;s tag.</div><div class="ttdef"><b>Definition</b> Device.cpp:84</div></div>
+<div class="ttc" id="aclass_device_html_adb746e5280ef0044fd1063cf2897a297"><div class="ttname"><a href="class_device.html#adb746e5280ef0044fd1063cf2897a297">Device::getNumber</a></div><div class="ttdeci">std::string getNumber() const</div><div class="ttdoc">Retrieve the device&#39;s number or identifier.</div><div class="ttdef"><b>Definition</b> Device.cpp:88</div></div>
 <div class="ttc" id="aclass_device_html_af1e371e23e161fdb76dde9e00877babf"><div class="ttname"><a href="class_device.html#af1e371e23e161fdb76dde9e00877babf">Device::Device</a></div><div class="ttdeci">Device(std::string combinedTag, int footprint)</div><div class="ttdoc">Construct a Device object with combined tag and footprint.</div><div class="ttdef"><b>Definition</b> Device.cpp:21</div></div>
+<div class="ttc" id="ahelpers_8h_html"><div class="ttname"><a href="helpers_8h.html">helpers.h</a></div><div class="ttdoc">Interface for helper functions related to database operations.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

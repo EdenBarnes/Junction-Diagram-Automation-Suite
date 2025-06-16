@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.4.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;0.5.0</span>
    </div>
    <div id="projectbrief">An AutoCAD-integrated tool that automates the generation of cable junction diagrams from structured configuration data.</div>
   </td>
@@ -102,6 +102,8 @@ $(function(){initNavTree('class_device.html','','class_device-members'); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af1e371e23e161fdb76dde9e00877babf" id="r_af1e371e23e161fdb76dde9e00877babf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e371e23e161fdb76dde9e00877babf">Device</a> (std::string combinedTag, int footprint)</td></tr>
 <tr class="memdesc:af1e371e23e161fdb76dde9e00877babf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="class_device.html" title="Represents a device within the Junction Diagram Automation Suite.">Device</a> object with combined tag and footprint.  <br /></td></tr>
+<tr class="memitem:a8312478556ecef4aae65e1bef919f717" id="r_a8312478556ecef4aae65e1bef919f717"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8312478556ecef4aae65e1bef919f717">draw</a> (AcGePoint3d origin, bool flip) const</td></tr>
+<tr class="memdesc:a8312478556ecef4aae65e1bef919f717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the device starting from a given origin.  <br /></td></tr>
 <tr class="memitem:ab1f85a24465a511996fcb9c158e0c7cc" id="r_ab1f85a24465a511996fcb9c158e0c7cc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1f85a24465a511996fcb9c158e0c7cc">getTag</a> () const</td></tr>
 <tr class="memdesc:ab1f85a24465a511996fcb9c158e0c7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the device's tag.  <br /></td></tr>
 <tr class="memitem:adb746e5280ef0044fd1063cf2897a297" id="r_adb746e5280ef0044fd1063cf2897a297"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb746e5280ef0044fd1063cf2897a297">getNumber</a> () const</td></tr>
@@ -153,6 +155,36 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8312478556ecef4aae65e1bef919f717" name="a8312478556ecef4aae65e1bef919f717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8312478556ecef4aae65e1bef919f717">&#9670;&#160;</a></span>draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device::draw </td>
+          <td>(</td>
+          <td class="paramtype">AcGePoint3d</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>flip</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw the device starting from a given origin. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">origin</td><td>The starting point for drawing. </td></tr>
+    <tr><td class="paramname">flip</td><td>Direction of the device. true if the cable should be drawn to the right instead of to the left, false otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a15e8a381c0f507699f55e46a469671e3" name="a15e8a381c0f507699f55e46a469671e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15e8a381c0f507699f55e46a469671e3">&#9670;&#160;</a></span>footprintFromCells()</h2>
 
