@@ -25,7 +25,8 @@
 enum BoxSize {
     SMALL,  ///< 12" × 12" × 6" enclosure
     MEDIUM, ///< 16" × 16" × 6" enclosure
-    LARGE   ///< 24" × 24" × 8" enclosure
+    LARGE,  ///< 24" × 24" × 8" enclosure
+    CUSTOM  ///< Custom enclosure. User will place the cables
 };
 
 /**
@@ -42,6 +43,17 @@ struct DialogResult {
 // -----------------------------------------------------------------------------
 // Forward Declarations
 // -----------------------------------------------------------------------------
+
+/**
+ * @brief Draw a junction box from a file
+ *
+ * @param filename      Absolute path to the Excel (.xlsx) file.
+ * @param selectedTag   Tag (e.g. "IJB-810") identifying the junction whose
+ *                      cables should be extracted.
+ * @param selectedSize  Size of the box to be drawn.
+ * @param origin        Point where the box should be drawn. (Usually 0 0 0)
+ */
+void _drawJunctionBox(std::string filename, std::string selectedTag, BoxSize selectedSize, AcGePoint3d origin);
 
 /**
  * @brief Parse the provided Cable Schedule workbook and create a list of
@@ -169,8 +181,16 @@ void buildJunctionBox() {
         return;
     }
 
+    _drawJunctionBox(result.filename, result.selectedTag, result.selectedSize, AcGePoint3d(0.0, 0.0, 0.0));
+}
+
+// -----------------------------------------------------------------------------
+// Helper Function Definitions
+// -----------------------------------------------------------------------------
+
+void _drawJunctionBox(std::string filename, std::string selectedTag, BoxSize selectedSize, AcGePoint3d origin) {
     // Go through the .xlsx and build a cable object for every cable listed in the file.
-    std::vector<Cable> cables = _xlsxGetCables(adsw_acadMainWnd(), result.filename, result.selectedTag);
+    std::vector<Cable> cables = _xlsxGetCables(adsw_acadMainWnd(), filename, selectedTag);
 
     /*
         Sort the cables as follows in decending priority:
@@ -190,11 +210,9 @@ void buildJunctionBox() {
         cables off to the side
     */
 
-    std::wstring junctionTag(result.selectedTag.begin(), result.selectedTag.end());
+    std::wstring junctionTag(selectedTag.begin(), selectedTag.end());
 
-    AcGePoint3d origin(0.0, 0.0, 0.0);
-
-    switch (result.selectedSize)
+    switch (selectedSize)
     {
     case BoxSize::LARGE :
         origin.set(11.1875, 18.3250, 0.0);
@@ -222,7 +240,7 @@ void buildJunctionBox() {
         std::wstring tag_W(tag.begin(), tag.end());
 
         // Move over to the other side if possible (Only affects large boxes)
-        if (result.selectedSize == BoxSize::LARGE) {
+        if (selectedSize == BoxSize::LARGE) {
             // If the rest of the cables take more space than in table 2, dont split
             int sizeOfRest = 0;
             for (int j = i ; j < cables.size(); j++) {
@@ -263,10 +281,6 @@ void buildJunctionBox() {
         to be placed on the diagram, they should be done manually or with a seperate tool.
     */
 }
-
-// -----------------------------------------------------------------------------
-// Helper Function Definitions
-// -----------------------------------------------------------------------------
 
 std::vector<Cable> _xlsxGetCables(HWND hDlg, const std::string& filename, const std::string& junctionTag) {
     std::vector<Cable> cables;
@@ -399,14 +413,18 @@ int _xlsxGetJunctionFootprint(HWND hDlg, std::string filename, std::string junct
 }
 
 void _updateSizeRadioButtons(HWND hDlg, const std::vector<HWND>& sizeButtons, const std::vector<int>& spareCounts) {
-    const std::vector<std::string> boxSizes = { "24x24x8", "16x16x6", "12x12x6" };
+    const std::vector<std::string> boxSizes = { "24x24x8", "16x16x6", "12x12x6", "Custom Box" };
 
     for (size_t i = 0; i < sizeButtons.size(); ++i) {
         std::string displayText;
-        if (spareCounts[i] < 0)
-            displayText = boxSizes[i] + " - Doesn't Fit";
-        else
-            displayText = boxSizes[i] + " - " + std::to_string(spareCounts[i]) + " Spare";
+        if (boxSizes[i] == "Custom Box") {
+            displayText = "Custom Box";
+        } else {
+            if (spareCounts[i] < 0)
+                displayText = boxSizes[i] + " - Doesn't Fit";
+            else
+                displayText = boxSizes[i] + " - " + std::to_string(spareCounts[i]) + " Spare";
+        }
 
         SetWindowText(sizeButtons[i], displayText.c_str());
         EnableWindow(sizeButtons[i], spareCounts[i] >= 0);
@@ -457,7 +475,7 @@ void _rebuildDialogBox(const std::vector<std::string>& junctionTags, std::vector
 
     // --- Dynamic Junction Tag Group ---
     int tagsGroupBoxY = 45;
-    int tagsGroupBoxHeight = static_cast<int>(junctionTags.size()) * radioSpacing + 2 * groupBoxPadding;
+    int tagsGroupBoxHeight = static_cast<int>(junctionTags.size() + 1) * radioSpacing + 2 * groupBoxPadding;
 
     hGroupBoxTags = CreateWindowEx(
         0, "BUTTON", "Select a Junction Tag",
@@ -480,8 +498,21 @@ void _rebuildDialogBox(const std::vector<std::string>& junctionTags, std::vector
         tagRadioButtons.push_back(hRadio);
     }
 
+    // --- Add a Select All Button ---
+
+    if (junctionTags.size() > 0) {
+        HWND hRadio = CreateWindowEx(
+            0, "BUTTON", "Select All",
+            WS_CHILD | WS_VISIBLE | BS_AUTORADIOBUTTON,
+            tagsStartX, tagsStartY + static_cast<int>(junctionTags.size()) * radioSpacing,
+            radioButtonWidth, radioButtonHeight,
+            hDlg, (HMENU)(IDC_RADIO_TAG_GROUP + 1 + junctionTags.size()), GetModuleHandle(NULL), NULL
+        );
+        tagRadioButtons.push_back(hRadio);
+    }
+
     // --- Static Box Size Group ---
-    const std::vector<std::string> boxSizes = { "24x24x8", "16x16x6", "12x12x6" };
+    const std::vector<std::string> boxSizes = { "24x24x8", "16x16x6", "12x12x6", "Custom Box" };
 
     int sizesGroupBoxY = tagsGroupBoxY + tagsGroupBoxHeight + 10;
     int sizesGroupBoxHeight = static_cast<int>(boxSizes.size()) * radioSpacing + 2 * groupBoxPadding;
@@ -542,7 +573,7 @@ INT_PTR CALLBACK _DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
     static std::vector<HWND> tagRadioButtons;
     static std::vector<HWND> sizeRadioButtons;
     static DialogResult* result = nullptr;
-    static std::vector<int> spareCounts = {0, 0, 0};
+    static std::vector<int> spareCounts = {-1, -1, -1, -1};
 
     switch (message)
     {
@@ -556,16 +587,24 @@ INT_PTR CALLBACK _DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
         int ctrlId = LOWORD(wParam);
 
         // If one of the junction tag radio buttons is selected
-        if (ctrlId >= IDC_RADIO_TAG_GROUP + 1 && ctrlId < IDC_RADIO_TAG_GROUP + 1 + junctionTags.size()) {
+        if (ctrlId >= IDC_RADIO_TAG_GROUP + 1 && ctrlId < IDC_RADIO_TAG_GROUP + 2 + junctionTags.size()) {
             int selectedIndex = ctrlId - IDC_RADIO_TAG_GROUP - 1;
             std::string selectedTag = junctionTags[selectedIndex];
 
-            int numTermUsed = _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag);
+            if (selectedIndex == junctionTags.size()) {
+                spareCounts[0] = -1;
+                spareCounts[1] = -1;
+                spareCounts[2] = -1;
+            } else {
+                int numTermUsed = _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag);
 
-            spareCounts[0] = 144 - numTermUsed;
-            spareCounts[1] = 42 - numTermUsed;
-            spareCounts[2] = 24 - numTermUsed;
+                spareCounts[0] = 144 - numTermUsed;
+                spareCounts[1] = 42 - numTermUsed;
+                spareCounts[2] = 24 - numTermUsed;
+            }
 
+            spareCounts[3] = 0;
+            
             _updateSizeRadioButtons(hDlg, sizeRadioButtons, spareCounts);
         }
 
@@ -619,6 +658,9 @@ INT_PTR CALLBACK _DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
                         break;
                     case 2:
                         result->selectedSize = BoxSize::SMALL;
+                        break;
+                    case 3:
+                        result->selectedSize = BoxSize::CUSTOM;
                         break;
                     default:
                         result->accepted = false;
