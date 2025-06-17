@@ -17,11 +17,14 @@ struct \mbox{\hyperlink{struct_dialog_result}{Dialog\+Result}}
 enum \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}} \{ \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cecaea5e596a553757a677cb4da4c8a1f935}{SMALL}}
 , \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64}{MEDIUM}}
 , \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310}{LARGE}}
+, \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca945d6010d321d9fe75cbba7b6f37f3b5}{CUSTOM}}
  \}
 \begin{DoxyCompactList}\small\item\em Predefined enclosure footprints supported by the tool. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{_junction_builder_8cpp_a424e65499f869afefcf6e67fc93244e0}{\+\_\+draw\+Junction\+Box}} (std\+::string filename, std\+::string selected\+Tag, \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}} selected\+Size, Ac\+Ge\+Point3d origin)
+\begin{DoxyCompactList}\small\item\em Draw a junction box from a file. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_cable}{Cable}} $>$ \mbox{\hyperlink{_junction_builder_8cpp_a47704ceed78a1325245f454fc42497c6}{\+\_\+xlsx\+Get\+Cables}} (HWND h\+Dlg, const std\+::string \&filename, const std\+::string \&junction\+Tag)
 \begin{DoxyCompactList}\small\item\em Parse the provided \doxylink{class_cable}{Cable} Schedule workbook and create a list of {\ttfamily \doxylink{class_cable}{Cable}} objects for the specified junction tag. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_junction_builder_8cpp_a2ac539ff9368dd29485de79fe80899af}{\+\_\+xlsx\+Get\+Junction\+Tags}} (HWND h\+Dlg, const std\+::string \&filename, std\+::vector$<$ std\+::string $>$ \&tags)
@@ -44,13 +47,13 @@ Definitons for building junction boxes.
 This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
 
 \begin{DoxyVersion}{Version}
-1.\+0.\+0 
+1.\+1.\+0 
 \end{DoxyVersion}
 \begin{DoxyAuthor}{Author}
 Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2025-\/06-\/16 
+2025-\/06-\/17 
 \end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
 Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
@@ -83,6 +86,10 @@ MEDIUM&16"{} × 16"{} × 6"{} enclosure \\
 LARGE&24"{} × 24"{} × 8"{} enclosure \\
 \hline
 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CUSTOM@{CUSTOM}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!CUSTOM@{CUSTOM}}}\Hypertarget{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca945d6010d321d9fe75cbba7b6f37f3b5}\label{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24ceca945d6010d321d9fe75cbba7b6f37f3b5} 
+CUSTOM&Custom enclosure. User will place the cables. \\
+\hline
+
 \end{DoxyEnumFields}
 
 
@@ -113,6 +120,27 @@ Dialog‑box procedure that handles all messages for the Junction Box Builder di
 \begin{DoxyReturn}{Returns}
 TRUE if the message was processed, FALSE otherwise (per Windows API requirements for dialog procedures). 
 \end{DoxyReturn}
+\Hypertarget{_junction_builder_8cpp_a424e65499f869afefcf6e67fc93244e0}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_drawJunctionBox@{\_drawJunctionBox}}
+\index{\_drawJunctionBox@{\_drawJunctionBox}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_drawJunctionBox()}{\_drawJunctionBox()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a424e65499f869afefcf6e67fc93244e0} 
+void \+\_\+draw\+Junction\+Box (\begin{DoxyParamCaption}\item[{std\+::string}]{filename}{, }\item[{std\+::string}]{selected\+Tag}{, }\item[{\mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}}}]{selected\+Size}{, }\item[{Ac\+Ge\+Point3d}]{origin}{}\end{DoxyParamCaption})}
+
+
+
+Draw a junction box from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Absolute path to the Excel (.xlsx) file. \\
+\hline
+{\em selected\+Tag} & Tag (e.\+g. "{}\+IJB-\/810"{}) identifying the junction whose cables should be extracted. \\
+\hline
+{\em selected\+Size} & Size of the box to be drawn. \\
+\hline
+{\em origin} & Point where the box should be drawn. (Usually 0 0 0) \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_junction_builder_8cpp_a75eba94ec93a3b08713a21c8c4661f2f}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_rebuildDialogBox@{\_rebuildDialogBox}}
 \index{\_rebuildDialogBox@{\_rebuildDialogBox}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
 \doxysubsubsection{\texorpdfstring{\_rebuildDialogBox()}{\_rebuildDialogBox()}}

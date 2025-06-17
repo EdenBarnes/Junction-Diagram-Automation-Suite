@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="GasTech_logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">A proprietary AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div>
   </td>
@@ -109,11 +109,14 @@ Enumerations</h2></td></tr>
 <tr class="memitem:aaf39cd3357b27aad8818297c73a24cec" id="r_aaf39cd3357b27aad8818297c73a24cec"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a> { <a class="el" href="#aaf39cd3357b27aad8818297c73a24cecaea5e596a553757a677cb4da4c8a1f935">SMALL</a>
 , <a class="el" href="#aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64">MEDIUM</a>
 , <a class="el" href="#aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310">LARGE</a>
+, <a class="el" href="#aaf39cd3357b27aad8818297c73a24ceca945d6010d321d9fe75cbba7b6f37f3b5">CUSTOM</a>
  }</td></tr>
 <tr class="memdesc:aaf39cd3357b27aad8818297c73a24cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predefined enclosure footprints supported by the tool.  <a href="#aaf39cd3357b27aad8818297c73a24cec">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a424e65499f869afefcf6e67fc93244e0" id="r_a424e65499f869afefcf6e67fc93244e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a424e65499f869afefcf6e67fc93244e0">_drawJunctionBox</a> (std::string filename, std::string selectedTag, <a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a> selectedSize, AcGePoint3d origin)</td></tr>
+<tr class="memdesc:a424e65499f869afefcf6e67fc93244e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a junction box from a file.  <br /></td></tr>
 <tr class="memitem:a47704ceed78a1325245f454fc42497c6" id="r_a47704ceed78a1325245f454fc42497c6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_cable.html">Cable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47704ceed78a1325245f454fc42497c6">_xlsxGetCables</a> (HWND hDlg, const std::string &amp;filename, const std::string &amp;junctionTag)</td></tr>
 <tr class="memdesc:a47704ceed78a1325245f454fc42497c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the provided <a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a> Schedule workbook and create a list of <span class="tt"><a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a></span> objects for the specified junction tag.  <br /></td></tr>
 <tr class="memitem:a2ac539ff9368dd29485de79fe80899af" id="r_a2ac539ff9368dd29485de79fe80899af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ac539ff9368dd29485de79fe80899af">_xlsxGetJunctionTags</a> (HWND hDlg, const std::string &amp;filename, std::vector&lt; std::string &gt; &amp;tags)</td></tr>
@@ -131,9 +134,9 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitons for building junction boxes. </p>
 <p>This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.</p>
-<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1.0 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Ethan Barnes <a href="#" onclick="location.href='mai'+'lto:'+'eba'+'rn'+'es@'+'ga'+'ste'+'ch'+'eng'+'.c'+'om'; return false;">ebarn<span class="obfuscator">.nosp@m.</span>es@g<span class="obfuscator">.nosp@m.</span>astec<span class="obfuscator">.nosp@m.</span>heng<span class="obfuscator">.nosp@m.</span>.com</a> </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2025-06-16 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025-06-17 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Proprietary - All Rights Reserved by GasTech Engineering LLC </dd></dl>
 </div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="aaf39cd3357b27aad8818297c73a24cec" name="aaf39cd3357b27aad8818297c73a24cec"></a>
@@ -155,6 +158,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64" name="aaf39cd3357b27aad8818297c73a24ceca5340ec7ecef6cc3886684a3bd3450d64"></a>MEDIUM&#160;</td><td class="fielddoc"><p>16" × 16" × 6" enclosure </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310" name="aaf39cd3357b27aad8818297c73a24ceca716db5c72140446e5badac4683610310"></a>LARGE&#160;</td><td class="fielddoc"><p>24" × 24" × 8" enclosure </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf39cd3357b27aad8818297c73a24ceca945d6010d321d9fe75cbba7b6f37f3b5" name="aaf39cd3357b27aad8818297c73a24ceca945d6010d321d9fe75cbba7b6f37f3b5"></a>CUSTOM&#160;</td><td class="fielddoc"><p>Custom enclosure. User will place the cables. </p>
 </td></tr>
 </table>
 
@@ -201,6 +206,48 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>TRUE if the message was processed, FALSE otherwise (per Windows API requirements for dialog procedures). </dd></dl>
+
+</div>
+</div>
+<a id="a424e65499f869afefcf6e67fc93244e0" name="a424e65499f869afefcf6e67fc93244e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a424e65499f869afefcf6e67fc93244e0">&#9670;&#160;</a></span>_drawJunctionBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _drawJunctionBox </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>selectedTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a></td>          <td class="paramname"><span class="paramname"><em>selectedSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AcGePoint3d</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw a junction box from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Absolute path to the Excel (.xlsx) file. </td></tr>
+    <tr><td class="paramname">selectedTag</td><td>Tag (e.g. "IJB-810") identifying the junction whose cables should be extracted. </td></tr>
+    <tr><td class="paramname">selectedSize</td><td>Size of the box to be drawn. </td></tr>
+    <tr><td class="paramname">origin</td><td>Point where the box should be drawn. (Usually 0 0 0) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
