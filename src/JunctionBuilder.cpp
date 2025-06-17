@@ -181,7 +181,21 @@ void buildJunctionBox() {
         return;
     }
 
-    _drawJunctionBox(result.filename, result.selectedTag, result.selectedSize, AcGePoint3d(0.0, 0.0, 0.0));
+    if (result.selectedTag == "Select All") {
+        // Draw every single box
+
+        std::vector<std::string> junctionTags;
+
+        _xlsxGetJunctionTags(adsw_acadMainWnd(), result.filename, junctionTags);
+
+        for (int i = 0; i < junctionTags.size(); ++i) {
+            std::string tag = junctionTags[i];
+
+            _drawJunctionBox(result.filename, tag, result.selectedSize, AcGePoint3d(-11.0 * i, 0.0, 0.0));
+        }
+    } else {
+        _drawJunctionBox(result.filename, result.selectedTag, result.selectedSize, AcGePoint3d(0.0, 0.0, 0.0));
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -635,7 +649,11 @@ INT_PTR CALLBACK _DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
             bool tagSelected = false;
             for (size_t i = 0; i < tagRadioButtons.size(); ++i) {
                 if (SendMessage(tagRadioButtons[i], BM_GETCHECK, 0, 0) == BST_CHECKED) {
-                    result->selectedTag = junctionTags[i];
+                    if (i == junctionTags.size()) {
+                        result->selectedTag = "Select All";
+                    } else {
+                        result->selectedTag = junctionTags[i];
+                    }
                     tagSelected = true;
                     break;
                 }
