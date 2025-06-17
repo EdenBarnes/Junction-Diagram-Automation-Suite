@@ -159,6 +159,7 @@ Get Dependencies</h3>
 <p>The Junction Diagram Automation Suite has the following dependencies:</p>
 <ul>
 <li><a href="https://github.com/troldal/OpenXLSX">OpenXLSX</a></li>
+<li><a href="https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download">ObjectArx 2024</a></li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Get OpenXLSX</h4>
@@ -167,14 +168,22 @@ Get OpenXLSX</h4>
 <div class="line">git clone https://github.com/troldal/OpenXLSX.git</div>
 </div><!-- fragment --><p>Place the <span class="tt">OpenXLSX\OpenXLSX</span> folder inside of <span class="tt">Junction-Diagram-Automation-Suite\external</span>.</p>
 <p>The file <span class="tt">Junction-Diagram-Automation-Suite\external\OpenXLSX\CMakeLists.txt</span> should now exist. <span class="tt">Junction-Diagram-Automation-Suite\external\OpenXLSX</span> should not contain another directory named <span class="tt">OpenXLSX</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Get ObjectARX</h4>
+<p>Click <a href="https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A">here</a> for system requirements and click <a href="https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download">here</a> to download the SDK.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Make sure you install ObjectArx 2024. Other versions may be incompatible. AutoCAD 2024 is only compatible with ObjectArx 2024.</dd></dl>
+<p>After you've installed the ObjectArx 2024 SDK, you need tell CMake where to find it. Edit this line in <span class="tt">CMakeLists.txt</span> to point to the location of the ObjectArx 2024 SDK.</p>
+<div class="fragment"><div class="line"> CMake</div>
+<div class="line"># Path to ObjectARX SDK</div>
+<div class="line">set(ARX_SDK &quot;C:/Autodesk/ObjectArxSDK2024&quot;)</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Build with CMake</h3>
 <p>To compile the Junction Diagram Automation Suite using <b>CMake</b>, use the follwing commands inside of <span class="tt">Junction-Diagram-Automation-Suite\</span>:</p>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">cmake -B ./build</div>
 <div class="line">cmake --build ./build --config RELEASE</div>
 </div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd><span class="tt">rc.exe</span> must exist in the <span class="tt">PATH</span> when building with <b>CMake</b>. If <span class="tt">rc.exe</span> (which is part of <b>MSVC</b>) is missing, the dialog boxes will not function correctly.</dd></dl>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 Commands</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

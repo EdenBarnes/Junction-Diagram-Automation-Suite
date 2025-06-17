@@ -77,6 +77,7 @@ The Junction Diagram Automation Suite has the following dependencies\+:
 
 \begin{DoxyItemize}
 \item \href{https://github.com/troldal/OpenXLSX}{\texttt{Open\+XLSX}}
+\item \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{Object\+Arx 2024}}
 \end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Get Open\+XLSX}{Get Open\+XLSX}}\label{index_autotoc_md9}
 To obtain Open\+XLSX, use the following commands\+:
 
@@ -90,7 +91,22 @@ To obtain Open\+XLSX, use the following commands\+:
 
 Place the {\ttfamily Open\+XLSX\textbackslash{}Open\+XLSX} folder inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external}.
 
-The file {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX\textbackslash{}CMake\+Lists.\+txt} should now exist. {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX} should not contain another directory named {\ttfamily Open\+XLSX}.\hypertarget{index_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Build with CMake}{Build with CMake}}\label{index_autotoc_md10}
+The file {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX\textbackslash{}CMake\+Lists.\+txt} should now exist. {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX} should not contain another directory named {\ttfamily Open\+XLSX}.\hypertarget{index_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Get Object\+ARX}{Get Object\+ARX}}\label{index_autotoc_md10}
+Click \href{https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A}{\texttt{here}} for system requirements and click \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{here}} to download the SDK.
+
+\begin{DoxyWarning}{Warning}
+Make sure you install Object\+Arx 2024. Other versions may be incompatible. Auto\+CAD 2024 is only compatible with Object\+Arx 2024.
+\end{DoxyWarning}
+After you\textquotesingle{}ve installed the Object\+Arx 2024 SDK, you need tell CMake where to find it. Edit this line in {\ttfamily CMake\+Lists.\+txt} to point to the location of the Object\+Arx 2024 SDK.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ CMake}
+\DoxyCodeLine{\#\ Path\ to\ ObjectARX\ SDK}
+\DoxyCodeLine{set(ARX\_SDK\ "{}C:/Autodesk/ObjectArxSDK2024"{})}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Build with CMake}{Build with CMake}}\label{index_autotoc_md11}
 To compile the Junction Diagram Automation Suite using {\bfseries{CMake}}, use the follwing commands inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}}\+:
 
 
@@ -105,7 +121,7 @@ To compile the Junction Diagram Automation Suite using {\bfseries{CMake}}, use t
 \begin{DoxyWarning}{Warning}
 {\ttfamily rc.\+exe} must exist in the {\ttfamily PATH} when building with {\bfseries{CMake}}. If {\ttfamily rc.\+exe} (which is part of {\bfseries{MSVC}}) is missing, the dialog boxes will not function correctly.
 \end{DoxyWarning}
-\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{Commands}{Commands}}\label{index_autotoc_md11}
+\hypertarget{index_autotoc_md12}{}\doxysubsection{\texorpdfstring{Commands}{Commands}}\label{index_autotoc_md12}
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
 \hline

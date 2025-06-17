@@ -105,6 +105,7 @@ git clone https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite.git
 The Junction Diagram Automation Suite has the following dependencies:
 
 * [OpenXLSX](https://github.com/troldal/OpenXLSX)
+* [ObjectArx 2024](https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download)
 
 #### Get OpenXLSX
 
@@ -117,6 +118,21 @@ git clone https://github.com/troldal/OpenXLSX.git
 Place the `OpenXLSX\OpenXLSX` folder inside of `Junction-Diagram-Automation-Suite\external`.
 
 The file `Junction-Diagram-Automation-Suite\external\OpenXLSX\CMakeLists.txt` should now exist.  `Junction-Diagram-Automation-Suite\external\OpenXLSX` should not contain another directory named `OpenXLSX`.
+
+#### Get ObjectARX
+
+Click [here](https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A) for system requirements and click [here](https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download) to download the SDK.
+
+> [!WARNING]
+> Make sure you install ObjectArx 2024. Other versions may be incompatible. AutoCAD 2024 is only compatible with ObjectArx 2024.
+
+After you've installed the ObjectArx 2024 SDK, you need tell CMake where to find it.
+Edit this line in `CMakeLists.txt` to point to the location of the ObjectArx 2024 SDK.
+
+``` CMake
+# Path to ObjectARX SDK
+set(ARX_SDK "C:/Autodesk/ObjectArxSDK2024")
+```
 
 ### Build with CMake
 

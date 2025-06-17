@@ -35,11 +35,12 @@ var NAVTREE =
         [ "General Requirements", "index.html#autotoc_md6", null ],
         [ "Cloning Sources", "index.html#autotoc_md7", null ],
         [ "Get Dependencies", "index.html#autotoc_md8", [
-          [ "Get OpenXLSX", "index.html#autotoc_md9", null ]
+          [ "Get OpenXLSX", "index.html#autotoc_md9", null ],
+          [ "Get ObjectARX", "index.html#autotoc_md10", null ]
         ] ],
-        [ "Build with CMake", "index.html#autotoc_md10", null ]
+        [ "Build with CMake", "index.html#autotoc_md11", null ]
       ] ],
-      [ "Commands", "index.html#autotoc_md11", null ]
+      [ "Commands", "index.html#autotoc_md12", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
