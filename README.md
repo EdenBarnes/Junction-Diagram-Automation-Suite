@@ -127,7 +127,7 @@ cmake -B ./build
 cmake --build ./build --config RELEASE
 ```
 
-> [!NOTE]
+> [!WARNING]
 > `rc.exe` must exist in the `PATH` when building with **CMake**. If `rc.exe` (which is part of **MSVC**) is missing, the dialog boxes will not function correctly.
 
 ## Commands
