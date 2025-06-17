@@ -6,5 +6,6 @@ var searchData=
   ['acadsetobjectproperty_3',['acadSetObjectProperty',['../helpers_8cpp.html#abce2e51eb25963d2e787f9c9b7057d29',1,'acadSetObjectProperty(const AcDbObjectId &amp;objId, AcDb::DxfCode groupCode, const wchar_t *value):&#160;helpers.cpp'],['../helpers_8h.html#abce2e51eb25963d2e787f9c9b7057d29',1,'acadSetObjectProperty(const AcDbObjectId &amp;objId, AcDb::DxfCode groupCode, const wchar_t *value):&#160;helpers.cpp']]],
   ['accepted_4',['accepted',['../struct_dialog_result.html#a0b3baa81b0e90fb14b0d9574b8471fc5',1,'DialogResult']]],
   ['adddevice_5',['addDevice',['../class_cable.html#acf691698d71cb5e2e9784cde9f34cdfd',1,'Cable']]],
-  ['analog_6',['ANALOG',['../_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6',1,'Cable.h']]]
+  ['analog_6',['ANALOG',['../_cable_8h.html#a2634dc8f796d724e921dc6a0edb43507a49060614b990fe7d76fef9cd92990ce6',1,'Cable.h']]],
+  ['automation_20suite_7',['Automation Suite',['../index.html',1,'Junction Diagram Automation Suite'],['../index.html#autotoc_md0',1,'Junction Diagram Automation Suite']]]
 ];

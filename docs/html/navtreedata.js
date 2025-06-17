@@ -25,6 +25,22 @@
 var NAVTREE =
 [
   [ "Junction Diagram Automation Suite", "index.html", [
+    [ "Junction Diagram Automation Suite", "index.html#autotoc_md0", [
+      [ "Introduction", "index.html#autotoc_md1", null ],
+      [ "Getting Started", "index.html#autotoc_md2", [
+        [ "Installation", "index.html#autotoc_md3", null ],
+        [ "Usage", "index.html#autotoc_md4", null ]
+      ] ],
+      [ "Building From Source", "index.html#autotoc_md5", [
+        [ "General Requirements", "index.html#autotoc_md6", null ],
+        [ "Cloning Sources", "index.html#autotoc_md7", null ],
+        [ "Get Dependencies", "index.html#autotoc_md8", [
+          [ "Get OpenXLSX", "index.html#autotoc_md9", null ]
+        ] ],
+        [ "Build with CMake", "index.html#autotoc_md10", null ]
+      ] ],
+      [ "Commands", "index.html#autotoc_md11", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

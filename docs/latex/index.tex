@@ -1,0 +1,120 @@
+\chapter{Junction Diagram Automation Suite }
+\hypertarget{index}{}\label{index}\index{Junction Diagram Automation Suite@{Junction Diagram Automation Suite}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+ \doxysubsection*{\href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite}{\texttt{ }} }
+
+
+
+\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Junction Diagram Automation Suite}{Junction Diagram Automation Suite}}\label{index_autotoc_md0}
+
+
+An Auto\+CAD 2024 plugin for the \sout{manipulation} and generation of junction box wiring diagrams
+
+Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC
+
+\href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.0}{\texttt{}}
+
+\hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Introduction}{Introduction}}\label{index_autotoc_md1}
+The Junction Diagram Automation Suite is an all in one tool for generating and \sout{manipulating} Gas\+Tech junction box wiring diagrams in Auto\+CAD 2024. Users can easily create junction box diagrams directly from Gas\+Tech IO lists. \sout{Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-\/index batches of cables}. All in a single {\ttfamily .arx} plugin.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{index_autotoc_md2}
+{\itshape This document is for version 1.\+1.\+0}\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Install the {\ttfamily Junction\+Builder.\+arx} file from the \href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases}{\texttt{Releases tab}}. (Consider storing this file in a dedicated Auto\+CAD plugin folder)
+\item Open Auto\+CAD and create a new drawing.
+\item Run the {\ttfamily APPLOAD} command.
+\item In the {\bfseries{Load/\+Unload Applications}} dialog box, click {\bfseries{Contents}} under {\bfseries{Startup Suite}}.
+\item Click {\bfseries{Add}} and navigate to the location of the {\ttfamily Junction\+Builder.\+arx} file you downloaded.
+\item Select {\ttfamily Junction\+Builder.\+arx} and click {\bfseries{Open}}.
+\item Click {\bfseries{Close}} in each dialog box.
+\end{DoxyItemize}
+
+The Junction Diagram Automation Suite will now automatically load each time you open Auto\+CAD.\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md4}
+{\itshape The main functionality of the Junction Diagram Automation Suite is the automatic generation of junction box wiring diagrams from an input IO list. For a full list of commands and their usages please click here.}
+
+
+\begin{DoxyItemize}
+\item You must first install the plugin before it can be used.
+\item Open Auto\+CAD and create a new drawing from one of Gas\+Tech\textquotesingle{}s blank junction box wiring diagram templates. (Make an educated guess on the size of junction box you\textquotesingle{}ll need)
+\item Run the {\ttfamily BUILDJUNCTION} command.
+\item In the {\bfseries{Junction Box Setup}} dialog box, click {\bfseries{Browse}}.
+\item Navigate to the location of your IO list {\ttfamily .xlsx} file.
+\item Select the {\ttfamily .xlsx} and click {\bfseries{Open}}.
+\item The {\bfseries{Select a Junction Tag}} box now lists every junction box defined in the IO list.
+\item Select the tag of the junction box you want to build, or click {\bfseries{Select All}} to build every junction box in the IO list.
+\item The {\bfseries{Select a Junction Box Size}} box now tells you how many spare terminals will exist when you build a box of the respective size.
+\begin{DoxyItemize}
+\item If a certain size of junction box is not able to fit the cables defined in the IO list, the option will be greyed out.
+\item If the size associated with the template you opened is greyed out, please exit the dialog, close the drawing, and open one that is able to accomodate your junction box.
+\end{DoxyItemize}
+\item Select one of the sizes from the {\bfseries{Select a Junction Box Size}} box, or select {\bfseries{Custom Box}}. ({\bfseries{Custom Box}} will be the only option if you previously clicked {\bfseries{Select All}} in the {\bfseries{Select a Junction Tag}} box)
+\item Click {\bfseries{Ok}}.
+\item The plugin will now automatically draw the junction box you selected.
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Building From Source}{Building From Source}}\label{index_autotoc_md5}
+{\itshape This is an advanced topic intended only for people who wish to modify the program in the future. If you simply wish to use the plugin, you may ignore this section.}
+
+\href{https://edenbarnes.github.io/Junction-Diagram-Automation-Suite/html/index.html}{\texttt{{\itshape Click here for documentation}}}\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{General Requirements}{General Requirements}}\label{index_autotoc_md6}
+Ensure you system includes the following\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Git}} for repository cloning.
+\item {\bfseries{MSVC}} supporting {\bfseries{C++17}} or newer.
+\item {\bfseries{CMake}} (version 3.\+16+)
+\item {\bfseries{Doxygen}} if you wish to generate documentation.
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Cloning Sources}{Cloning Sources}}\label{index_autotoc_md7}
+To obtain the Junction Diagram Automation Suite source code, use the following commands\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{git\ clone\ https://github.com/EdenBarnes/Junction-\/Diagram-\/Automation-\/Suite.git}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Get Dependencies}{Get Dependencies}}\label{index_autotoc_md8}
+The Junction Diagram Automation Suite has the following dependencies\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/troldal/OpenXLSX}{\texttt{Open\+XLSX}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Get Open\+XLSX}{Get Open\+XLSX}}\label{index_autotoc_md9}
+To obtain Open\+XLSX, use the following commands\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{git\ clone\ https://github.com/troldal/OpenXLSX.git}
+
+\end{DoxyCode}
+
+
+Place the {\ttfamily Open\+XLSX\textbackslash{}Open\+XLSX} folder inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external}.
+
+The file {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX\textbackslash{}CMake\+Lists.\+txt} should now exist. {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX} should not contain another directory named {\ttfamily Open\+XLSX}.\hypertarget{index_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{Build with CMake}{Build with CMake}}\label{index_autotoc_md10}
+To compile the Junction Diagram Automation Suite using {\bfseries{CMake}}, use the follwing commands inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{cmake\ -\/B\ ./build}
+\DoxyCodeLine{cmake\ -\/-\/build\ ./build\ -\/-\/config\ RELEASE}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+{\ttfamily rc.\+exe} must exist in the {\ttfamily PATH} when building with {\bfseries{CMake}}. If {\ttfamily rc.\+exe} (which is part of {\bfseries{MSVC}}) is missing, the dialog boxes will not function correctly.
+\end{DoxyNote}
+\hypertarget{index_autotoc_md11}{}\doxysubsection{\texorpdfstring{Commands}{Commands}}\label{index_autotoc_md11}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Command  }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Command  }&\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+\`{}\+BUILDJUNCTION\`{}  &\PBS\raggedleft Builds a junction box diagram using data in an IO list  \\\cline{1-2}
+\end{longtabu}

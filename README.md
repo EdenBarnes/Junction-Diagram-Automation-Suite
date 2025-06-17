@@ -1,6 +1,6 @@
 <h2 align="center">
     <a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite" target="blank_">
-        <img height="200" alt="GasTech Logo" src="docs/images/GasTech_logo.png" />
+        <img height="200" alt="GasTech Logo" src="https://raw.githubusercontent.com/EdenBarnes/Junction-Diagram-Automation-Suite/refs/heads/main/docs/images/GasTech_logo.png" />
     </a>
 </h2>
 
