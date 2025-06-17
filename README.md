@@ -78,6 +78,8 @@ The Junction Diagram Automation Suite will now automatically load each time you 
 
 *This is an advanced topic intended only for people who wish to modify the program in the future. If you simply wish to use the plugin, you may ignore this section.*
 
+[*Click here for documentation*](https://edenbarnes.github.io/Junction-Diagram-Automation-Suite/docs/html/index.html)
+
 ### General Requirements
 
 Ensure you system includes the following:
