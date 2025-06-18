@@ -52,6 +52,9 @@ target_link_directories(${PROJECT_NAME} PRIVATE ${ARX_SDK}/lib-x64)
 
 # Add OpenXLSX
 set(OPENXLSX_LIBRARY_TYPE "STATIC" CACHE STRING "Type of library to build for OpenXLSX")
+set(OPENXLSX_BUILD_TESTS OFF CACHE BOOL "Whether to build tests for OpenXLSX")
+set(OPENXLSX_BUILD_SAMPLES OFF CACHE BOOL "Whether to build samples for OpenXLSX")
+set(OPENXLSX_BUILD_BENCHMARKS OFF CACHE BOOL "Whether to build benchmarks for OpenXLSX")
 add_subdirectory(external/OpenXLSX)
 
 # Add wxWidgets
