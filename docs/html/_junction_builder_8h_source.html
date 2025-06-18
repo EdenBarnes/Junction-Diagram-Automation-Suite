@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="GasTech_logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.1</span>
    </div>
    <div id="projectbrief">An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div>
   </td>
@@ -98,24 +98,27 @@ $(function(){initNavTree('_junction_builder_8h_source.html','',''); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;commdlg.h&gt;</span> <span class="comment">// for GetOpenFileName</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define NOMINMAX </span><span class="comment">// makes std::numeric_limits&lt;int&gt;::max() work</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;limits&gt;</span> <span class="comment">// for std::numeric_limits</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;acedads.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;OpenXLSX.hpp&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="_cable_8h.html">Cable.h</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="_device_8h.html">Device.h</a>&quot;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="resource_8h.html">resource.h</a>&quot;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> <a class="code hl_function" href="_junction_builder_8h.html#a27067b8fdd503477397487d3fed9eb65">buildJunctionBox</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;commdlg.h&gt;</span> <span class="comment">// for GetOpenFileName</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;acedads.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;OpenXLSX.hpp&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="_cable_8h.html">Cable.h</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="_device_8h.html">Device.h</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="resource_8h.html">resource.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> <a class="code hl_function" href="_junction_builder_8h.html#a27067b8fdd503477397487d3fed9eb65">buildJunctionBox</a>();</div>
 <div class="ttc" id="a_cable_8h_html"><div class="ttname"><a href="_cable_8h.html">Cable.h</a></div><div class="ttdoc">Interface for the Cable class.</div></div>
 <div class="ttc" id="a_device_8h_html"><div class="ttname"><a href="_device_8h.html">Device.h</a></div><div class="ttdoc">Interface for the Device class.</div></div>
-<div class="ttc" id="a_junction_builder_8h_html_a27067b8fdd503477397487d3fed9eb65"><div class="ttname"><a href="_junction_builder_8h.html#a27067b8fdd503477397487d3fed9eb65">buildJunctionBox</a></div><div class="ttdeci">void buildJunctionBox()</div><div class="ttdoc">Build a junction box based on the provided specifications.</div><div class="ttdef"><b>Definition</b> JunctionBuilder.cpp:154</div></div>
+<div class="ttc" id="a_junction_builder_8h_html_a27067b8fdd503477397487d3fed9eb65"><div class="ttname"><a href="_junction_builder_8h.html#a27067b8fdd503477397487d3fed9eb65">buildJunctionBox</a></div><div class="ttdeci">void buildJunctionBox()</div><div class="ttdoc">Build a junction box based on the provided specifications.</div><div class="ttdef"><b>Definition</b> JunctionBuilder.cpp:169</div></div>
 <div class="ttc" id="aresource_8h_html"><div class="ttname"><a href="resource_8h.html">resource.h</a></div><div class="ttdoc">Helper definitions for resources.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

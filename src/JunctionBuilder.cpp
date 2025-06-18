@@ -5,9 +5,9 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 1.1.0
+ * @version 1.1.1
  * @author Ethan Barnes <ebarnes@gastecheng.com>
- * @date 2025-06-17
+ * @date 2025-06-18
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
  */
@@ -56,6 +56,19 @@ struct DialogResult {
 void _drawJunctionBox(std::string filename, std::string selectedTag, BoxSize selectedSize, AcGePoint3d origin);
 
 /**
+ * @brief Given a cable list and a current position in that list,
+ *        should the next cable be drawn on the next table.
+ *
+ * @param boxSize               Size of the box.
+ * @param cables                Reference to a vector of `Cable` objects.
+ * @param currentCableIndex     The index of the cable that is about to be added to the drawing.
+ * @param currentTerminalIndex  The terminal that the next cable will reside on.
+ * @param currentTableIndex     The current table being drawn to.
+ * @return                      `true` if the cable being drawn should be placed on the next table, `false` otherwise.
+ */
+bool _shouldSplit(BoxSize boxSize, std::vector<Cable> &cables, int currentCableIndex, int currentTerminalIndex, int currentTableIndex);
+
+/**
  * @brief Parse the provided Cable Schedule workbook and create a list of
  *        `Cable` objects for the specified junction tag.
  *
@@ -90,11 +103,13 @@ void _xlsxGetJunctionTags(HWND hDlg,
  * @param hDlg        Parent‑window handle for error dialogs.
  * @param filename    Path to the Excel workbook.
  * @param junctionTag Junction tag whose footprint is required.
+ * @param boxSize     Size of the box to calculate the footprint on. (Required to account for table splitting)
  * @return            Terminal count ("footprint").
  */
 int _xlsxGetJunctionFootprint(HWND hDlg,
                               std::string filename,
-                              std::string junctionTag);
+                              std::string junctionTag,
+                              BoxSize boxSize);
 
 /**
  * brief Update the size‑selection radio buttons to show how many spare
@@ -246,54 +261,56 @@ void _drawJunctionBox(std::string filename, std::string selectedTag, BoxSize sel
 
     int terminal = 1;
     int table = 1;
-    bool flip = false;
     for (int i = 0; i < cables.size(); i++) {
-        Cable cable = cables[i];
 
-        std::string tag = cable[0].getCombinedTag();
-        std::wstring tag_W(tag.begin(), tag.end());
-
-        // Move over to the other side if possible (Only affects large boxes)
-        if (selectedSize == BoxSize::LARGE) {
-            // If the rest of the cables take more space than in table 2, dont split
-            int sizeOfRest = 0;
-            for (int j = i ; j < cables.size(); j++) {
-                sizeOfRest += cables[j].getTerminalFootprint();
-            }
-
-            if (sizeOfRest <= 72 && i != 0 && !flip) {
-
-                // If the current cable is a safety cable, but the last cable is control, split
-                if (cable.getSystemType() == SystemType::SAFETY && cables[i - 1].getSystemType() == SystemType::CONTROL) {
-                    origin.set(21.8125, 18.3250, 0.0);
-                    terminal = 1;
-                    table = 2;
-                    flip = true;
-                }
-
-                // If we've reached the end of the table, split
-                if (terminal + cable.getTerminalFootprint() - 1 > 72) {
-                    origin.set(21.8125, 18.3250, 0.0);
-                    terminal = 1;
-                    table = 2;
-                    flip = true;
-                }
-                
-            }
+        if (_shouldSplit(selectedSize, cables, i, terminal, table)) {
+            terminal = 1;
+            table ++;
         }
 
-        cable.draw(origin, terminal, flip, junctionTag.c_str(), table);
+        bool flip = false;
+        AcGePoint3d drawPoint = origin + AcGeVector3d(0.0, -0.25, 0.0) * (terminal - 1);
+        if (selectedSize == BoxSize::LARGE && table == 2) {
+            flip = true;
+            drawPoint += AcGeVector3d(10.625, 0.0, 0.0);
+        }
 
-        int terminalFootprint = cable.getTerminalFootprint();
+        cables[i].draw(drawPoint, terminal, flip, junctionTag.c_str(), table);
 
-        terminal += terminalFootprint;
-        origin += AcGeVector3d(0.0, -0.25, 0.0) * terminalFootprint;
+        terminal += cables[i].getTerminalFootprint();
     }
 
     /*
         Customer side cables are out of the scope of this tool. If customer side cables are
         to be placed on the diagram, they should be done manually or with a seperate tool.
     */
+}
+
+bool _shouldSplit(BoxSize boxSize, std::vector<Cable> &cables, int currentCableIndex, int currentTerminalIndex, int currentTableIndex) {
+    if (boxSize == BoxSize::LARGE) {
+        // If the rest of the cables take more space than in table 2, dont split
+        int sizeOfRest = 0;
+        for (int j = currentCableIndex; j < cables.size(); j++) {
+            sizeOfRest += cables[j].getTerminalFootprint();
+        }
+
+        if (sizeOfRest <= 72 && currentCableIndex != 0 && currentTableIndex == 1) {
+
+            // If the current cable is a safety cable, but the previous cable is control, split
+            if (cables[currentCableIndex].getSystemType() == SystemType::SAFETY && cables[currentCableIndex - 1].getSystemType() == SystemType::CONTROL) {
+                return true;
+            }
+
+            // If we've reached the end of the table, split
+            if (currentTerminalIndex + cables[currentCableIndex].getTerminalFootprint() - 1 > 72) {
+                return true;
+            }       
+        }
+
+    }
+
+
+    return false;
 }
 
 std::vector<Cable> _xlsxGetCables(HWND hDlg, const std::string& filename, const std::string& junctionTag) {
@@ -415,12 +432,24 @@ void _xlsxGetJunctionTags(HWND hDlg, const std::string& filename, std::vector<st
     doc.close();
 }
 
-int _xlsxGetJunctionFootprint(HWND hDlg, std::string filename, std::string junctionTag) {
+int _xlsxGetJunctionFootprint(HWND hDlg, std::string filename, std::string junctionTag, BoxSize boxSize) {
     std::vector<Cable> cables = _xlsxGetCables(hDlg, filename, junctionTag);
 
     int footprint = 0;
-    for (Cable cable : cables) {
-        footprint += cable.getTerminalFootprint();
+    int terminal = 1;
+    int table = 1;
+
+    for (int i = 0; i < cables.size(); ++i) {
+        if (_shouldSplit(boxSize, cables, i, terminal, table)) {
+            terminal = 1;
+            table ++;
+        }
+
+        terminal += cables[i].getTerminalFootprint();
+        footprint += cables[i].getTerminalFootprint();
+
+        // Check if we over ran any tables, and return the largest int possible to indicate the box is full
+        if (boxSize == BoxSize::LARGE && terminal > 72) return std::numeric_limits<int>::max();
     }
 
     return footprint;
@@ -610,11 +639,9 @@ INT_PTR CALLBACK _DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
                 spareCounts[1] = -1;
                 spareCounts[2] = -1;
             } else {
-                int numTermUsed = _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag);
-
-                spareCounts[0] = 144 - numTermUsed;
-                spareCounts[1] = 42 - numTermUsed;
-                spareCounts[2] = 24 - numTermUsed;
+                spareCounts[0] = 144 - _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag, BoxSize::LARGE);
+                spareCounts[1] = 42  - _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag, BoxSize::MEDIUM);;
+                spareCounts[2] = 24  - _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag, BoxSize::SMALL);;
             }
 
             spareCounts[3] = 0;

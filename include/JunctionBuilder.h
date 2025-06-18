@@ -5,17 +5,20 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 1.1.0
+ * @version 1.1.1
  * @author Ethan Barnes <ebarnes@gastecheng.com>
- * @date 2025-06-16
+ * @date 2025-06-18
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
  */
 
 #pragma once
 
+#define NOMINMAX // makes std::numeric_limits<int>::max() work
+
 #include <set>
 #include <string>
+#include <limits> // for std::numeric_limits
 
 #include <windows.h>
 #include <commdlg.h> // for GetOpenFileName
