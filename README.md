@@ -12,7 +12,7 @@ An AutoCAD 2024 plugin for the ~~manipulation~~ and generation of junction box w
 
 Proprietary - All Rights Reserved by GasTech Engineering LLC
 
-[![Latest release](https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite)](https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.0)
+[![Latest release](https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite)](https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.1)
 
 </div>
 
