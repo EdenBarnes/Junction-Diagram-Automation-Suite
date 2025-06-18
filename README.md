@@ -22,7 +22,7 @@ The Junction Diagram Automation Suite is an all in one tool for generating and ~
 
 ## Getting Started
 
-*This document is for version 1.1.0*
+*This document is for version 1.1.1*
 
 ### Installation
 

@@ -25,11 +25,13 @@ enum \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{
 \item 
 void \mbox{\hyperlink{_junction_builder_8cpp_a424e65499f869afefcf6e67fc93244e0}{\+\_\+draw\+Junction\+Box}} (std\+::string filename, std\+::string selected\+Tag, \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}} selected\+Size, Ac\+Ge\+Point3d origin)
 \begin{DoxyCompactList}\small\item\em Draw a junction box from a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_junction_builder_8cpp_aa844a2516b648fbe44e436b1bb22699c}{\+\_\+should\+Split}} (\mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}} box\+Size, std\+::vector$<$ \mbox{\hyperlink{class_cable}{Cable}} $>$ \&cables, int current\+Cable\+Index, int current\+Terminal\+Index, int current\+Table\+Index)
+\begin{DoxyCompactList}\small\item\em Given a cable list and a current position in that list, should the next cable be drawn on the next table. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_cable}{Cable}} $>$ \mbox{\hyperlink{_junction_builder_8cpp_a47704ceed78a1325245f454fc42497c6}{\+\_\+xlsx\+Get\+Cables}} (HWND h\+Dlg, const std\+::string \&filename, const std\+::string \&junction\+Tag)
 \begin{DoxyCompactList}\small\item\em Parse the provided \doxylink{class_cable}{Cable} Schedule workbook and create a list of {\ttfamily \doxylink{class_cable}{Cable}} objects for the specified junction tag. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_junction_builder_8cpp_a2ac539ff9368dd29485de79fe80899af}{\+\_\+xlsx\+Get\+Junction\+Tags}} (HWND h\+Dlg, const std\+::string \&filename, std\+::vector$<$ std\+::string $>$ \&tags)
 \begin{DoxyCompactList}\small\item\em Collect all unique junction tags found in the \doxylink{class_cable}{Cable} Schedule sheet of the workbook. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{_junction_builder_8cpp_aa03429b38a4bf326466af2d50410a7d3}{\+\_\+xlsx\+Get\+Junction\+Footprint}} (HWND h\+Dlg, std\+::string filename, std\+::string junction\+Tag)
+int \mbox{\hyperlink{_junction_builder_8cpp_ae24a2202757a9ad485ef33f4414d233a}{\+\_\+xlsx\+Get\+Junction\+Footprint}} (HWND h\+Dlg, std\+::string filename, std\+::string junction\+Tag, \mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}} box\+Size)
 \begin{DoxyCompactList}\small\item\em Calculate the total number of terminals required by all cables that terminate in the given junction tag. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_junction_builder_8cpp_a613989fed4b3260ab88b217a2c94de5d}{\+\_\+update\+Size\+Radio\+Buttons}} (HWND h\+Dlg, const std\+::vector$<$ HWND $>$ \&size\+Buttons, const std\+::vector$<$ int $>$ \&spare\+Counts)
 \item 
@@ -47,13 +49,13 @@ Definitons for building junction boxes.
 This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
 
 \begin{DoxyVersion}{Version}
-1.\+1.\+0 
+1.\+1.\+1 
 \end{DoxyVersion}
 \begin{DoxyAuthor}{Author}
 Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2025-\/06-\/17 
+2025-\/06-\/18 
 \end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
 Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
@@ -166,6 +168,32 @@ The function is called after selecting a new XLSX file and whenever the spare‑
 {\em h\+Dlg} & Dialog window handle. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{_junction_builder_8cpp_aa844a2516b648fbe44e436b1bb22699c}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_shouldSplit@{\_shouldSplit}}
+\index{\_shouldSplit@{\_shouldSplit}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{\_shouldSplit()}{\_shouldSplit()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_aa844a2516b648fbe44e436b1bb22699c} 
+bool \+\_\+should\+Split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}}}]{box\+Size}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_cable}{Cable}} $>$ \&}]{cables}{, }\item[{int}]{current\+Cable\+Index}{, }\item[{int}]{current\+Terminal\+Index}{, }\item[{int}]{current\+Table\+Index}{}\end{DoxyParamCaption})}
+
+
+
+Given a cable list and a current position in that list, should the next cable be drawn on the next table. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Size} & Size of the box. \\
+\hline
+{\em cables} & Reference to a vector of {\ttfamily \doxylink{class_cable}{Cable}} objects. \\
+\hline
+{\em current\+Cable\+Index} & The index of the cable that is about to be added to the drawing. \\
+\hline
+{\em current\+Terminal\+Index} & The terminal that the next cable will reside on. \\
+\hline
+{\em current\+Table\+Index} & The current table being drawn to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the cable being drawn should be placed on the next table, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
 \Hypertarget{_junction_builder_8cpp_a613989fed4b3260ab88b217a2c94de5d}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_updateSizeRadioButtons@{\_updateSizeRadioButtons}}
 \index{\_updateSizeRadioButtons@{\_updateSizeRadioButtons}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
 \doxysubsubsection{\texorpdfstring{\_updateSizeRadioButtons()}{\_updateSizeRadioButtons()}}
@@ -205,11 +233,11 @@ Parse the provided \doxylink{class_cable}{Cable} Schedule workbook and create a 
 \begin{DoxyReturn}{Returns}
 Vector of fully‑populated {\ttfamily \doxylink{class_cable}{Cable}} objects. If the file fails to open or is incompatible, an empty vector is returned. 
 \end{DoxyReturn}
-\Hypertarget{_junction_builder_8cpp_aa03429b38a4bf326466af2d50410a7d3}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_xlsxGetJunctionFootprint@{\_xlsxGetJunctionFootprint}}
+\Hypertarget{_junction_builder_8cpp_ae24a2202757a9ad485ef33f4414d233a}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!\_xlsxGetJunctionFootprint@{\_xlsxGetJunctionFootprint}}
 \index{\_xlsxGetJunctionFootprint@{\_xlsxGetJunctionFootprint}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
 \doxysubsubsection{\texorpdfstring{\_xlsxGetJunctionFootprint()}{\_xlsxGetJunctionFootprint()}}
-{\footnotesize\ttfamily \label{_junction_builder_8cpp_aa03429b38a4bf326466af2d50410a7d3} 
-int \+\_\+xlsx\+Get\+Junction\+Footprint (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{std\+::string}]{filename}{, }\item[{std\+::string}]{junction\+Tag}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_ae24a2202757a9ad485ef33f4414d233a} 
+int \+\_\+xlsx\+Get\+Junction\+Footprint (\begin{DoxyParamCaption}\item[{HWND}]{h\+Dlg}{, }\item[{std\+::string}]{filename}{, }\item[{std\+::string}]{junction\+Tag}{, }\item[{\mbox{\hyperlink{_junction_builder_8cpp_aaf39cd3357b27aad8818297c73a24cec}{Box\+Size}}}]{box\+Size}{}\end{DoxyParamCaption})}
 
 
 
@@ -222,6 +250,8 @@ Calculate the total number of terminals required by all cables that terminate in
 {\em filename} & Path to the Excel workbook. \\
 \hline
 {\em junction\+Tag} & Junction tag whose footprint is required. \\
+\hline
+{\em box\+Size} & Size of the box to calculate the footprint on. (Required to account for table splitting) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

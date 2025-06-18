@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="GasTech_logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.0</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.1</span>
    </div>
    <div id="projectbrief">An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div>
   </td>
@@ -117,12 +117,14 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a424e65499f869afefcf6e67fc93244e0" id="r_a424e65499f869afefcf6e67fc93244e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a424e65499f869afefcf6e67fc93244e0">_drawJunctionBox</a> (std::string filename, std::string selectedTag, <a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a> selectedSize, AcGePoint3d origin)</td></tr>
 <tr class="memdesc:a424e65499f869afefcf6e67fc93244e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a junction box from a file.  <br /></td></tr>
+<tr class="memitem:aa844a2516b648fbe44e436b1bb22699c" id="r_aa844a2516b648fbe44e436b1bb22699c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa844a2516b648fbe44e436b1bb22699c">_shouldSplit</a> (<a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a> boxSize, std::vector&lt; <a class="el" href="class_cable.html">Cable</a> &gt; &amp;cables, int currentCableIndex, int currentTerminalIndex, int currentTableIndex)</td></tr>
+<tr class="memdesc:aa844a2516b648fbe44e436b1bb22699c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a cable list and a current position in that list, should the next cable be drawn on the next table.  <br /></td></tr>
 <tr class="memitem:a47704ceed78a1325245f454fc42497c6" id="r_a47704ceed78a1325245f454fc42497c6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_cable.html">Cable</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47704ceed78a1325245f454fc42497c6">_xlsxGetCables</a> (HWND hDlg, const std::string &amp;filename, const std::string &amp;junctionTag)</td></tr>
 <tr class="memdesc:a47704ceed78a1325245f454fc42497c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the provided <a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a> Schedule workbook and create a list of <span class="tt"><a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a></span> objects for the specified junction tag.  <br /></td></tr>
 <tr class="memitem:a2ac539ff9368dd29485de79fe80899af" id="r_a2ac539ff9368dd29485de79fe80899af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ac539ff9368dd29485de79fe80899af">_xlsxGetJunctionTags</a> (HWND hDlg, const std::string &amp;filename, std::vector&lt; std::string &gt; &amp;tags)</td></tr>
 <tr class="memdesc:a2ac539ff9368dd29485de79fe80899af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect all unique junction tags found in the <a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a> Schedule sheet of the workbook.  <br /></td></tr>
-<tr class="memitem:aa03429b38a4bf326466af2d50410a7d3" id="r_aa03429b38a4bf326466af2d50410a7d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa03429b38a4bf326466af2d50410a7d3">_xlsxGetJunctionFootprint</a> (HWND hDlg, std::string filename, std::string junctionTag)</td></tr>
-<tr class="memdesc:aa03429b38a4bf326466af2d50410a7d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the total number of terminals required by all cables that terminate in the given junction tag.  <br /></td></tr>
+<tr class="memitem:ae24a2202757a9ad485ef33f4414d233a" id="r_ae24a2202757a9ad485ef33f4414d233a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae24a2202757a9ad485ef33f4414d233a">_xlsxGetJunctionFootprint</a> (HWND hDlg, std::string filename, std::string junctionTag, <a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a> boxSize)</td></tr>
+<tr class="memdesc:ae24a2202757a9ad485ef33f4414d233a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the total number of terminals required by all cables that terminate in the given junction tag.  <br /></td></tr>
 <tr class="memitem:a613989fed4b3260ab88b217a2c94de5d" id="r_a613989fed4b3260ab88b217a2c94de5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a613989fed4b3260ab88b217a2c94de5d">_updateSizeRadioButtons</a> (HWND hDlg, const std::vector&lt; HWND &gt; &amp;sizeButtons, const std::vector&lt; int &gt; &amp;spareCounts)</td></tr>
 <tr class="memitem:a75eba94ec93a3b08713a21c8c4661f2f" id="r_a75eba94ec93a3b08713a21c8c4661f2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75eba94ec93a3b08713a21c8c4661f2f">_rebuildDialogBox</a> (const std::vector&lt; std::string &gt; &amp;junctionTags, std::vector&lt; HWND &gt; &amp;tagRadioButtons, std::vector&lt; HWND &gt; &amp;sizeRadioButtons, const std::vector&lt; int &gt; &amp;spareCounts, HWND hDlg)</td></tr>
 <tr class="memdesc:a75eba94ec93a3b08713a21c8c4661f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild (or build) the dialog‑box controls for junction‑tag and box‑ size selection.  <br /></td></tr>
@@ -134,9 +136,9 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Definitons for building junction boxes. </p>
 <p>This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.</p>
-<dl class="section version"><dt>Version</dt><dd>1.1.0 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.1.1 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Ethan Barnes <a href="#" onclick="location.href='mai'+'lto:'+'eba'+'rn'+'es@'+'ga'+'ste'+'ch'+'eng'+'.c'+'om'; return false;">ebarn<span class="obfuscator">.nosp@m.</span>es@g<span class="obfuscator">.nosp@m.</span>astec<span class="obfuscator">.nosp@m.</span>heng<span class="obfuscator">.nosp@m.</span>.com</a> </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2025-06-17 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025-06-18 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Proprietary - All Rights Reserved by GasTech Engineering LLC </dd></dl>
 </div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
 <a id="aaf39cd3357b27aad8818297c73a24cec" name="aaf39cd3357b27aad8818297c73a24cec"></a>
@@ -300,6 +302,55 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa844a2516b648fbe44e436b1bb22699c" name="aa844a2516b648fbe44e436b1bb22699c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa844a2516b648fbe44e436b1bb22699c">&#9670;&#160;</a></span>_shouldSplit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool _shouldSplit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a></td>          <td class="paramname"><span class="paramname"><em>boxSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_cable.html">Cable</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>cables</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>currentCableIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>currentTerminalIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>currentTableIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Given a cable list and a current position in that list, should the next cable be drawn on the next table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boxSize</td><td>Size of the box. </td></tr>
+    <tr><td class="paramname">cables</td><td>Reference to a vector of <span class="tt"><a class="el" href="class_cable.html" title="Represents a cable with specific attributes and devices connected to it.">Cable</a></span> objects. </td></tr>
+    <tr><td class="paramname">currentCableIndex</td><td>The index of the cable that is about to be added to the drawing. </td></tr>
+    <tr><td class="paramname">currentTerminalIndex</td><td>The terminal that the next cable will reside on. </td></tr>
+    <tr><td class="paramname">currentTableIndex</td><td>The current table being drawn to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the cable being drawn should be placed on the next table, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a613989fed4b3260ab88b217a2c94de5d" name="a613989fed4b3260ab88b217a2c94de5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a613989fed4b3260ab88b217a2c94de5d">&#9670;&#160;</a></span>_updateSizeRadioButtons()</h2>
 
@@ -372,8 +423,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa03429b38a4bf326466af2d50410a7d3" name="aa03429b38a4bf326466af2d50410a7d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa03429b38a4bf326466af2d50410a7d3">&#9670;&#160;</a></span>_xlsxGetJunctionFootprint()</h2>
+<a id="ae24a2202757a9ad485ef33f4414d233a" name="ae24a2202757a9ad485ef33f4414d233a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24a2202757a9ad485ef33f4414d233a">&#9670;&#160;</a></span>_xlsxGetJunctionFootprint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,7 +442,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>junctionTag</em></span>&#160;)</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>junctionTag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aaf39cd3357b27aad8818297c73a24cec">BoxSize</a></td>          <td class="paramname"><span class="paramname"><em>boxSize</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -402,6 +458,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">hDlg</td><td>Parent‑window handle for error dialogs. </td></tr>
     <tr><td class="paramname">filename</td><td>Path to the Excel workbook. </td></tr>
     <tr><td class="paramname">junctionTag</td><td>Junction tag whose footprint is required. </td></tr>
+    <tr><td class="paramname">boxSize</td><td>Size of the box to calculate the footprint on. (Required to account for table splitting) </td></tr>
   </table>
   </dd>
 </dl>
