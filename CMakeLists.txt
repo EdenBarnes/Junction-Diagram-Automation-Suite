@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS OFF)
 
@@ -49,9 +51,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_directories(${PROJECT_NAME} PRIVATE ${ARX_SDK}/lib-x64)
 
 # Add OpenXLSX
-option(OPENXLSX_LIBRARY_TYPE "STATIC" ON)
-option(OPENXLSX_ENABLE_NOWIDE "OFF")
+set(OPENXLSX_LIBRARY_TYPE "STATIC" CACHE STRING "Type of library to build for OpenXLSX")
 add_subdirectory(external/OpenXLSX)
+
+# Add wxWidgets
+add_subdirectory(external/wxWidgets)
 
 # Link libraries
 target_link_libraries(${PROJECT_NAME}

@@ -5,9 +5,6 @@
 build/
 cmake/
 
-# External libraries (if they contain compiled or temporary files)
-external/*
-
 # Ignore build artifacts from CMake
 CMakeFiles/
 *.dir/
