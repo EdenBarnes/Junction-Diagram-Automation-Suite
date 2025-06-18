@@ -90,11 +90,13 @@ void _xlsxGetJunctionTags(HWND hDlg,
  * @param hDlg        Parent‑window handle for error dialogs.
  * @param filename    Path to the Excel workbook.
  * @param junctionTag Junction tag whose footprint is required.
+ * @param boxSize     Size of the box to calculate the footprint on. (Required to account for table splitting)
  * @return            Terminal count ("footprint").
  */
 int _xlsxGetJunctionFootprint(HWND hDlg,
                               std::string filename,
-                              std::string junctionTag);
+                              std::string junctionTag,
+                              BoxSize boxSize);
 
 /**
  * brief Update the size‑selection radio buttons to show how many spare
@@ -415,12 +417,54 @@ void _xlsxGetJunctionTags(HWND hDlg, const std::string& filename, std::vector<st
     doc.close();
 }
 
-int _xlsxGetJunctionFootprint(HWND hDlg, std::string filename, std::string junctionTag) {
+int _xlsxGetJunctionFootprint(HWND hDlg, std::string filename, std::string junctionTag, BoxSize boxSize) {
     std::vector<Cable> cables = _xlsxGetCables(hDlg, filename, junctionTag);
 
     int footprint = 0;
-    for (Cable cable : cables) {
+    // for (Cable cable : cables) {
+    //     footprint += cable.getTerminalFootprint();
+    // }
+    int terminal = 1;
+    bool split = false;
+
+    for (int i = 0; i < cables.size(); ++i) {
+        Cable cable = cables[i];
+
         footprint += cable.getTerminalFootprint();
+        terminal += cable.getTerminalFootprint();
+
+        // TODO: Create _shouldSplit function for this
+        // Determine if we need to split
+        if (boxSize == BoxSize::LARGE) {
+            // If the rest of the cables take more space than in table 2, dont split
+            int sizeOfRest = 0;
+            for (int j = i ; j < cables.size(); j++) {
+                sizeOfRest += cables[j].getTerminalFootprint();
+            }
+
+            if (sizeOfRest <= 72 && i != 0 && !split) {
+
+                // If the current cable is a safety cable, but the last cable is control, split
+                if (cable.getSystemType() == SystemType::SAFETY && cables[i - 1].getSystemType() == SystemType::CONTROL) {
+                    terminal = 1;
+                    split = true;
+                }
+
+                // If we've reached the end of the table, split
+                if (terminal + cable.getTerminalFootprint() - 1 > 72) {
+                    terminal = 1;
+                    split = true;
+                }
+                
+            }
+
+            // See if we overflow any of the tables
+            if (terminal > 72) {
+                return std::numeric_limits<int>::max();
+            }
+        }
+
+        
     }
 
     return footprint;
@@ -610,11 +654,9 @@ INT_PTR CALLBACK _DialogProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
                 spareCounts[1] = -1;
                 spareCounts[2] = -1;
             } else {
-                int numTermUsed = _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag);
-
-                spareCounts[0] = 144 - numTermUsed;
-                spareCounts[1] = 42 - numTermUsed;
-                spareCounts[2] = 24 - numTermUsed;
+                spareCounts[0] = 144 - _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag, BoxSize::LARGE);
+                spareCounts[1] = 42  - _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag, BoxSize::MEDIUM);;
+                spareCounts[2] = 24  - _xlsxGetJunctionFootprint(hDlg, filenameString, selectedTag, BoxSize::SMALL);;
             }
 
             spareCounts[3] = 0;

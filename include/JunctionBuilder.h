@@ -14,8 +14,11 @@
 
 #pragma once
 
+#define NOMINMAX // makes std::numeric_limits<int>::max() work
+
 #include <set>
 #include <string>
+#include <limits> // for std::numeric_limits
 
 #include <windows.h>
 #include <commdlg.h> // for GetOpenFileName
