@@ -371,7 +371,7 @@ void reIndexCable() {
             continue; // skip unsupported entities
 
         double heightDif = highest - position.y;
-        int terminalDif = (int)(heightDif / 0.25);
+        int terminalDif = std::round(heightDif / 0.25);
 
         if (blockName == L"Junction Termination" || blockName == L"Field Device Termination") {
             for (int j = 1; j <= 9; ++j) {
