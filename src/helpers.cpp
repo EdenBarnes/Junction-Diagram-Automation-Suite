@@ -261,6 +261,52 @@ Acad::ErrorStatus acadSetBlockAttribute(
     return Acad::eKeyNotFound;
 }
 
+Acad::ErrorStatus acadGetBlockAttribute(
+    const AcDbObjectId& blockRefId,
+    const wchar_t*      tagName,
+    std::wstring&       outValue
+) {
+    // Open block reference for reading
+    AcDbBlockReference* pBlkRef = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pBlkRef, blockRefId, AcDb::kForRead);
+    if (es != Acad::eOk || !pBlkRef) {
+        acutPrintf(L"\nError: Could not open block reference.");
+        return es;
+    }
+
+    // Create iterator for attached attributes
+    AcDbObjectIterator* pIter = pBlkRef->attributeIterator();
+    if (!pIter) {
+        acutPrintf(L"\nError: Failed to get attribute iterator.");
+        pBlkRef->close();
+        return Acad::eNullIterator;
+    }
+
+    // Search for matching attribute tag
+    for (; !pIter->done(); pIter->step()) {
+        AcDbObjectId attId = pIter->objectId();
+        AcDbAttribute* pAtt = nullptr;
+
+        if (acdbOpenObject(pAtt, attId, AcDb::kForRead) == Acad::eOk && pAtt) {
+            if (_wcsicmp(pAtt->tag(), tagName) == 0) {
+                // Found – copy value to outValue
+                outValue = pAtt->textString();
+                pAtt->close();
+                delete pIter;
+                pBlkRef->close();
+                return Acad::eOk;
+            }
+            pAtt->close();
+        }
+    }
+
+    // Not found
+    delete pIter;
+    pBlkRef->close();
+    acutPrintf(L"\nWarning: Attribute '%ls' not found.", tagName);
+    return Acad::eKeyNotFound;
+}
+
 Acad::ErrorStatus acadSetObjectProperty(
     const AcDbObjectId& objId,
     AcDb::DxfCode groupCode,

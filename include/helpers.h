@@ -97,6 +97,28 @@ Acad::ErrorStatus acadSetBlockAttribute(
 );
 
 /**
+ * @brief Retrieve the text value of a block attribute.
+ *
+ * Searches the given block reference for an attribute whose tag matches
+ * \p tagName (case‑insensitive).  If found, the attribute’s text string is
+ * returned in \p outValue.
+ *
+ * @param blockRefId The object ID of the block reference to inspect.
+ * @param tagName    The attribute tag to search for (case‑insensitive).
+ * @param outValue   Receives the attribute’s text string on success.
+ *
+ * @return Acad::ErrorStatus  
+ *         - Acad::eOk           – attribute found, value returned.  
+ *         - Acad::eKeyNotFound  – attribute with that tag not present.  
+ *         - Other Acad errors   – object open failure, iterator error, etc.
+ */
+Acad::ErrorStatus acadGetBlockAttribute(
+    const AcDbObjectId& blockRefId,
+    const wchar_t*      tagName,
+    std::wstring&       outValue
+);
+
+/**
  * @brief Set a general object property to a new value.
  *
  * This function updates the specified property of an object with a new value, 
