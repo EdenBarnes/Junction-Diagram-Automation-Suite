@@ -21,16 +21,53 @@
 \DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ AcDbEvalVariant\&\ newValue}
 \DoxyCodeLine{00057\ );}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00072\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_ab7c7fb31b58fd0f92543dac69958cb25}{acadSetBlockAttribute}}(}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ blockRefId,}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ tagName,}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ newValue}
-\DoxyCodeLine{00076\ );}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00091\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_abce2e51eb25963d2e787f9c9b7057d29}{acadSetObjectProperty}}(}
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
-\DoxyCodeLine{00093\ \ \ \ \ AcDb::DxfCode\ groupCode,}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ value}
-\DoxyCodeLine{00095\ );}
+\DoxyCodeLine{00074\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_a8e77083b6316cb6bb6c51fe7b99842aa}{acadGetDynBlockProperty}}(}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ blockRefId,}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ propName,}
+\DoxyCodeLine{00077\ \ \ \ \ AcDbEvalVariant\&\ outValue}
+\DoxyCodeLine{00078\ );}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00093\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_ab7c7fb31b58fd0f92543dac69958cb25}{acadSetBlockAttribute}}(}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ blockRefId,}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ tagName,}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ newValue}
+\DoxyCodeLine{00097\ );}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00115\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_aa15b19eb51c215fd6f304d350822743f}{acadGetBlockAttribute}}(}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ blockRefId,}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ \ \ \ \ \ tagName,}
+\DoxyCodeLine{00118\ \ \ \ \ std::wstring\&\ \ \ \ \ \ \ outValue}
+\DoxyCodeLine{00119\ );}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00134\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_abce2e51eb25963d2e787f9c9b7057d29}{acadSetObjectProperty}}(}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00136\ \ \ \ \ AcDb::DxfCode\ groupCode,}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ value}
+\DoxyCodeLine{00138\ );}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00153\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_aa2c77575c582c155efcdb418a9afce5f}{acadSetObjectPosition}}(}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{const}\ AcGePoint3d\&\ position}
+\DoxyCodeLine{00156\ );}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00170\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_ad0fc139b27b4571b93ef9e53ea5892e2}{acadGetObjectPosition}}(}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00172\ \ \ \ \ AcGePoint3d\&\ outPosition}
+\DoxyCodeLine{00173\ );}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00186\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_afb1f4e0902ec12534f5b3c8a2ab3970f}{acadSetObjectScale}}(}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{const}\ AcGeScale3d\&\ scale}
+\DoxyCodeLine{00189\ );}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00202\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_ad34cf39389f7b1ef2f2cb979b5d8880b}{acadGetObjectScale}}(}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00204\ \ \ \ \ AcGeScale3d\&\ outScale}
+\DoxyCodeLine{00205\ );}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00219\ Acad::ErrorStatus\ \mbox{\hyperlink{helpers_8h_a1a7b8ab246353280e5a3946bb5a1dede}{acadGetBlockName}}(}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{const}\ AcDbObjectId\&\ objId,}
+\DoxyCodeLine{00221\ \ \ \ \ std::wstring\ \&name}
+\DoxyCodeLine{00222\ );}
 
 \end{DoxyCode}

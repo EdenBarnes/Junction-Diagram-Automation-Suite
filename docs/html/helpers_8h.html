@@ -112,10 +112,24 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae053a4de4bf3d9931c6bfb8e3aab1b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a block into the database at a specified origin point.  <br /></td></tr>
 <tr class="memitem:a7d6c0df2f87377e54a207d9e925b3726" id="r_a7d6c0df2f87377e54a207d9e925b3726"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d6c0df2f87377e54a207d9e925b3726">acadSetDynBlockProperty</a> (const AcDbObjectId &amp;blockRefId, const wchar_t *propName, const AcDbEvalVariant &amp;newValue)</td></tr>
 <tr class="memdesc:a7d6c0df2f87377e54a207d9e925b3726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a dynamic block property to a new value.  <br /></td></tr>
+<tr class="memitem:a8e77083b6316cb6bb6c51fe7b99842aa" id="r_a8e77083b6316cb6bb6c51fe7b99842aa"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e77083b6316cb6bb6c51fe7b99842aa">acadGetDynBlockProperty</a> (const AcDbObjectId &amp;blockRefId, const wchar_t *propName, AcDbEvalVariant &amp;outValue)</td></tr>
+<tr class="memdesc:a8e77083b6316cb6bb6c51fe7b99842aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the value of a dynamic block property.  <br /></td></tr>
 <tr class="memitem:ab7c7fb31b58fd0f92543dac69958cb25" id="r_ab7c7fb31b58fd0f92543dac69958cb25"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7c7fb31b58fd0f92543dac69958cb25">acadSetBlockAttribute</a> (const AcDbObjectId &amp;blockRefId, const wchar_t *tagName, const wchar_t *newValue)</td></tr>
 <tr class="memdesc:ab7c7fb31b58fd0f92543dac69958cb25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a block attribute to a new value.  <br /></td></tr>
+<tr class="memitem:aa15b19eb51c215fd6f304d350822743f" id="r_aa15b19eb51c215fd6f304d350822743f"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa15b19eb51c215fd6f304d350822743f">acadGetBlockAttribute</a> (const AcDbObjectId &amp;blockRefId, const wchar_t *tagName, std::wstring &amp;outValue)</td></tr>
+<tr class="memdesc:aa15b19eb51c215fd6f304d350822743f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the text value of a block attribute.  <br /></td></tr>
 <tr class="memitem:abce2e51eb25963d2e787f9c9b7057d29" id="r_abce2e51eb25963d2e787f9c9b7057d29"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abce2e51eb25963d2e787f9c9b7057d29">acadSetObjectProperty</a> (const AcDbObjectId &amp;objId, AcDb::DxfCode groupCode, const wchar_t *value)</td></tr>
 <tr class="memdesc:abce2e51eb25963d2e787f9c9b7057d29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a general object property to a new value.  <br /></td></tr>
+<tr class="memitem:aa2c77575c582c155efcdb418a9afce5f" id="r_aa2c77575c582c155efcdb418a9afce5f"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2c77575c582c155efcdb418a9afce5f">acadSetObjectPosition</a> (const AcDbObjectId &amp;objId, const AcGePoint3d &amp;position)</td></tr>
+<tr class="memdesc:aa2c77575c582c155efcdb418a9afce5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of a supported entity.  <br /></td></tr>
+<tr class="memitem:ad0fc139b27b4571b93ef9e53ea5892e2" id="r_ad0fc139b27b4571b93ef9e53ea5892e2"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0fc139b27b4571b93ef9e53ea5892e2">acadGetObjectPosition</a> (const AcDbObjectId &amp;objId, AcGePoint3d &amp;outPosition)</td></tr>
+<tr class="memdesc:ad0fc139b27b4571b93ef9e53ea5892e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position of a supported entity.  <br /></td></tr>
+<tr class="memitem:afb1f4e0902ec12534f5b3c8a2ab3970f" id="r_afb1f4e0902ec12534f5b3c8a2ab3970f"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb1f4e0902ec12534f5b3c8a2ab3970f">acadSetObjectScale</a> (const AcDbObjectId &amp;objId, const AcGeScale3d &amp;scale)</td></tr>
+<tr class="memdesc:afb1f4e0902ec12534f5b3c8a2ab3970f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the scale of a supported entity.  <br /></td></tr>
+<tr class="memitem:ad34cf39389f7b1ef2f2cb979b5d8880b" id="r_ad34cf39389f7b1ef2f2cb979b5d8880b"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad34cf39389f7b1ef2f2cb979b5d8880b">acadGetObjectScale</a> (const AcDbObjectId &amp;objId, AcGeScale3d &amp;outScale)</td></tr>
+<tr class="memdesc:ad34cf39389f7b1ef2f2cb979b5d8880b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the scale of a supported entity.  <br /></td></tr>
+<tr class="memitem:a1a7b8ab246353280e5a3946bb5a1dede" id="r_a1a7b8ab246353280e5a3946bb5a1dede"><td class="memItemLeft" align="right" valign="top">Acad::ErrorStatus&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a7b8ab246353280e5a3946bb5a1dede">acadGetBlockName</a> (const AcDbObjectId &amp;objId, std::wstring &amp;name)</td></tr>
+<tr class="memdesc:a1a7b8ab246353280e5a3946bb5a1dede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get block name that an object references.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for helper functions related to database operations. </p>
@@ -125,6 +139,186 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2025-06-16 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Proprietary - All Rights Reserved by GasTech Engineering LLC </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa15b19eb51c215fd6f304d350822743f" name="aa15b19eb51c215fd6f304d350822743f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa15b19eb51c215fd6f304d350822743f">&#9670;&#160;</a></span>acadGetBlockAttribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadGetBlockAttribute </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>blockRefId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const wchar_t *</td>          <td class="paramname"><span class="paramname"><em>tagName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>outValue</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve the text value of a block attribute. </p>
+<p>Searches the given block reference for an attribute whose tag matches <code class="param">tagName</code> (case‑insensitive). If found, the attribute’s text string is returned in <code class="param">outValue</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockRefId</td><td>The object ID of the block reference to inspect. </td></tr>
+    <tr><td class="paramname">tagName</td><td>The attribute tag to search for (case‑insensitive). </td></tr>
+    <tr><td class="paramname">outValue</td><td>Receives the attribute’s text string on success.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus <br  />
+<ul>
+<li>Acad::eOk – attribute found, value returned. <br  />
+</li>
+<li>Acad::eKeyNotFound – attribute with that tag not present. <br  />
+</li>
+<li>Other Acad errors – object open failure, iterator error, etc. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a1a7b8ab246353280e5a3946bb5a1dede" name="a1a7b8ab246353280e5a3946bb5a1dede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a7b8ab246353280e5a3946bb5a1dede">&#9670;&#160;</a></span>acadGetBlockName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadGetBlockName </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>objId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::wstring &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get block name that an object references. </p>
+<p>This function takes an objectId, checks to see if its a reference to a block, and returns the name of that block reference.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objId</td><td>The object ID of the entity whose block name we want.ABC </td></tr>
+    <tr><td class="paramname">name</td><td>A wide string reference where the name will be stored. Empty if the object is not a block reference.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorState indicating success or failure of the operation. </dd></dl>
+
+</div>
+</div>
+<a id="a8e77083b6316cb6bb6c51fe7b99842aa" name="a8e77083b6316cb6bb6c51fe7b99842aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e77083b6316cb6bb6c51fe7b99842aa">&#9670;&#160;</a></span>acadGetDynBlockProperty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadGetDynBlockProperty </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>blockRefId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const wchar_t *</td>          <td class="paramname"><span class="paramname"><em>propName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AcDbEvalVariant &amp;</td>          <td class="paramname"><span class="paramname"><em>outValue</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve the value of a dynamic block property. </p>
+<p>This function reads the current value of a specified property from a dynamic block reference.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockRefId</td><td>The object ID of the block reference whose property is being read. </td></tr>
+    <tr><td class="paramname">propName</td><td>The name of the property to retrieve. Must exist in the dynamic block definition. </td></tr>
+    <tr><td class="paramname">outValue</td><td>Output parameter that receives the current value of the property, encapsulated as an AcDbEvalVariant.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus indicating success or failure of the operation. Returns Acad::eKeyNotFound if the property does not exist. </dd></dl>
+
+</div>
+</div>
+<a id="ad0fc139b27b4571b93ef9e53ea5892e2" name="ad0fc139b27b4571b93ef9e53ea5892e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0fc139b27b4571b93ef9e53ea5892e2">&#9670;&#160;</a></span>acadGetObjectPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadGetObjectPosition </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>objId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AcGePoint3d &amp;</td>          <td class="paramname"><span class="paramname"><em>outPosition</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the position of a supported entity. </p>
+<p>This function retrieves the position of a supported object type, such as a block reference, point, circle, or text. The result is stored in a 3D point.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objId</td><td>The object ID of the entity. </td></tr>
+    <tr><td class="paramname">outPosition</td><td>The position of the entity, if supported.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus indicating success or failure of the operation. Returns Acad::eInvalidInput if the entity does not have a position. </dd></dl>
+
+</div>
+</div>
+<a id="ad34cf39389f7b1ef2f2cb979b5d8880b" name="ad34cf39389f7b1ef2f2cb979b5d8880b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad34cf39389f7b1ef2f2cb979b5d8880b">&#9670;&#160;</a></span>acadGetObjectScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadGetObjectScale </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>objId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AcGeScale3d &amp;</td>          <td class="paramname"><span class="paramname"><em>outScale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the scale of a supported entity. </p>
+<p>Retrieves the scale factors (X, Y, Z) of a block reference or other scalable entity.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objId</td><td>The object ID of the entity. </td></tr>
+    <tr><td class="paramname">outScale</td><td>Receives the object's scale as an AcGeScale3d.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus indicating success or failure. Returns Acad::eInvalidInput if scale is not supported for this type. </dd></dl>
+
+</div>
+</div>
 <a id="ae053a4de4bf3d9931c6bfb8e3aab1b32" name="ae053a4de4bf3d9931c6bfb8e3aab1b32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae053a4de4bf3d9931c6bfb8e3aab1b32">&#9670;&#160;</a></span>acadInsertBlock()</h2>
 
@@ -233,6 +427,38 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa2c77575c582c155efcdb418a9afce5f" name="aa2c77575c582c155efcdb418a9afce5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2c77575c582c155efcdb418a9afce5f">&#9670;&#160;</a></span>acadSetObjectPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadSetObjectPosition </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>objId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AcGePoint3d &amp;</td>          <td class="paramname"><span class="paramname"><em>position</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the position of a supported entity. </p>
+<p>This function updates the position of a supported object type, such as a block reference, point, text, or circle. Entities not supporting a direct position cannot be modified using this function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objId</td><td>The object ID of the entity to be updated. </td></tr>
+    <tr><td class="paramname">position</td><td>The new position to assign to the entity.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus indicating success or failure of the operation. Returns Acad::eInvalidInput if the entity does not support positioning. </dd></dl>
+
+</div>
+</div>
 <a id="abce2e51eb25963d2e787f9c9b7057d29" name="abce2e51eb25963d2e787f9c9b7057d29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abce2e51eb25963d2e787f9c9b7057d29">&#9670;&#160;</a></span>acadSetObjectProperty()</h2>
 
@@ -268,6 +494,38 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus indicating success or failure of the operation. </dd></dl>
+
+</div>
+</div>
+<a id="afb1f4e0902ec12534f5b3c8a2ab3970f" name="afb1f4e0902ec12534f5b3c8a2ab3970f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb1f4e0902ec12534f5b3c8a2ab3970f">&#9670;&#160;</a></span>acadSetObjectScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Acad::ErrorStatus acadSetObjectScale </td>
+          <td>(</td>
+          <td class="paramtype">const AcDbObjectId &amp;</td>          <td class="paramname"><span class="paramname"><em>objId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const AcGeScale3d &amp;</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the scale of a supported entity. </p>
+<p>Updates the X/Y/Z scale factors of a block reference or similar entity.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objId</td><td>The object ID of the entity to scale. </td></tr>
+    <tr><td class="paramname">scale</td><td>The new scale as an AcGeScale3d.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Acad::ErrorStatus indicating success or failure. Returns Acad::eInvalidInput if the entity does not support scaling. </dd></dl>
 
 </div>
 </div>

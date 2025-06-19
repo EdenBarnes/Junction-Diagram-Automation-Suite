@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['general_20requirements_0',['General Requirements',['../index.html#autotoc_md6',1,'']]],
-  ['get_20dependencies_1',['Get Dependencies',['../index.html#autotoc_md8',1,'']]],
-  ['get_20objectarx_2',['Get ObjectARX',['../index.html#autotoc_md10',1,'']]],
-  ['get_20openxlsx_3',['Get OpenXLSX',['../index.html#autotoc_md9',1,'']]],
+  ['general_20requirements_0',['General Requirements',['../index.html#autotoc_md10',1,'']]],
+  ['get_20dependencies_1',['Get Dependencies',['../index.html#autotoc_md12',1,'']]],
+  ['get_20objectarx_2',['Get ObjectARX',['../index.html#autotoc_md14',1,'']]],
+  ['get_20openxlsx_3',['Get OpenXLSX',['../index.html#autotoc_md13',1,'']]],
   ['getcabletype_4',['getCableType',['../class_cable.html#aee35fac251317365d466708446dfb4c3',1,'Cable']]],
   ['getcombinedtag_5',['getCombinedTag',['../class_device.html#a57304a04bfd07fa81c6e32399f8ef1fa',1,'Device']]],
   ['getdevices_6',['getDevices',['../class_cable.html#a4134cd38e23a776acc876917d48ccdbf',1,'Cable']]],

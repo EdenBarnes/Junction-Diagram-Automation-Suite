@@ -39,6 +39,9 @@ void Device::draw(AcGePoint3d origin, bool flip) const {
     acadSetObjectProperty(term1Id, AcDb::kDxfLayerName, L"ELECTRICAL - LIGHT");
     acadSetObjectProperty(term2Id, AcDb::kDxfLayerName, L"ELECTRICAL - LIGHT");
 
+    acadSetObjectScale(term1Id, AcGeScale3d(flip ? -1 : 1, 1.0, 1.0));
+    acadSetObjectScale(term2Id, AcGeScale3d(flip ? -1 : 1, 1.0, 1.0));
+
     AcGeVector3d symbolOffset(-0.9375, -0.125, 0.0);
     if (flip) symbolOffset.x *= -1;
 
@@ -50,6 +53,8 @@ void Device::draw(AcGePoint3d origin, bool flip) const {
         acadSetBlockAttribute(term3Id, L"#", L"REF");
 
         acadSetObjectProperty(term3Id, AcDb::kDxfLayerName, L"ELECTRICAL - LIGHT");
+
+        acadSetObjectScale(term3Id, AcGeScale3d(flip ? -1 : 1, 1.0, 1.0));
 
         symbolOffset.y = -0.25;
     }
@@ -68,6 +73,9 @@ void Device::draw(AcGePoint3d origin, bool flip) const {
         acadSetObjectProperty(term3Id, AcDb::kDxfLayerName, L"ELECTRICAL - LIGHT");
         acadSetObjectProperty(term4Id, AcDb::kDxfLayerName, L"ELECTRICAL - LIGHT");
 
+        acadSetObjectScale(term3Id, AcGeScale3d(flip ? -1 : 1, 1.0, 1.0));
+        acadSetObjectScale(term4Id, AcGeScale3d(flip ? -1 : 1, 1.0, 1.0));
+
         symbolOffset.y = -0.5;
     }
 
@@ -79,6 +87,8 @@ void Device::draw(AcGePoint3d origin, bool flip) const {
 
     acadSetBlockAttribute(symbolId, L"TAG", tag_W.c_str());
     acadSetBlockAttribute(symbolId, L"NUMBER", number_W.c_str());
+
+    acadSetDynBlockProperty(symbolId, L"Flip state", (short)(flip ? 1 : 0));
 }
 
 std::string Device::getTag() const {

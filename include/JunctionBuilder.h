@@ -19,6 +19,7 @@
 #include <set>
 #include <string>
 #include <limits> // for std::numeric_limits
+#include <regex>
 
 #include <windows.h>
 #include <commdlg.h> // for GetOpenFileName
@@ -45,3 +46,21 @@
  * of the Junction Diagram Automation Suite.
  */
 void buildJunctionBox();
+
+/**
+ * @brief Flip a cable or a set of cables.
+ * 
+ * This function asks the user to select a set of cable-related blocks, and then
+ * automatically flips the cables about the axis of the junction termination block
+ */
+void flipCable();
+
+/**
+ * @brief Change the terminal index of a cable or set of cables.
+ * 
+ * This function asks the user to select a set of cable-related blocks, and then asks
+ * for the terminal number of the top wire. It then automatically changes the attributes
+ * of each cable to match the respective terminal blocks they attach to, assuming proper
+ * spacing.
+ */
+void reIndexCable();

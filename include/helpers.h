@@ -57,6 +57,27 @@ Acad::ErrorStatus acadSetDynBlockProperty(
 );
 
 /**
+ * @brief Retrieve the value of a dynamic block property.
+ *
+ * This function reads the current value of a specified property from a 
+ * dynamic block reference.
+ *
+ * @param blockRefId The object ID of the block reference whose property is being read.
+ * @param propName   The name of the property to retrieve. Must exist in the
+ *                   dynamic block definition.
+ * @param outValue   Output parameter that receives the current value of the property,
+ *                   encapsulated as an AcDbEvalVariant.
+ *
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
+ *         Returns Acad::eKeyNotFound if the property does not exist.
+ */
+Acad::ErrorStatus acadGetDynBlockProperty(
+    const AcDbObjectId& blockRefId,
+    const wchar_t* propName,
+    AcDbEvalVariant& outValue
+);
+
+/**
  * @brief Set a block attribute to a new value.
  *
  * This function updates the specified attribute of a block reference with a 
@@ -76,6 +97,28 @@ Acad::ErrorStatus acadSetBlockAttribute(
 );
 
 /**
+ * @brief Retrieve the text value of a block attribute.
+ *
+ * Searches the given block reference for an attribute whose tag matches
+ * \p tagName (case‑insensitive).  If found, the attribute’s text string is
+ * returned in \p outValue.
+ *
+ * @param blockRefId The object ID of the block reference to inspect.
+ * @param tagName    The attribute tag to search for (case‑insensitive).
+ * @param outValue   Receives the attribute’s text string on success.
+ *
+ * @return Acad::ErrorStatus  
+ *         - Acad::eOk           – attribute found, value returned.  
+ *         - Acad::eKeyNotFound  – attribute with that tag not present.  
+ *         - Other Acad errors   – object open failure, iterator error, etc.
+ */
+Acad::ErrorStatus acadGetBlockAttribute(
+    const AcDbObjectId& blockRefId,
+    const wchar_t*      tagName,
+    std::wstring&       outValue
+);
+
+/**
  * @brief Set a general object property to a new value.
  *
  * This function updates the specified property of an object with a new value, 
@@ -92,4 +135,88 @@ Acad::ErrorStatus acadSetObjectProperty(
     const AcDbObjectId& objId,
     AcDb::DxfCode groupCode,
     const wchar_t* value
+);
+
+/**
+ * @brief Set the position of a supported entity.
+ *
+ * This function updates the position of a supported object type, such as a 
+ * block reference, point, text, or circle. Entities not supporting a direct
+ * position cannot be modified using this function.
+ *
+ * @param objId    The object ID of the entity to be updated.
+ * @param position The new position to assign to the entity.
+ *
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
+ *         Returns Acad::eInvalidInput if the entity does not support positioning.
+ */
+Acad::ErrorStatus acadSetObjectPosition(
+    const AcDbObjectId& objId,
+    const AcGePoint3d& position
+);
+
+/**
+ * @brief Get the position of a supported entity.
+ *
+ * This function retrieves the position of a supported object type, such as a 
+ * block reference, point, circle, or text. The result is stored in a 3D point.
+ *
+ * @param objId       The object ID of the entity.
+ * @param outPosition The position of the entity, if supported.
+ *
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
+ *         Returns Acad::eInvalidInput if the entity does not have a position.
+ */
+Acad::ErrorStatus acadGetObjectPosition(
+    const AcDbObjectId& objId,
+    AcGePoint3d& outPosition
+);
+
+/**
+ * @brief Set the scale of a supported entity.
+ *
+ * Updates the X/Y/Z scale factors of a block reference or similar entity.
+ *
+ * @param objId    The object ID of the entity to scale.
+ * @param scale    The new scale as an AcGeScale3d.
+ *
+ * @return Acad::ErrorStatus indicating success or failure.
+ *         Returns Acad::eInvalidInput if the entity does not support scaling.
+ */
+Acad::ErrorStatus acadSetObjectScale(
+    const AcDbObjectId& objId,
+    const AcGeScale3d& scale
+);
+
+/**
+ * @brief Get the scale of a supported entity.
+ *
+ * Retrieves the scale factors (X, Y, Z) of a block reference or other scalable entity.
+ *
+ * @param objId       The object ID of the entity.
+ * @param outScale    Receives the object's scale as an AcGeScale3d.
+ *
+ * @return Acad::ErrorStatus indicating success or failure.
+ *         Returns Acad::eInvalidInput if scale is not supported for this type.
+ */
+Acad::ErrorStatus acadGetObjectScale(
+    const AcDbObjectId& objId,
+    AcGeScale3d& outScale
+);
+
+/**
+ * @brief Get block name that an object references
+ * 
+ * This function takes an objectId, checks to see if its a reference to a block, and
+ * returns the name of that block reference.
+ * 
+ * @param objId     The object ID of the entity whose block name we want.ABC
+ * @param name      A wide string reference where the name will be stored.
+ *                  Empty if the object is not a block reference.
+ * 
+ * @return Acad::ErrorState indicating success or failure of the operation.
+ */
+Acad::ErrorStatus acadGetBlockName(
+    const AcDbObjectId& objId,
+    std::wstring &name
 );
