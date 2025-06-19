@@ -308,8 +308,18 @@ Acad::ErrorStatus acadSetObjectPosition(
     }
 
     if (pEnt->isKindOf(AcDbBlockReference::desc())) {
-        AcDbBlockReference* pBlockRef = AcDbBlockReference::cast(pEnt);
-        pBlockRef->setPosition(position);
+        AcDbBlockReference* pBlkRef = AcDbBlockReference::cast(pEnt);
+
+        // Compute translation vector
+        const AcGeVector3d offset = position - pBlkRef->position();
+
+        // Build translation matrix and apply
+        const AcGeMatrix3d xform = AcGeMatrix3d::translation(offset);
+        pBlkRef->transformBy(xform);
+
+        // Optional but recommended: keep attributes in sync with their
+        // definitions after any block modification.
+        pBlkRef->recordGraphicsModified(true); // marks graphics dirty
     }
     else if (pEnt->isKindOf(AcDbPoint::desc())) {
         AcDbPoint* pPoint = AcDbPoint::cast(pEnt);
