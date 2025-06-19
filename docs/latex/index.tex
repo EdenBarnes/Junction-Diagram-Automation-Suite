@@ -13,11 +13,11 @@ An Auto\+CAD 2024 plugin for the \sout{manipulation} and generation of junction 
 
 Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC
 
-\href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.1}{\texttt{}}
+\href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.2}{\texttt{}}
 
 \hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Introduction}{Introduction}}\label{index_autotoc_md1}
 The Junction Diagram Automation Suite is an all in one tool for generating and \sout{manipulating} Gas\+Tech junction box wiring diagrams in Auto\+CAD 2024. Users can easily create junction box diagrams directly from Gas\+Tech IO lists. \sout{Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-\/index batches of cables}. All in a single {\ttfamily .arx} plugin.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{index_autotoc_md2}
-{\itshape This document is for version 1.\+1.\+1}\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md3}
+{\itshape This document is for version 1.\+1.\+2}\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md3}
 
 \begin{DoxyItemize}
 \item Install the {\ttfamily Junction\+Builder.\+arx} file from the \href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases}{\texttt{Releases tab}}. (Consider storing this file in a dedicated Auto\+CAD plugin folder)
@@ -68,7 +68,7 @@ To obtain the Junction Diagram Automation Suite source code, use the following c
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ bash}
-\DoxyCodeLine{git\ clone\ https://github.com/EdenBarnes/Junction-\/Diagram-\/Automation-\/Suite.git}
+\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/EdenBarnes/Junction-\/Diagram-\/Automation-\/Suite.git}
 
 \end{DoxyCode}
 \hypertarget{index_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Get Dependencies}{Get Dependencies}}\label{index_autotoc_md8}
@@ -79,19 +79,16 @@ The Junction Diagram Automation Suite has the following dependencies\+:
 \item \href{https://github.com/troldal/OpenXLSX}{\texttt{Open\+XLSX}}
 \item \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{Object\+Arx 2024}}
 \end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Get Open\+XLSX}{Get Open\+XLSX}}\label{index_autotoc_md9}
-To obtain Open\+XLSX, use the following commands\+:
-
-
+Open\+XLSX should be automatically installed when you clone the sources. If not, you can install it manually with the following commands\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ bash}
+\DoxyCodeLine{cd\ .\(\backslash\)external}
 \DoxyCodeLine{git\ clone\ https://github.com/troldal/OpenXLSX.git}
 
 \end{DoxyCode}
 
 
-Place the {\ttfamily Open\+XLSX\textbackslash{}Open\+XLSX} folder inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external}.
-
-The file {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX\textbackslash{}CMake\+Lists.\+txt} should now exist. {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}external\textbackslash{}Open\+XLSX} should not contain another directory named {\ttfamily Open\+XLSX}.\hypertarget{index_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Get Object\+ARX}{Get Object\+ARX}}\label{index_autotoc_md10}
+The Open\+XLSX repository must be located inside of .\textbackslash{}external.\hypertarget{index_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Get Object\+ARX}{Get Object\+ARX}}\label{index_autotoc_md10}
 Click \href{https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A}{\texttt{here}} for system requirements and click \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{here}} to download the SDK.
 
 \begin{DoxyWarning}{Warning}

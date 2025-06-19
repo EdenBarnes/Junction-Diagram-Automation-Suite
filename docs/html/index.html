@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="GasTech_logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.1</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.2</span>
    </div>
    <div id="projectbrief">An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div>
   </td>
@@ -97,12 +97,12 @@ $(function(){initNavTree('index.html','',''); });
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> </p><h2 align="center"><a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite" target="blank_"><img src="https://raw.githubusercontent.com/EdenBarnes/Junction-Diagram-Automation-Suite/refs/heads/main/docs/images/GasTech_logo.png" alt="GasTech Logo" height="200" class="inline"/> </a> </h2>
 <div align="center"></div><div align="center"></div><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
 <div align="center">Junction Diagram Automation Suite</div></h1>
-<div align="center"></div><div align="center">An AutoCAD 2024 plugin for the <strike>manipulation</strike> and generation of junction box wiring diagrams</div><div align="center">Proprietary - All Rights Reserved by GasTech Engineering LLC</div><div align="center"><a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.1"><img src="https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite" alt="Latest release" class="inline"/></a></div><div align="center"></div><h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<div align="center"></div><div align="center">An AutoCAD 2024 plugin for the <strike>manipulation</strike> and generation of junction box wiring diagrams</div><div align="center">Proprietary - All Rights Reserved by GasTech Engineering LLC</div><div align="center"><a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.2"><img src="https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite" alt="Latest release" class="inline"/></a></div><div align="center"></div><h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 Introduction</h2>
 <p>The Junction Diagram Automation Suite is an all in one tool for generating and <strike>manipulating</strike> GasTech junction box wiring diagrams in AutoCAD 2024. Users can easily create junction box diagrams directly from GasTech IO lists. <strike>Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-index batches of cables</strike>. All in a single <span class="tt">.arx</span> plugin.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Getting Started</h2>
-<p><em>This document is for version 1.1.1</em></p>
+<p><em>This document is for version 1.1.2</em></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Installation</h3>
 <ul>
@@ -153,7 +153,7 @@ General Requirements</h3>
 Cloning Sources</h3>
 <p>To obtain the Junction Diagram Automation Suite source code, use the following commands:</p>
 <div class="fragment"><div class="line"> bash</div>
-<div class="line">git clone https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite.git</div>
+<div class="line">git clone --recursive https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite.git</div>
 </div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 Get Dependencies</h3>
 <p>The Junction Diagram Automation Suite has the following dependencies:</p>
@@ -163,11 +163,10 @@ Get Dependencies</h3>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Get OpenXLSX</h4>
-<p>To obtain OpenXLSX, use the following commands:</p>
-<div class="fragment"><div class="line"> bash</div>
+<p>OpenXLSX should be automatically installed when you clone the sources. If not, you can install it manually with the following commands: </p><div class="fragment"><div class="line"> bash</div>
+<div class="line">cd .\external</div>
 <div class="line">git clone https://github.com/troldal/OpenXLSX.git</div>
-</div><!-- fragment --><p>Place the <span class="tt">OpenXLSX\OpenXLSX</span> folder inside of <span class="tt">Junction-Diagram-Automation-Suite\external</span>.</p>
-<p>The file <span class="tt">Junction-Diagram-Automation-Suite\external\OpenXLSX\CMakeLists.txt</span> should now exist. <span class="tt">Junction-Diagram-Automation-Suite\external\OpenXLSX</span> should not contain another directory named <span class="tt">OpenXLSX</span>.</p>
+</div><!-- fragment --><p>The OpenXLSX repository must be located inside of .\external.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 Get ObjectARX</h4>
 <p>Click <a href="https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A">here</a> for system requirements and click <a href="https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download">here</a> to download the SDK.</p>
