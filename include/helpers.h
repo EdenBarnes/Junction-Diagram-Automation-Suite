@@ -151,6 +151,38 @@ Acad::ErrorStatus acadGetObjectPosition(
 );
 
 /**
+ * @brief Set the scale of a supported entity.
+ *
+ * Updates the X/Y/Z scale factors of a block reference or similar entity.
+ *
+ * @param objId    The object ID of the entity to scale.
+ * @param scale    The new scale as an AcGeScale3d.
+ *
+ * @return Acad::ErrorStatus indicating success or failure.
+ *         Returns Acad::eInvalidInput if the entity does not support scaling.
+ */
+Acad::ErrorStatus acadSetObjectScale(
+    const AcDbObjectId& objId,
+    const AcGeScale3d& scale
+);
+
+/**
+ * @brief Get the scale of a supported entity.
+ *
+ * Retrieves the scale factors (X, Y, Z) of a block reference or other scalable entity.
+ *
+ * @param objId       The object ID of the entity.
+ * @param outScale    Receives the object's scale as an AcGeScale3d.
+ *
+ * @return Acad::ErrorStatus indicating success or failure.
+ *         Returns Acad::eInvalidInput if scale is not supported for this type.
+ */
+Acad::ErrorStatus acadGetObjectScale(
+    const AcDbObjectId& objId,
+    AcGeScale3d& outScale
+);
+
+/**
  * @brief Get block name that an object references
  * 
  * This function takes an objectId, checks to see if its a reference to a block, and

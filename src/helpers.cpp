@@ -388,6 +388,56 @@ Acad::ErrorStatus acadGetObjectPosition(
     return Acad::eOk;
 }
 
+Acad::ErrorStatus acadSetObjectScale(
+    const AcDbObjectId& objId,
+    const AcGeScale3d& scale
+) {
+    AcDbEntity* pEnt = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pEnt, objId, AcDb::kForWrite);
+    if (es != Acad::eOk || !pEnt) {
+        acutPrintf(L"\nError: Could not open object for writing.");
+        return es;
+    }
+
+    if (pEnt->isKindOf(AcDbBlockReference::desc())) {
+        AcDbBlockReference* pBlkRef = AcDbBlockReference::cast(pEnt);
+        pBlkRef->setScaleFactors(scale);
+    }
+    else {
+        acutPrintf(L"\nError: Unsupported entity type for setting scale.");
+        pEnt->close();
+        return Acad::eInvalidInput;
+    }
+
+    pEnt->close();
+    return Acad::eOk;
+}
+
+Acad::ErrorStatus acadGetObjectScale(
+    const AcDbObjectId& objId,
+    AcGeScale3d& outScale
+) {
+    AcDbEntity* pEnt = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pEnt, objId, AcDb::kForRead);
+    if (es != Acad::eOk || !pEnt) {
+        acutPrintf(L"\nError: Could not open object for reading.");
+        return es;
+    }
+
+    if (pEnt->isKindOf(AcDbBlockReference::desc())) {
+        AcDbBlockReference* pBlkRef = AcDbBlockReference::cast(pEnt);
+        outScale = pBlkRef->scaleFactors();
+    }
+    else {
+        acutPrintf(L"\nError: Unsupported entity type for reading scale.");
+        pEnt->close();
+        return Acad::eInvalidInput;
+    }
+
+    pEnt->close();
+    return Acad::eOk;
+}
+
 Acad::ErrorStatus acadGetBlockName(
     const AcDbObjectId& objId,
     std::wstring &name
