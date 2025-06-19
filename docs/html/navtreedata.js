@@ -31,18 +31,19 @@ var NAVTREE =
         [ "Installation", "index.html#autotoc_md3", null ],
         [ "Usage", "index.html#autotoc_md4", null ]
       ] ],
-      [ "Building From Source", "index.html#autotoc_md5", [
-        [ "General Requirements", "index.html#autotoc_md6", null ],
-        [ "Cloning Sources", "index.html#autotoc_md7", null ],
-        [ "Get Dependencies", "index.html#autotoc_md8", [
-          [ "Get OpenXLSX", "index.html#autotoc_md9", null ],
-          [ "Get ObjectARX", "index.html#autotoc_md10", null ]
-        ] ],
-        [ "Build with CMake", "index.html#autotoc_md11", null ]
+      [ "Commands", "index.html#autotoc_md5", [
+        [ "<span class=\"tt\">BUILDJUNCTION</span>", "index.html#autotoc_md6", null ],
+        [ "<span class=\"tt\">FLIPCABLE</span>", "index.html#autotoc_md7", null ],
+        [ "<span class=\"tt\">REINDEXCABLE</span>", "index.html#autotoc_md8", null ]
       ] ],
-      [ "Commands", "index.html#autotoc_md12", [
-        [ "<span class=\"tt\">FLIPCABLE</span>", "index.html#autotoc_md13", null ],
-        [ "<span class=\"tt\">REINDEXCABLE</span>", "index.html#autotoc_md14", null ]
+      [ "Building From Source", "index.html#autotoc_md9", [
+        [ "General Requirements", "index.html#autotoc_md10", null ],
+        [ "Cloning Sources", "index.html#autotoc_md11", null ],
+        [ "Get Dependencies", "index.html#autotoc_md12", [
+          [ "Get OpenXLSX", "index.html#autotoc_md13", null ],
+          [ "Get ObjectARX", "index.html#autotoc_md14", null ]
+        ] ],
+        [ "Build with CMake", "index.html#autotoc_md15", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [

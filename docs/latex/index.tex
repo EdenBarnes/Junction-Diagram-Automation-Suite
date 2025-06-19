@@ -9,14 +9,14 @@
 \hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Junction Diagram Automation Suite}{Junction Diagram Automation Suite}}\label{index_autotoc_md0}
 
 
-An Auto\+CAD 2024 plugin for the \sout{manipulation} and generation of junction box wiring diagrams
+An Auto\+CAD 2024 plugin for the manipulation and generation of junction box wiring diagrams
 
 Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC
 
 \href{https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.2}{\texttt{}}
 
 \hypertarget{index_autotoc_md1}{}\doxysubsection{\texorpdfstring{Introduction}{Introduction}}\label{index_autotoc_md1}
-The Junction Diagram Automation Suite is an all in one tool for generating and \sout{manipulating} Gas\+Tech junction box wiring diagrams in Auto\+CAD 2024. Users can easily create junction box diagrams directly from Gas\+Tech IO lists. \sout{Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-\/index batches of cables}. All in a single {\ttfamily .arx} plugin.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{index_autotoc_md2}
+The Junction Diagram Automation Suite is an all in one tool for generating and manipulating Gas\+Tech junction box wiring diagrams in Auto\+CAD 2024. Users can easily create junction box diagrams directly from Gas\+Tech IO lists. Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-\/index batches of cables. All in a single {\ttfamily .arx} plugin.\hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{index_autotoc_md2}
 {\itshape This document is for version 1.\+1.\+2}\hypertarget{index_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md3}
 
 \begin{DoxyItemize}
@@ -50,75 +50,7 @@ The Junction Diagram Automation Suite will now automatically load each time you 
 \item Select one of the sizes from the {\bfseries{Select a Junction Box Size}} box, or select {\bfseries{Custom Box}}. ({\bfseries{Custom Box}} will be the only option if you previously clicked {\bfseries{Select All}} in the {\bfseries{Select a Junction Tag}} box)
 \item Click {\bfseries{Ok}}.
 \item The plugin will now automatically draw the junction box you selected.
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Building From Source}{Building From Source}}\label{index_autotoc_md5}
-{\itshape This is an advanced topic intended only for people who wish to modify the program in the future. If you simply wish to use the plugin, you may ignore this section.}
-
-\href{https://edenbarnes.github.io/Junction-Diagram-Automation-Suite/html/index.html}{\texttt{{\itshape Click here for documentation}}}\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{General Requirements}{General Requirements}}\label{index_autotoc_md6}
-Ensure you system includes the following\+:
-
-
-\begin{DoxyItemize}
-\item {\bfseries{Git}} for repository cloning.
-\item {\bfseries{MSVC}} supporting {\bfseries{C++17}} or newer.
-\item {\bfseries{CMake}} (version 3.\+16+)
-\item {\bfseries{Doxygen}} if you wish to generate documentation.
-\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Cloning Sources}{Cloning Sources}}\label{index_autotoc_md7}
-To obtain the Junction Diagram Automation Suite source code, use the following commands\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ bash}
-\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/EdenBarnes/Junction-\/Diagram-\/Automation-\/Suite.git}
-
-\end{DoxyCode}
-\hypertarget{index_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{Get Dependencies}{Get Dependencies}}\label{index_autotoc_md8}
-The Junction Diagram Automation Suite has the following dependencies\+:
-
-
-\begin{DoxyItemize}
-\item \href{https://github.com/troldal/OpenXLSX}{\texttt{Open\+XLSX}}
-\item \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{Object\+Arx 2024}}
-\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Get Open\+XLSX}{Get Open\+XLSX}}\label{index_autotoc_md9}
-Open\+XLSX should be automatically installed when you clone the sources. If not, you can install it manually with the following commands\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ bash}
-\DoxyCodeLine{cd\ .\(\backslash\)external}
-\DoxyCodeLine{git\ clone\ https://github.com/troldal/OpenXLSX.git}
-
-\end{DoxyCode}
-
-
-The Open\+XLSX repository must be located inside of .\textbackslash{}external.\hypertarget{index_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Get Object\+ARX}{Get Object\+ARX}}\label{index_autotoc_md10}
-Click \href{https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A}{\texttt{here}} for system requirements and click \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{here}} to download the SDK.
-
-\begin{DoxyWarning}{Warning}
-Make sure you install Object\+Arx 2024. Other versions may be incompatible. Auto\+CAD 2024 is only compatible with Object\+Arx 2024.
-\end{DoxyWarning}
-After you\textquotesingle{}ve installed the Object\+Arx 2024 SDK, you need tell CMake where to find it. Edit this line in {\ttfamily CMake\+Lists.\+txt} to point to the location of the Object\+Arx 2024 SDK.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ CMake}
-\DoxyCodeLine{\#\ Path\ to\ ObjectARX\ SDK}
-\DoxyCodeLine{set(ARX\_SDK\ "{}C:/Autodesk/ObjectArxSDK2024"{})}
-
-\end{DoxyCode}
-\hypertarget{index_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Build with CMake}{Build with CMake}}\label{index_autotoc_md11}
-To compile the Junction Diagram Automation Suite using {\bfseries{CMake}}, use the follwing commands inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}}\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ bash}
-\DoxyCodeLine{cmake\ -\/B\ ./build}
-\DoxyCodeLine{cmake\ -\/-\/build\ ./build\ -\/-\/config\ RELEASE}
-
-\end{DoxyCode}
-
-
-\begin{DoxyWarning}{Warning}
-{\ttfamily rc.\+exe} must exist in the {\ttfamily PATH} when building with {\bfseries{CMake}}. If {\ttfamily rc.\+exe} (which is part of {\bfseries{MSVC}}) is missing, the dialog boxes will not function correctly.
-\end{DoxyWarning}
-\hypertarget{index_autotoc_md12}{}\doxysubsection{\texorpdfstring{Commands}{Commands}}\label{index_autotoc_md12}
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Commands}{Commands}}\label{index_autotoc_md5}
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
 \hline
@@ -133,17 +65,101 @@ To compile the Junction Diagram Automation Suite using {\bfseries{CMake}}, use t
 \`{}\+FLIPCABLE\`{}  &\PBS\raggedleft Flips a group of cables  \\\cline{1-2}
 \`{}\+REINDEXCABLE\`{}  &\PBS\raggedleft Regenerates terminal numbers for a group of cables  \\\cline{1-2}
 \end{longtabu}
-\hypertarget{index_autotoc_md13}{}\doxysubsubsection{\texorpdfstring{{\ttfamily FLIPCABLE}}{{\ttfamily FLIPCABLE}}}\label{index_autotoc_md13}
+\hypertarget{index_autotoc_md6}{}\doxysubsubsection{\texorpdfstring{{\ttfamily BUILDJUNCTION}}{{\ttfamily BUILDJUNCTION}}}\label{index_autotoc_md6}
+Builds a junction box diagram using data in an IO list.
+\begin{DoxyItemize}
+\item Execute the command {\ttfamily BUILDJUNCTION}.
+\item In the {\bfseries{Junction Box Setup}} dialog box, click {\bfseries{Browse}}.
+\item Navigate to the location of your IO list {\ttfamily .xlsx} file.
+\item Select the {\ttfamily .xlsx} and click {\bfseries{Open}}.
+\item The {\bfseries{Select a Junction Tag}} box now lists every junction box defined in the IO list.
+\item Select the tag of the junction box you want to build, or click {\bfseries{Select All}} to build every junction box in the IO list.
+\item The {\bfseries{Select a Junction Box Size}} box now tells you how many spare terminals will exist when you build a box of the respective size.
+\begin{DoxyItemize}
+\item If a certain size of junction box is not able to fit the cables defined in the IO list, the option will be greyed out.
+\item If the size associated with the template you opened is greyed out, please exit the dialog, close the drawing, and open one that is able to accomodate your junction box.
+\end{DoxyItemize}
+\item Select one of the sizes from the {\bfseries{Select a Junction Box Size}} box, or select {\bfseries{Custom Box}}. ({\bfseries{Custom Box}} will be the only option if you previously clicked {\bfseries{Select All}} in the {\bfseries{Select a Junction Tag}} box)
+\item Click {\bfseries{Ok}}.
+\item The command will now automatically draw the junction box you selected.
+\end{DoxyItemize}\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{{\ttfamily FLIPCABLE}}{{\ttfamily FLIPCABLE}}}\label{index_autotoc_md7}
 Flips a group of cables.
 \begin{DoxyItemize}
 \item Execute the command {\ttfamily FLIPCABLE}.
 \item Select a group of blocks that make up the cable you want to flip.
 \item The command will flip the cable horizontally, keeping the end of the {\ttfamily Junction Termination} block in the same positon.
-\end{DoxyItemize}\hypertarget{index_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{{\ttfamily REINDEXCABLE}}{{\ttfamily REINDEXCABLE}}}\label{index_autotoc_md14}
+\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxysubsubsection{\texorpdfstring{{\ttfamily REINDEXCABLE}}{{\ttfamily REINDEXCABLE}}}\label{index_autotoc_md8}
 Regenerates terminal numbers for a group of cables.
 \begin{DoxyItemize}
 \item Execute the command {\ttfamily REINDEXCABLE}.
 \item Select a group of blocks that make up the cable you want to modify.
 \item Enter an initial terminal number. This will the the terminal number on the highest wire in the selection.
-\item The command will update each wire\textquotesingle{}s terminal numbers based on their distance from the highest wire. 
-\end{DoxyItemize}
+\item The command will update each wire\textquotesingle{}s terminal numbers based on their distance from the highest wire.
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Building From Source}{Building From Source}}\label{index_autotoc_md9}
+{\itshape This is an advanced topic intended only for people who wish to modify the program in the future. If you simply wish to use the plugin, you may ignore this section.}
+
+\href{https://edenbarnes.github.io/Junction-Diagram-Automation-Suite/html/index.html}{\texttt{{\itshape Click here for documentation}}}\hypertarget{index_autotoc_md10}{}\doxysubsubsection{\texorpdfstring{General Requirements}{General Requirements}}\label{index_autotoc_md10}
+Ensure you system includes the following\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Git}} for repository cloning.
+\item {\bfseries{MSVC}} supporting {\bfseries{C++17}} or newer.
+\item {\bfseries{CMake}} (version 3.\+16+)
+\item {\bfseries{Doxygen}} if you wish to generate documentation.
+\end{DoxyItemize}\hypertarget{index_autotoc_md11}{}\doxysubsubsection{\texorpdfstring{Cloning Sources}{Cloning Sources}}\label{index_autotoc_md11}
+To obtain the Junction Diagram Automation Suite source code, use the following commands\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/EdenBarnes/Junction-\/Diagram-\/Automation-\/Suite.git}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md12}{}\doxysubsubsection{\texorpdfstring{Get Dependencies}{Get Dependencies}}\label{index_autotoc_md12}
+The Junction Diagram Automation Suite has the following dependencies\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/troldal/OpenXLSX}{\texttt{Open\+XLSX}}
+\item \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{Object\+Arx 2024}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Get Open\+XLSX}{Get Open\+XLSX}}\label{index_autotoc_md13}
+Open\+XLSX should be automatically installed when you clone the sources. If not, you can install it manually with the following commands\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{cd\ .\(\backslash\)external}
+\DoxyCodeLine{git\ clone\ https://github.com/troldal/OpenXLSX.git}
+
+\end{DoxyCode}
+
+
+The Open\+XLSX repository must be located inside of .\textbackslash{}external.\hypertarget{index_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{Get Object\+ARX}{Get Object\+ARX}}\label{index_autotoc_md14}
+Click \href{https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A}{\texttt{here}} for system requirements and click \href{https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download}{\texttt{here}} to download the SDK.
+
+\begin{DoxyWarning}{Warning}
+Make sure you install Object\+Arx 2024. Other versions may be incompatible. Auto\+CAD 2024 is only compatible with Object\+Arx 2024.
+\end{DoxyWarning}
+After you\textquotesingle{}ve installed the Object\+Arx 2024 SDK, you need tell CMake where to find it. Edit this line in {\ttfamily CMake\+Lists.\+txt} to point to the location of the Object\+Arx 2024 SDK.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ CMake}
+\DoxyCodeLine{\#\ Path\ to\ ObjectARX\ SDK}
+\DoxyCodeLine{set(ARX\_SDK\ "{}C:/Autodesk/ObjectArxSDK2024"{})}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{Build with CMake}{Build with CMake}}\label{index_autotoc_md15}
+To compile the Junction Diagram Automation Suite using {\bfseries{CMake}}, use the follwing commands inside of {\ttfamily Junction-\/\+Diagram-\/\+Automation-\/\+Suite\textbackslash{}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{cmake\ -\/B\ ./build}
+\DoxyCodeLine{cmake\ -\/-\/build\ ./build\ -\/-\/config\ RELEASE}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+{\ttfamily rc.\+exe} must exist in the {\ttfamily PATH} when building with {\bfseries{CMake}}. If {\ttfamily rc.\+exe} (which is part of {\bfseries{MSVC}}) is missing, the dialog boxes will not function correctly. 
+\end{DoxyWarning}
