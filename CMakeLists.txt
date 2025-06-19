@@ -57,9 +57,6 @@ set(OPENXLSX_BUILD_SAMPLES OFF CACHE BOOL "Whether to build samples for OpenXLSX
 set(OPENXLSX_BUILD_BENCHMARKS OFF CACHE BOOL "Whether to build benchmarks for OpenXLSX")
 add_subdirectory(external/OpenXLSX)
 
-# Add wxWidgets
-add_subdirectory(external/wxWidgets)
-
 # Link libraries
 target_link_libraries(${PROJECT_NAME}
     accore.lib
