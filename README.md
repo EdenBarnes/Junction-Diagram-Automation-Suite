@@ -12,7 +12,7 @@ An AutoCAD 2024 plugin for the manipulation and generation of junction box wirin
 
 Proprietary - All Rights Reserved by GasTech Engineering LLC
 
-[![Latest release](https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite)](https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.2)
+[![Latest release](https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite)](https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.2.0)
 
 </div>
 
@@ -22,7 +22,7 @@ The Junction Diagram Automation Suite is an all in one tool for generating and m
 
 ## Getting Started
 
-*This document is for version 1.1.2*
+*This document is for version 1.2.0*
 
 ### Installation
 
