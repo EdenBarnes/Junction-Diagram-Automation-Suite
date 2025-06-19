@@ -146,6 +146,21 @@ cmake --build ./build --config RELEASE
 
 ## Commands
 
-| Command                   | Description                                            |
-| :---                      |                                                   ---: |
-| [`BUILDJUNCTION`](#usage) | Builds a junction box diagram using data in an IO list |
+| Command                         | Description                                            |
+| :---                            |                                                   ---: |
+| [`BUILDJUNCTION`](#usage)       | Builds a junction box diagram using data in an IO list |
+| [`FLIPCABLE`](#flipcable)       | Flips a group of cables                                |
+| [`REINDEXCABLE`](#reindexcable) | Regenerates terminal numbers for a group of cables     |
+
+### `FLIPCABLE`
+Flips a group of cables.
+* Execute the command `FLIPCABLE`.
+* Select a group of blocks that make up the cable you want to flip.
+* The command will flip the cable horizontally, keeping the end of the `Junction Termination` block in the same positon.
+
+### `REINDEXCABLE`
+Regenerates terminal numbers for a group of cables.
+* Execute the command `REINDEXCABLE`.
+* Select a group of blocks that make up the cable you want to modify.
+* Enter an initial terminal number. This will the the terminal number on the highest wire in the selection.
+* The command will update each wire's terminal numbers based on their distance from the highest wire.

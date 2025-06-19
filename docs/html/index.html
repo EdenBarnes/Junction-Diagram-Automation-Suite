@@ -189,7 +189,26 @@ Commands</h2>
 <th class="markdownTableHeadLeft">Command  </th><th class="markdownTableHeadRight">Description  </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">`BUILDJUNCTION`  </td><td class="markdownTableBodyRight">Builds a junction box diagram using data in an IO list  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">`FLIPCABLE`  </td><td class="markdownTableBodyRight">Flips a group of cables  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">`REINDEXCABLE`  </td><td class="markdownTableBodyRight">Regenerates terminal numbers for a group of cables  </td></tr>
 </table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<span class="tt">FLIPCABLE</span></h3>
+<p>Flips a group of cables.</p><ul>
+<li>Execute the command <span class="tt">FLIPCABLE</span>.</li>
+<li>Select a group of blocks that make up the cable you want to flip.</li>
+<li>The command will flip the cable horizontally, keeping the end of the <span class="tt">Junction Termination</span> block in the same positon.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+<span class="tt">REINDEXCABLE</span></h3>
+<p>Regenerates terminal numbers for a group of cables.</p><ul>
+<li>Execute the command <span class="tt">REINDEXCABLE</span>.</li>
+<li>Select a group of blocks that make up the cable you want to modify.</li>
+<li>Enter an initial terminal number. This will the the terminal number on the highest wire in the selection.</li>
+<li>The command will update each wire's terminal numbers based on their distance from the highest wire. </li>
+</ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

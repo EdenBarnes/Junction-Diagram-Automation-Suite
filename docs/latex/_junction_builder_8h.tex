@@ -8,6 +8,7 @@ Interface for building junction boxes.
 {\ttfamily \#include $<$set$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
 {\ttfamily \#include $<$windows.\+h$>$}\newline
 {\ttfamily \#include $<$commdlg.\+h$>$}\newline
 {\ttfamily \#include "{}acedads.\+h"{}}\newline
@@ -19,7 +20,11 @@ Interface for building junction boxes.
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{_junction_builder_8h_a27067b8fdd503477397487d3fed9eb65}{build\+Junction\+Box}} ()
-\begin{DoxyCompactList}\small\item\em Build a junction box based on the provided specifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Build a junction box based on the provided specifications. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8h_a61eeca46bd44d805104d6ef446cf0ed1}{flip\+Cable}} ()
+\begin{DoxyCompactList}\small\item\em Flip a cable or a set of cables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8h_ade6915c93cdde099130ea33c6baa3914}{re\+Index\+Cable}} ()
+\begin{DoxyCompactList}\small\item\em Change the terminal index of a cable or set of cables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -56,4 +61,24 @@ Build a junction box based on the provided specifications.
 
 This function is responsible for constructing a junction box by utilizing available data such as device and cable information. It involves generating the layout, placing components appropriately within the Auto\+CAD environment, and ensuring all connections are accurately represented.
 
-The process may include reading from an Excel file to gather necessary input data, interacting with Auto\+CAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. 
+The process may include reading from an Excel file to gather necessary input data, interacting with Auto\+CAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. \Hypertarget{_junction_builder_8h_a61eeca46bd44d805104d6ef446cf0ed1}\index{JunctionBuilder.h@{JunctionBuilder.h}!flipCable@{flipCable}}
+\index{flipCable@{flipCable}!JunctionBuilder.h@{JunctionBuilder.h}}
+\doxysubsubsection{\texorpdfstring{flipCable()}{flipCable()}}
+{\footnotesize\ttfamily \label{_junction_builder_8h_a61eeca46bd44d805104d6ef446cf0ed1} 
+void flip\+Cable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Flip a cable or a set of cables. 
+
+This function asks the user to select a set of cable-\/related blocks, and then automatically flips the cables about the axis of the junction termination block \Hypertarget{_junction_builder_8h_ade6915c93cdde099130ea33c6baa3914}\index{JunctionBuilder.h@{JunctionBuilder.h}!reIndexCable@{reIndexCable}}
+\index{reIndexCable@{reIndexCable}!JunctionBuilder.h@{JunctionBuilder.h}}
+\doxysubsubsection{\texorpdfstring{reIndexCable()}{reIndexCable()}}
+{\footnotesize\ttfamily \label{_junction_builder_8h_ade6915c93cdde099130ea33c6baa3914} 
+void re\+Index\+Cable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Change the terminal index of a cable or set of cables. 
+
+This function asks the user to select a set of cable-\/related blocks, and then asks for the terminal number of the top wire. It then automatically changes the attributes of each cable to match the respective terminal blocks they attach to, assuming proper spacing. 

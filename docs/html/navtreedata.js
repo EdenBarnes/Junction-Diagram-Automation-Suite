@@ -40,7 +40,10 @@ var NAVTREE =
         ] ],
         [ "Build with CMake", "index.html#autotoc_md11", null ]
       ] ],
-      [ "Commands", "index.html#autotoc_md12", null ]
+      [ "Commands", "index.html#autotoc_md12", [
+        [ "<span class=\"tt\">FLIPCABLE</span>", "index.html#autotoc_md13", null ],
+        [ "<span class=\"tt\">REINDEXCABLE</span>", "index.html#autotoc_md14", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
