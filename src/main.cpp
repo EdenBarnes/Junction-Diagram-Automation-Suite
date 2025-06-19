@@ -40,6 +40,7 @@ extern "C" AcRx::AppRetCode acrxEntryPoint(AcRx::AppMsgCode msg, void* appId)
 void initApp() {
     acedRegCmds->addCommand(L"GSTCH_WIRING_COMMANDS", L"GSTCH_BUILDJUNCTION", L"BUILDJUNCTION", ACRX_CMD_MODAL, buildJunctionBox);
     acedRegCmds->addCommand(L"GSTCH_WIRING_COMMANDS", L"GSTCH_FLIPCABLE", L"FLIPCABLE", ACRX_CMD_MODAL | ACRX_CMD_USEPICKSET | ACRX_CMD_REDRAW, flipCable);
+    acedRegCmds->addCommand(L"GSTCH_WIRING_COMMANDS", L"GSTCH_REINDEXCABLE", L"REINDEXCABLE", ACRX_CMD_MODAL | ACRX_CMD_USEPICKSET | ACRX_CMD_REDRAW, reIndexCable);
 }
 
 void unloadApp() {

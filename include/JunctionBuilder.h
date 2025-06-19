@@ -19,6 +19,7 @@
 #include <set>
 #include <string>
 #include <limits> // for std::numeric_limits
+#include <regex>
 
 #include <windows.h>
 #include <commdlg.h> // for GetOpenFileName
