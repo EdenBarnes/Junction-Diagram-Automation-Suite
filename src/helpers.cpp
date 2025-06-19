@@ -143,7 +143,7 @@ Acad::ErrorStatus acadSetDynBlockProperty(
     AcDbBlockReference* pBlkRef = nullptr;
     Acad::ErrorStatus es = acdbOpenObject(pBlkRef, blockRefId, AcDb::kForWrite);
     if (es != Acad::eOk || !pBlkRef) {
-        acutPrintf(L"\nError: Could not open block reference.");
+        acutPrintf(L"\nError: Could not open block reference for writing.");
         return es;
     }
 
@@ -183,7 +183,7 @@ Acad::ErrorStatus acadGetDynBlockProperty(
     AcDbBlockReference* pBlkRef = nullptr;
     Acad::ErrorStatus es = acdbOpenObject(pBlkRef, blockRefId, AcDb::kForRead);
     if (es != Acad::eOk || !pBlkRef) {
-        acutPrintf(L"\nError: Could not open block reference.");
+        acutPrintf(L"\nError: Could not open block reference for reading.");
         return es;
     }
 
@@ -294,6 +294,88 @@ Acad::ErrorStatus acadSetObjectProperty(
 
     pEnt->close();
     return es;
+}
+
+Acad::ErrorStatus acadSetObjectPosition(
+    const AcDbObjectId& objId,
+    const AcGePoint3d& position
+) {
+    AcDbEntity* pEnt = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pEnt, objId, AcDb::kForWrite);
+    if (es != Acad::eOk || !pEnt) {
+        acutPrintf(L"\nError: Could not open object for writing.");
+        return es;
+    }
+
+    if (pEnt->isKindOf(AcDbBlockReference::desc())) {
+        AcDbBlockReference* pBlockRef = AcDbBlockReference::cast(pEnt);
+        pBlockRef->setPosition(position);
+    }
+    else if (pEnt->isKindOf(AcDbPoint::desc())) {
+        AcDbPoint* pPoint = AcDbPoint::cast(pEnt);
+        pPoint->setPosition(position);
+    }
+    else if (pEnt->isKindOf(AcDbText::desc())) {
+        AcDbText* pText = AcDbText::cast(pEnt);
+        pText->setPosition(position);
+    }
+    else if (pEnt->isKindOf(AcDbMText::desc())) {
+        AcDbMText* pMText = AcDbMText::cast(pEnt);
+        pMText->setLocation(position);
+    }
+    else if (pEnt->isKindOf(AcDbCircle::desc())) {
+        AcDbCircle* pCircle = AcDbCircle::cast(pEnt);
+        pCircle->setCenter(position);
+    }
+    else {
+        acutPrintf(L"\nError: Unsupported entity type for setting position.");
+        pEnt->close();
+        return Acad::eInvalidInput;
+    }
+
+    pEnt->close();
+    return Acad::eOk;
+}
+
+Acad::ErrorStatus acadGetObjectPosition(
+    const AcDbObjectId& objId,
+    AcGePoint3d& outPosition
+) {
+    AcDbEntity* pEnt = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pEnt, objId, AcDb::kForRead);
+    if (es != Acad::eOk || !pEnt) {
+        acutPrintf(L"\nError: Could not open object for reading.");
+        return es;
+    }
+
+    if (pEnt->isKindOf(AcDbBlockReference::desc())) {
+        AcDbBlockReference* pBlockRef = AcDbBlockReference::cast(pEnt);
+        outPosition = pBlockRef->position();
+    }
+    else if (pEnt->isKindOf(AcDbPoint::desc())) {
+        AcDbPoint* pPoint = AcDbPoint::cast(pEnt);
+        outPosition = pPoint->position();
+    }
+    else if (pEnt->isKindOf(AcDbCircle::desc())) {
+        AcDbCircle* pCircle = AcDbCircle::cast(pEnt);
+        outPosition = pCircle->center();
+    }
+    else if (pEnt->isKindOf(AcDbText::desc())) {
+        AcDbText* pText = AcDbText::cast(pEnt);
+        outPosition = pText->position();
+    }
+    else if (pEnt->isKindOf(AcDbMText::desc())) {
+        AcDbMText* pMText = AcDbMText::cast(pEnt);
+        outPosition = pMText->location();
+    }
+    else {
+        acutPrintf(L"\nError: Unsupported entity type for position extraction.");
+        pEnt->close();
+        return Acad::eInvalidInput;
+    }
+
+    pEnt->close();
+    return Acad::eOk;
 }
 
 Acad::ErrorStatus acadGetBlockName(

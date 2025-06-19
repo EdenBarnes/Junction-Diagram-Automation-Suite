@@ -116,6 +116,41 @@ Acad::ErrorStatus acadSetObjectProperty(
 );
 
 /**
+ * @brief Set the position of a supported entity.
+ *
+ * This function updates the position of a supported object type, such as a 
+ * block reference, point, text, or circle. Entities not supporting a direct
+ * position cannot be modified using this function.
+ *
+ * @param objId    The object ID of the entity to be updated.
+ * @param position The new position to assign to the entity.
+ *
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
+ *         Returns Acad::eInvalidInput if the entity does not support positioning.
+ */
+Acad::ErrorStatus acadSetObjectPosition(
+    const AcDbObjectId& objId,
+    const AcGePoint3d& position
+);
+
+/**
+ * @brief Get the position of a supported entity.
+ *
+ * This function retrieves the position of a supported object type, such as a 
+ * block reference, point, circle, or text. The result is stored in a 3D point.
+ *
+ * @param objId       The object ID of the entity.
+ * @param outPosition The position of the entity, if supported.
+ *
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
+ *         Returns Acad::eInvalidInput if the entity does not have a position.
+ */
+Acad::ErrorStatus acadGetObjectPosition(
+    const AcDbObjectId& objId,
+    AcGePoint3d& outPosition
+);
+
+/**
  * @brief Get block name that an object references
  * 
  * This function takes an objectId, checks to see if its a reference to a block, and
