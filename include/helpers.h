@@ -93,3 +93,20 @@ Acad::ErrorStatus acadSetObjectProperty(
     AcDb::DxfCode groupCode,
     const wchar_t* value
 );
+
+/**
+ * @brief Get block name that an object references
+ * 
+ * This function takes an objectId, checks to see if its a reference to a block, and
+ * returns the name of that block reference.
+ * 
+ * @param objId     The object ID of the entity whose block name we want.ABC
+ * @param name      A wide string reference where the name will be stored.
+ *                  Empty if the object is not a block reference.
+ * 
+ * @return Acad::ErrorState indicating success or failure of the operation.
+ */
+Acad::ErrorStatus acadGetBlockName(
+    const AcDbObjectId& objId,
+    std::wstring &name
+);

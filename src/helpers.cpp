@@ -255,3 +255,67 @@ Acad::ErrorStatus acadSetObjectProperty(
     return es;
 }
 
+Acad::ErrorStatus acadGetBlockName(
+    const AcDbObjectId& objId,
+    std::wstring &name
+) {
+    AcDbEntity *pEnt = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pEnt, objId, AcDb::kForRead);
+    if (es != Acad::eOk || !pEnt) {
+        acutPrintf(L"\nError: Unable to open entity for reading.");
+        return es;
+    }
+
+    if (!pEnt->isKindOf(AcDbBlockReference::desc())) {
+        name = L"";
+        pEnt->close();
+        return Acad::eOk;
+    }
+
+    AcDbBlockReference *pBlockRef = AcDbBlockReference::cast(pEnt);
+
+    AcDbObjectId blockDefId = pBlockRef->blockTableRecord();
+
+    AcDbBlockTableRecord *pBlockDef = nullptr;
+    es = acdbOpenObject(pBlockDef, blockDefId, AcDb::kForRead);
+    if (es != Acad::eOk || !pBlockDef) {
+        acutPrintf(L"\nError: Unable to open block definition for reading.");
+        pEnt->close();
+        return es;
+    }
+
+    const ACHAR* blockName = nullptr;
+    pBlockDef->getName(blockName);
+
+    // Check if this is an anonymous block (name starts with *)
+    if (blockName[0] != '*') {
+        pBlockDef->close();
+        pEnt->close();
+
+        name = blockName;
+
+        return Acad::eOk;
+    }
+
+    AcDbDynBlockReference dynBlkDefRef(objId);
+    AcDbObjectId dynBlkDefId = dynBlkDefRef.dynamicBlockTableRecord();
+
+    AcDbBlockTableRecord *pDynBlockDef = nullptr;
+    es = acdbOpenObject(pDynBlockDef, dynBlkDefId, AcDb::kForRead);
+
+    if (es != Acad::eOk || !pDynBlockDef) {
+        acutPrintf(L"\nError: Unable to open dynamic block reference for reading.");
+        return es;
+    }
+
+    const ACHAR* dynName = nullptr;
+    pDynBlockDef->getName(dynName);
+
+    pDynBlockDef->close();
+    pBlockDef->close();
+    pEnt->close();
+
+    name = dynName;
+
+    return Acad::eOk;
+}
