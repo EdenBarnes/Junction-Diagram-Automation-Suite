@@ -97,7 +97,7 @@ Ensure you system includes the following:
 To obtain the Junction Diagram Automation Suite source code, use the following commands:
 
 ``` bash
-git clone https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite.git
+git clone --recursive https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite.git
 ```
 
 ### Get Dependencies
@@ -109,15 +109,13 @@ The Junction Diagram Automation Suite has the following dependencies:
 
 #### Get OpenXLSX
 
-To obtain OpenXLSX, use the following commands:
-
+OpenXLSX should be automatically installed when you clone the sources. If not, you can install it manually with the following commands:
 ``` bash
+cd .\external
 git clone https://github.com/troldal/OpenXLSX.git
 ```
 
-Place the `OpenXLSX\OpenXLSX` folder inside of `Junction-Diagram-Automation-Suite\external`.
-
-The file `Junction-Diagram-Automation-Suite\external\OpenXLSX\CMakeLists.txt` should now exist.  `Junction-Diagram-Automation-Suite\external\OpenXLSX` should not contain another directory named `OpenXLSX`.
+The OpenXLSX repository must be located inside of .\\external.
 
 #### Get ObjectARX
 
