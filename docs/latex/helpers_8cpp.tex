@@ -13,10 +13,24 @@ Ac\+Db\+Object\+Id \mbox{\hyperlink{helpers_8cpp_ae053a4de4bf3d9931c6bfb8e3aab1b
 \begin{DoxyCompactList}\small\item\em Insert a block into the database at a specified origin point. \end{DoxyCompactList}\item 
 Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_a7d6c0df2f87377e54a207d9e925b3726}{acad\+Set\+Dyn\+Block\+Property}} (const Ac\+Db\+Object\+Id \&block\+Ref\+Id, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}prop\+Name, const Ac\+Db\+Eval\+Variant \&new\+Value)
 \begin{DoxyCompactList}\small\item\em Set a dynamic block property to a new value. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_a8e77083b6316cb6bb6c51fe7b99842aa}{acad\+Get\+Dyn\+Block\+Property}} (const Ac\+Db\+Object\+Id \&block\+Ref\+Id, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}prop\+Name, Ac\+Db\+Eval\+Variant \&out\+Value)
+\begin{DoxyCompactList}\small\item\em Retrieve the value of a dynamic block property. \end{DoxyCompactList}\item 
 Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_ab7c7fb31b58fd0f92543dac69958cb25}{acad\+Set\+Block\+Attribute}} (const Ac\+Db\+Object\+Id \&block\+Ref\+Id, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}tag\+Name, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}new\+Value)
 \begin{DoxyCompactList}\small\item\em Set a block attribute to a new value. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_aa15b19eb51c215fd6f304d350822743f}{acad\+Get\+Block\+Attribute}} (const Ac\+Db\+Object\+Id \&block\+Ref\+Id, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}tag\+Name, std\+::wstring \&out\+Value)
+\begin{DoxyCompactList}\small\item\em Retrieve the text value of a block attribute. \end{DoxyCompactList}\item 
 Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_abce2e51eb25963d2e787f9c9b7057d29}{acad\+Set\+Object\+Property}} (const Ac\+Db\+Object\+Id \&obj\+Id, Ac\+Db\+::\+Dxf\+Code group\+Code, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}value)
-\begin{DoxyCompactList}\small\item\em Set a general object property to a new value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set a general object property to a new value. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_aa2c77575c582c155efcdb418a9afce5f}{acad\+Set\+Object\+Position}} (const Ac\+Db\+Object\+Id \&obj\+Id, const Ac\+Ge\+Point3d \&position)
+\begin{DoxyCompactList}\small\item\em Set the position of a supported entity. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_ad0fc139b27b4571b93ef9e53ea5892e2}{acad\+Get\+Object\+Position}} (const Ac\+Db\+Object\+Id \&obj\+Id, Ac\+Ge\+Point3d \&out\+Position)
+\begin{DoxyCompactList}\small\item\em Get the position of a supported entity. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_afb1f4e0902ec12534f5b3c8a2ab3970f}{acad\+Set\+Object\+Scale}} (const Ac\+Db\+Object\+Id \&obj\+Id, const Ac\+Ge\+Scale3d \&scale)
+\begin{DoxyCompactList}\small\item\em Set the scale of a supported entity. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_ad34cf39389f7b1ef2f2cb979b5d8880b}{acad\+Get\+Object\+Scale}} (const Ac\+Db\+Object\+Id \&obj\+Id, Ac\+Ge\+Scale3d \&out\+Scale)
+\begin{DoxyCompactList}\small\item\em Get the scale of a supported entity. \end{DoxyCompactList}\item 
+Acad\+::\+Error\+Status \mbox{\hyperlink{helpers_8cpp_a1a7b8ab246353280e5a3946bb5a1dede}{acad\+Get\+Block\+Name}} (const Ac\+Db\+Object\+Id \&obj\+Id, std\+::wstring \&name)
+\begin{DoxyCompactList}\small\item\em Get block name that an object references. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -25,13 +39,13 @@ Helper functions related to database operations.
 This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
 
 \begin{DoxyVersion}{Version}
-1.\+1.\+2 
+1.\+2.\+0 
 \end{DoxyVersion}
 \begin{DoxyAuthor}{Author}
 Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2025-\/06-\/16 
+2025-\/06-\/19 
 \end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
 Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
@@ -41,6 +55,128 @@ Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC
 \label{doc-func-members}
 \Hypertarget{helpers_8cpp_doc-func-members}
 \doxysubsection{Function Documentation}
+\Hypertarget{helpers_8cpp_aa15b19eb51c215fd6f304d350822743f}\index{helpers.cpp@{helpers.cpp}!acadGetBlockAttribute@{acadGetBlockAttribute}}
+\index{acadGetBlockAttribute@{acadGetBlockAttribute}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadGetBlockAttribute()}{acadGetBlockAttribute()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_aa15b19eb51c215fd6f304d350822743f} 
+Acad\+::\+Error\+Status acad\+Get\+Block\+Attribute (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{block\+Ref\+Id}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{tag\+Name}{, }\item[{std\+::wstring \&}]{out\+Value}{}\end{DoxyParamCaption})}
+
+
+
+Retrieve the text value of a block attribute. 
+
+Searches the given block reference for an attribute whose tag matches {\ttfamily tag\+Name} (case‑insensitive). If found, the attribute’s text string is returned in {\ttfamily out\+Value}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Ref\+Id} & The object ID of the block reference to inspect. \\
+\hline
+{\em tag\+Name} & The attribute tag to search for (case‑insensitive). \\
+\hline
+{\em out\+Value} & Receives the attribute’s text string on success.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status ~\newline
+
+\begin{DoxyItemize}
+\item Acad\+::e\+Ok – attribute found, value returned. ~\newline
+
+\item Acad\+::e\+Key\+Not\+Found – attribute with that tag not present. ~\newline
+
+\item Other Acad errors – object open failure, iterator error, etc. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{helpers_8cpp_a1a7b8ab246353280e5a3946bb5a1dede}\index{helpers.cpp@{helpers.cpp}!acadGetBlockName@{acadGetBlockName}}
+\index{acadGetBlockName@{acadGetBlockName}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadGetBlockName()}{acadGetBlockName()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_a1a7b8ab246353280e5a3946bb5a1dede} 
+Acad\+::\+Error\+Status acad\+Get\+Block\+Name (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{obj\+Id}{, }\item[{std\+::wstring \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Get block name that an object references. 
+
+This function takes an object\+Id, checks to see if its a reference to a block, and returns the name of that block reference.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+Id} & The object ID of the entity whose block name we want.\+ABC \\
+\hline
+{\em name} & A wide string reference where the name will be stored. Empty if the object is not a block reference.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+State indicating success or failure of the operation. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8cpp_a8e77083b6316cb6bb6c51fe7b99842aa}\index{helpers.cpp@{helpers.cpp}!acadGetDynBlockProperty@{acadGetDynBlockProperty}}
+\index{acadGetDynBlockProperty@{acadGetDynBlockProperty}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadGetDynBlockProperty()}{acadGetDynBlockProperty()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_a8e77083b6316cb6bb6c51fe7b99842aa} 
+Acad\+::\+Error\+Status acad\+Get\+Dyn\+Block\+Property (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{block\+Ref\+Id}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{prop\+Name}{, }\item[{Ac\+Db\+Eval\+Variant \&}]{out\+Value}{}\end{DoxyParamCaption})}
+
+
+
+Retrieve the value of a dynamic block property. 
+
+This function reads the current value of a specified property from a dynamic block reference.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+Ref\+Id} & The object ID of the block reference whose property is being read. \\
+\hline
+{\em prop\+Name} & The name of the property to retrieve. Must exist in the dynamic block definition. \\
+\hline
+{\em out\+Value} & Output parameter that receives the current value of the property, encapsulated as an Ac\+Db\+Eval\+Variant.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure of the operation. Returns Acad\+::e\+Key\+Not\+Found if the property does not exist. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8cpp_ad0fc139b27b4571b93ef9e53ea5892e2}\index{helpers.cpp@{helpers.cpp}!acadGetObjectPosition@{acadGetObjectPosition}}
+\index{acadGetObjectPosition@{acadGetObjectPosition}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadGetObjectPosition()}{acadGetObjectPosition()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_ad0fc139b27b4571b93ef9e53ea5892e2} 
+Acad\+::\+Error\+Status acad\+Get\+Object\+Position (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{obj\+Id}{, }\item[{Ac\+Ge\+Point3d \&}]{out\+Position}{}\end{DoxyParamCaption})}
+
+
+
+Get the position of a supported entity. 
+
+This function retrieves the position of a supported object type, such as a block reference, point, circle, or text. The result is stored in a 3D point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+Id} & The object ID of the entity. \\
+\hline
+{\em out\+Position} & The position of the entity, if supported.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure of the operation. Returns Acad\+::e\+Invalid\+Input if the entity does not have a position. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8cpp_ad34cf39389f7b1ef2f2cb979b5d8880b}\index{helpers.cpp@{helpers.cpp}!acadGetObjectScale@{acadGetObjectScale}}
+\index{acadGetObjectScale@{acadGetObjectScale}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadGetObjectScale()}{acadGetObjectScale()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_ad34cf39389f7b1ef2f2cb979b5d8880b} 
+Acad\+::\+Error\+Status acad\+Get\+Object\+Scale (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{obj\+Id}{, }\item[{Ac\+Ge\+Scale3d \&}]{out\+Scale}{}\end{DoxyParamCaption})}
+
+
+
+Get the scale of a supported entity. 
+
+Retrieves the scale factors (X, Y, Z) of a block reference or other scalable entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+Id} & The object ID of the entity. \\
+\hline
+{\em out\+Scale} & Receives the object\textquotesingle{}s scale as an Ac\+Ge\+Scale3d.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure. Returns Acad\+::e\+Invalid\+Input if scale is not supported for this type. 
+\end{DoxyReturn}
 \Hypertarget{helpers_8cpp_ae053a4de4bf3d9931c6bfb8e3aab1b32}\index{helpers.cpp@{helpers.cpp}!acadInsertBlock@{acadInsertBlock}}
 \index{acadInsertBlock@{acadInsertBlock}!helpers.cpp@{helpers.cpp}}
 \doxysubsubsection{\texorpdfstring{acadInsertBlock()}{acadInsertBlock()}}
@@ -111,6 +247,28 @@ This function updates the specified property of a dynamic block reference with a
 \begin{DoxyReturn}{Returns}
 Acad\+::\+Error\+Status indicating success or failure of the operation. 
 \end{DoxyReturn}
+\Hypertarget{helpers_8cpp_aa2c77575c582c155efcdb418a9afce5f}\index{helpers.cpp@{helpers.cpp}!acadSetObjectPosition@{acadSetObjectPosition}}
+\index{acadSetObjectPosition@{acadSetObjectPosition}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadSetObjectPosition()}{acadSetObjectPosition()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_aa2c77575c582c155efcdb418a9afce5f} 
+Acad\+::\+Error\+Status acad\+Set\+Object\+Position (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{obj\+Id}{, }\item[{const Ac\+Ge\+Point3d \&}]{position}{}\end{DoxyParamCaption})}
+
+
+
+Set the position of a supported entity. 
+
+This function updates the position of a supported object type, such as a block reference, point, text, or circle. Entities not supporting a direct position cannot be modified using this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+Id} & The object ID of the entity to be updated. \\
+\hline
+{\em position} & The new position to assign to the entity.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure of the operation. Returns Acad\+::e\+Invalid\+Input if the entity does not support positioning. 
+\end{DoxyReturn}
 \Hypertarget{helpers_8cpp_abce2e51eb25963d2e787f9c9b7057d29}\index{helpers.cpp@{helpers.cpp}!acadSetObjectProperty@{acadSetObjectProperty}}
 \index{acadSetObjectProperty@{acadSetObjectProperty}!helpers.cpp@{helpers.cpp}}
 \doxysubsubsection{\texorpdfstring{acadSetObjectProperty()}{acadSetObjectProperty()}}
@@ -134,4 +292,26 @@ This function updates the specified property of an object with a new value, iden
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Acad\+::\+Error\+Status indicating success or failure of the operation. 
+\end{DoxyReturn}
+\Hypertarget{helpers_8cpp_afb1f4e0902ec12534f5b3c8a2ab3970f}\index{helpers.cpp@{helpers.cpp}!acadSetObjectScale@{acadSetObjectScale}}
+\index{acadSetObjectScale@{acadSetObjectScale}!helpers.cpp@{helpers.cpp}}
+\doxysubsubsection{\texorpdfstring{acadSetObjectScale()}{acadSetObjectScale()}}
+{\footnotesize\ttfamily \label{helpers_8cpp_afb1f4e0902ec12534f5b3c8a2ab3970f} 
+Acad\+::\+Error\+Status acad\+Set\+Object\+Scale (\begin{DoxyParamCaption}\item[{const Ac\+Db\+Object\+Id \&}]{obj\+Id}{, }\item[{const Ac\+Ge\+Scale3d \&}]{scale}{}\end{DoxyParamCaption})}
+
+
+
+Set the scale of a supported entity. 
+
+Updates the X/\+Y/Z scale factors of a block reference or similar entity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\+Id} & The object ID of the entity to scale. \\
+\hline
+{\em scale} & The new scale as an Ac\+Ge\+Scale3d.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Acad\+::\+Error\+Status indicating success or failure. Returns Acad\+::e\+Invalid\+Input if the entity does not support scaling. 
 \end{DoxyReturn}

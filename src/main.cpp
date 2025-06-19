@@ -6,9 +6,9 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 1.1.2
+ * @version 1.2.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
- * @date 2025-06-16
+ * @date 2025-06-19
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
  */
@@ -39,6 +39,8 @@ extern "C" AcRx::AppRetCode acrxEntryPoint(AcRx::AppMsgCode msg, void* appId)
 
 void initApp() {
     acedRegCmds->addCommand(L"GSTCH_WIRING_COMMANDS", L"GSTCH_BUILDJUNCTION", L"BUILDJUNCTION", ACRX_CMD_MODAL, buildJunctionBox);
+    acedRegCmds->addCommand(L"GSTCH_WIRING_COMMANDS", L"GSTCH_FLIPCABLE", L"FLIPCABLE", ACRX_CMD_MODAL | ACRX_CMD_USEPICKSET | ACRX_CMD_REDRAW, flipCable);
+    acedRegCmds->addCommand(L"GSTCH_WIRING_COMMANDS", L"GSTCH_REINDEXCABLE", L"REINDEXCABLE", ACRX_CMD_MODAL | ACRX_CMD_USEPICKSET | ACRX_CMD_REDRAW, reIndexCable);
 }
 
 void unloadApp() {

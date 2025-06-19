@@ -40,7 +40,11 @@ void \mbox{\hyperlink{_junction_builder_8cpp_a75eba94ec93a3b08713a21c8c4661f2f}{
 INT\+\_\+\+PTR CALLBACK \mbox{\hyperlink{_junction_builder_8cpp_a5bd9b4335464b5d5f361b2ad15e2745e}{\+\_\+\+Dialog\+Proc}} (HWND h\+Dlg, UINT message, WPARAM w\+Param, LPARAM l\+Param)
 \begin{DoxyCompactList}\small\item\em Dialog‑box procedure that handles all messages for the Junction Box Builder dialog. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_junction_builder_8cpp_a27067b8fdd503477397487d3fed9eb65}{build\+Junction\+Box}} ()
-\begin{DoxyCompactList}\small\item\em Build a junction box based on the provided specifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Build a junction box based on the provided specifications. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8cpp_a61eeca46bd44d805104d6ef446cf0ed1}{flip\+Cable}} ()
+\begin{DoxyCompactList}\small\item\em Flip a cable or a set of cables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_junction_builder_8cpp_ade6915c93cdde099130ea33c6baa3914}{re\+Index\+Cable}} ()
+\begin{DoxyCompactList}\small\item\em Change the terminal index of a cable or set of cables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -49,13 +53,13 @@ Definitons for building junction boxes.
 This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.
 
 \begin{DoxyVersion}{Version}
-1.\+1.\+2 
+1.\+2.\+0 
 \end{DoxyVersion}
 \begin{DoxyAuthor}{Author}
 Ethan Barnes \href{mailto:ebarnes@gastecheng.com}{\texttt{ebarnes@gastecheng.\+com}} 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2025-\/06-\/18 
+2025-\/06-\/19 
 \end{DoxyDate}
 \begin{DoxyCopyright}{Copyright}
 Proprietary -\/ All Rights Reserved by Gas\+Tech Engineering LLC 
@@ -288,4 +292,24 @@ Build a junction box based on the provided specifications.
 
 This function is responsible for constructing a junction box by utilizing available data such as device and cable information. It involves generating the layout, placing components appropriately within the Auto\+CAD environment, and ensuring all connections are accurately represented.
 
-The process may include reading from an Excel file to gather necessary input data, interacting with Auto\+CAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. 
+The process may include reading from an Excel file to gather necessary input data, interacting with Auto\+CAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. \Hypertarget{_junction_builder_8cpp_a61eeca46bd44d805104d6ef446cf0ed1}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!flipCable@{flipCable}}
+\index{flipCable@{flipCable}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{flipCable()}{flipCable()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_a61eeca46bd44d805104d6ef446cf0ed1} 
+void flip\+Cable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Flip a cable or a set of cables. 
+
+This function asks the user to select a set of cable-\/related blocks, and then automatically flips the cables about the axis of the junction termination block \Hypertarget{_junction_builder_8cpp_ade6915c93cdde099130ea33c6baa3914}\index{JunctionBuilder.cpp@{JunctionBuilder.cpp}!reIndexCable@{reIndexCable}}
+\index{reIndexCable@{reIndexCable}!JunctionBuilder.cpp@{JunctionBuilder.cpp}}
+\doxysubsubsection{\texorpdfstring{reIndexCable()}{reIndexCable()}}
+{\footnotesize\ttfamily \label{_junction_builder_8cpp_ade6915c93cdde099130ea33c6baa3914} 
+void re\+Index\+Cable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Change the terminal index of a cable or set of cables. 
+
+This function asks the user to select a set of cable-\/related blocks, and then asks for the terminal number of the top wire. It then automatically changes the attributes of each cable to match the respective terminal blocks they attach to, assuming proper spacing. 

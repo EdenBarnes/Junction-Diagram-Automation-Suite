@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="GasTech_logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.2</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.2.0</span>
    </div>
    <div id="projectbrief">An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div>
   </td>
@@ -100,6 +100,7 @@ $(function(){initNavTree('_junction_builder_8h.html','',''); });
 <div class="textblock"><code>#include &lt;set&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
 <code>#include &lt;windows.h&gt;</code><br />
 <code>#include &lt;commdlg.h&gt;</code><br />
 <code>#include &quot;acedads.h&quot;</code><br />
@@ -114,13 +115,17 @@ $(function(){initNavTree('_junction_builder_8h.html','',''); });
 Functions</h2></td></tr>
 <tr class="memitem:a27067b8fdd503477397487d3fed9eb65" id="r_a27067b8fdd503477397487d3fed9eb65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27067b8fdd503477397487d3fed9eb65">buildJunctionBox</a> ()</td></tr>
 <tr class="memdesc:a27067b8fdd503477397487d3fed9eb65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a junction box based on the provided specifications.  <br /></td></tr>
+<tr class="memitem:a61eeca46bd44d805104d6ef446cf0ed1" id="r_a61eeca46bd44d805104d6ef446cf0ed1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61eeca46bd44d805104d6ef446cf0ed1">flipCable</a> ()</td></tr>
+<tr class="memdesc:a61eeca46bd44d805104d6ef446cf0ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flip a cable or a set of cables.  <br /></td></tr>
+<tr class="memitem:ade6915c93cdde099130ea33c6baa3914" id="r_ade6915c93cdde099130ea33c6baa3914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade6915c93cdde099130ea33c6baa3914">reIndexCable</a> ()</td></tr>
+<tr class="memdesc:ade6915c93cdde099130ea33c6baa3914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the terminal index of a cable or set of cables.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for building junction boxes. </p>
 <p>This module is part of the Junction Diagram Automation Suite. Unauthorized copying, distribution, or modification is prohibited.</p>
-<dl class="section version"><dt>Version</dt><dd>1.1.2 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.2.0 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Ethan Barnes <a href="#" onclick="location.href='mai'+'lto:'+'eba'+'rn'+'es@'+'ga'+'ste'+'ch'+'eng'+'.c'+'om'; return false;">ebarn<span class="obfuscator">.nosp@m.</span>es@g<span class="obfuscator">.nosp@m.</span>astec<span class="obfuscator">.nosp@m.</span>heng<span class="obfuscator">.nosp@m.</span>.com</a> </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2025-06-18 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025-06-19 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Proprietary - All Rights Reserved by GasTech Engineering LLC </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a27067b8fdd503477397487d3fed9eb65" name="a27067b8fdd503477397487d3fed9eb65"></a>
@@ -141,6 +146,46 @@ Functions</h2></td></tr>
 <p>Build a junction box based on the provided specifications. </p>
 <p>This function is responsible for constructing a junction box by utilizing available data such as device and cable information. It involves generating the layout, placing components appropriately within the AutoCAD environment, and ensuring all connections are accurately represented.</p>
 <p>The process may include reading from an Excel file to gather necessary input data, interacting with AutoCAD for drawing purposes, and managing various attributes related to devices and cables. It serves as a core functionality of the Junction Diagram Automation Suite. </p>
+
+</div>
+</div>
+<a id="a61eeca46bd44d805104d6ef446cf0ed1" name="a61eeca46bd44d805104d6ef446cf0ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61eeca46bd44d805104d6ef446cf0ed1">&#9670;&#160;</a></span>flipCable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void flipCable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flip a cable or a set of cables. </p>
+<p>This function asks the user to select a set of cable-related blocks, and then automatically flips the cables about the axis of the junction termination block </p>
+
+</div>
+</div>
+<a id="ade6915c93cdde099130ea33c6baa3914" name="ade6915c93cdde099130ea33c6baa3914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6915c93cdde099130ea33c6baa3914">&#9670;&#160;</a></span>reIndexCable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void reIndexCable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change the terminal index of a cable or set of cables. </p>
+<p>This function asks the user to select a set of cable-related blocks, and then asks for the terminal number of the top wire. It then automatically changes the attributes of each cable to match the respective terminal blocks they attach to, assuming proper spacing. </p>
 
 </div>
 </div>

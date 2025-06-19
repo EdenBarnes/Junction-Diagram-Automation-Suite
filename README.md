@@ -8,21 +8,21 @@
 
 # Junction Diagram Automation Suite
 
-An AutoCAD 2024 plugin for the ~~manipulation~~ and generation of junction box wiring diagrams
+An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams
 
 Proprietary - All Rights Reserved by GasTech Engineering LLC
 
-[![Latest release](https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite)](https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.2)
+[![Latest release](https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite)](https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.2.0)
 
 </div>
 
 ## Introduction
 
-The Junction Diagram Automation Suite is an all in one tool for generating and ~~manipulating~~ GasTech junction box wiring diagrams in AutoCAD 2024. Users can easily create junction box diagrams directly from GasTech IO lists. ~~Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-index batches of cables~~. All in a single `.arx` plugin.
+The Junction Diagram Automation Suite is an all in one tool for generating and manipulating GasTech junction box wiring diagrams in AutoCAD 2024. Users can easily create junction box diagrams directly from GasTech IO lists. Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-index batches of cables. All in a single `.arx` plugin.
 
 ## Getting Started
 
-*This document is for version 1.1.2*
+*This document is for version 1.2.0*
 
 ### Installation
 
@@ -73,6 +73,42 @@ The Junction Diagram Automation Suite will now automatically load each time you 
 * Click **Ok**.
 
 * The plugin will now automatically draw the junction box you selected.
+
+## Commands
+
+| Command                           | Description                                            |
+| :---                              |                                                   ---: |
+| [`BUILDJUNCTION`](#buildjunction) | Builds a junction box diagram using data in an IO list |
+| [`FLIPCABLE`](#flipcable)         | Flips a group of cables                                |
+| [`REINDEXCABLE`](#reindexcable)   | Regenerates terminal numbers for a group of cables     |
+
+### `BUILDJUNCTION`
+Builds a junction box diagram using data in an IO list.
+* Execute the command `BUILDJUNCTION`.
+* In the **Junction Box Setup** dialog box, click **Browse**.
+* Navigate to the location of your IO list `.xlsx` file.
+* Select the `.xlsx` and click **Open**.
+* The **Select a Junction Tag** box now lists every junction box defined in the IO list.
+* Select the tag of the junction box you want to build, or click **Select All** to build every junction box in the IO list.
+* The **Select a Junction Box Size** box now tells you how many spare terminals will exist when you build a box of the respective size.
+    * If a certain size of junction box is not able to fit the cables defined in the IO list, the option will be greyed out.
+    * If the size associated with the template you opened is greyed out, please exit the dialog, close the drawing, and open one that is able to accomodate your junction box.
+* Select one of the sizes from the **Select a Junction Box Size** box, or select **Custom Box**. (**Custom Box** will be the only option if you previously clicked **Select All** in the **Select a Junction Tag** box)
+* Click **Ok**.
+* The command will now automatically draw the junction box you selected.
+
+### `FLIPCABLE`
+Flips a group of cables.
+* Execute the command `FLIPCABLE`.
+* Select a group of blocks that make up the cable you want to flip.
+* The command will flip the cable horizontally, keeping the end of the `Junction Termination` block in the same positon.
+
+### `REINDEXCABLE`
+Regenerates terminal numbers for a group of cables.
+* Execute the command `REINDEXCABLE`.
+* Select a group of blocks that make up the cable you want to modify.
+* Enter an initial terminal number. This will the the terminal number on the highest wire in the selection.
+* The command will update each wire's terminal numbers based on their distance from the highest wire.
 
 ## Building From Source
 
@@ -143,9 +179,3 @@ cmake --build ./build --config RELEASE
 
 > [!WARNING]
 > `rc.exe` must exist in the `PATH` when building with **CMake**. If `rc.exe` (which is part of **MSVC**) is missing, the dialog boxes will not function correctly.
-
-## Commands
-
-| Command                   | Description                                            |
-| :---                      |                                                   ---: |
-| [`BUILDJUNCTION`](#usage) | Builds a junction box diagram using data in an IO list |

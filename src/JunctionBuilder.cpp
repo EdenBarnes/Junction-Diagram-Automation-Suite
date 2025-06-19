@@ -5,9 +5,9 @@
  * This module is part of the Junction Diagram Automation Suite. Unauthorized 
  * copying, distribution, or modification is prohibited.
  * 
- * @version 1.1.2
+ * @version 1.2.0
  * @author Ethan Barnes <ebarnes@gastecheng.com>
- * @date 2025-06-18
+ * @date 2025-06-19
  * @copyright Proprietary - All Rights Reserved by GasTech Engineering LLC
  *
  */
@@ -210,6 +210,211 @@ void buildJunctionBox() {
         }
     } else {
         _drawJunctionBox(result.filename, result.selectedTag, result.selectedSize, AcGePoint3d(0.0, 0.0, 0.0));
+    }
+}
+
+void flipCable() {
+    ads_name ss;
+
+    int result = acedSSGet(L"I", nullptr, nullptr, nullptr, ss);
+
+    if (result != RTNORM) {
+        // No implied selection — ask user to select objects manually
+        acutPrintf(L"\nPlease select objects:");
+        result = acedSSGet(nullptr, nullptr, nullptr, nullptr, ss);
+
+        if (result != RTNORM) {
+            acutPrintf(L"\nCanceled.");
+            return;
+        }
+    }
+
+    int length = 0;
+    acedSSLength(ss, &length);
+    
+    for (int i = 0; i < length; ++i) {
+        ads_name ent;
+        acedSSName(ss, i, ent);
+
+        AcDbObjectId objId;
+        acdbGetObjectId(objId, ent);
+
+        std::wstring blockName;
+        Acad::ErrorStatus es = acadGetBlockName(objId, blockName);
+        if (es != Acad::eOk) {
+            acutPrintf(L"\nError: Unable to get object block name.");
+            return;
+        }
+
+        AcGePoint3d position;
+        acadGetObjectPosition(objId, position);
+        
+        if (blockName == L"Junction Termination" || blockName == L"Junction Termination (7 Wire)") {
+            AcDbEvalVariant flipVariant;
+            acadGetDynBlockProperty(objId, L"Flip state1", flipVariant);
+
+            int flipValue;
+            flipVariant.getValue(flipValue);
+
+            acadSetDynBlockProperty(objId, L"Flip state1", AcDbEvalVariant((short)(flipValue == 0 ? 1 : 0)));
+        } else if (blockName == L"Field Device Termination" || blockName == L"Field Device Termination (7 Wire)") {
+            AcDbEvalVariant flipVariant;
+            acadGetDynBlockProperty(objId, L"Flip state1", flipVariant);
+
+            int flipValue;
+            flipVariant.getValue(flipValue);
+
+            if (flipValue == 1) {
+                // Pointing right, move left
+                position.x -= 18.0;
+            } else {
+                position.x += 18.0;
+            }
+
+            acadSetObjectPosition(objId, position);
+            acadSetDynBlockProperty(objId, L"Flip state1", AcDbEvalVariant((short)(flipValue == 0 ? 1 : 0)));
+        } else if (blockName == L"TBWIREMINI") {
+            AcGeScale3d scaleValue;
+            acadGetObjectScale(objId, scaleValue);
+
+            if (scaleValue[0] == -1.0) {
+                position.x -= 18.6876;
+            } else {
+                position.x += 18.6876;
+            }
+
+            acadSetObjectPosition(objId, position);
+            acadSetObjectScale(objId, AcGeScale3d(-scaleValue[0], 1.0, 1.0));
+        } else if (blockName == L"INST SYMBOL") {
+            AcDbEvalVariant flipVariant;
+            acadGetDynBlockProperty(objId, L"Flip state", flipVariant);
+
+            int flipValue;
+            flipVariant.getValue(flipValue);
+
+            if (flipValue == 1) {
+                // Pointing right, move left
+                position.x -= 19.8751;
+            } else {
+                position.x += 19.8751;
+            }
+
+            acadSetObjectPosition(objId, position);
+            acadSetDynBlockProperty(objId, L"Flip state", AcDbEvalVariant((short)(flipValue == 0 ? 1 : 0)));
+        }
+    }
+
+    acedSSFree(ss);
+}
+
+void reIndexCable() {
+    ads_name ss;
+
+    int result = acedSSGet(L"I", nullptr, nullptr, nullptr, ss);
+
+    if (result != RTNORM) {
+        // No implied selection — ask user to select objects manually
+        acutPrintf(L"\nPlease select objects:");
+        result = acedSSGet(nullptr, nullptr, nullptr, nullptr, ss);
+
+        if (result != RTNORM) {
+            acutPrintf(L"\nCanceled.");
+            return;
+        }
+    }
+
+    int startingTerminal = 0;
+    acedGetInt(L"What terminal number do you want to start from?", startingTerminal);
+
+    int length = 0;
+    acedSSLength(ss, &length);
+
+    // Determine which junction box is the highest so we can index from there
+    double highest = std::numeric_limits<double>::lowest();
+    for (int i = 0; i < length; ++i) {
+        ads_name ent;
+        acedSSName(ss, i, ent);
+
+        AcDbObjectId objId;
+        acdbGetObjectId(objId, ent);
+
+        std::wstring blockName;
+        if (acadGetBlockName(objId, blockName) != Acad::eOk)
+            continue; // skip if we can't resolve name
+
+        if (blockName != L"Junction Termination" &&
+            blockName != L"Junction Termination (7 Wire)")
+            continue; // not a termination
+
+        AcGePoint3d position;
+        if (acadGetObjectPosition(objId, position) != Acad::eOk)
+            continue; // skip unsupported entities
+
+        if (position.y > highest)
+            highest = position.y;
+    }
+
+    // Re-index
+    for (int i = 0; i < length; ++i) { 
+        ads_name ent;
+        acedSSName(ss, i, ent);
+
+        AcDbObjectId objId;
+        acdbGetObjectId(objId, ent);
+
+        std::wstring blockName;
+        if (acadGetBlockName(objId, blockName) != Acad::eOk)
+            continue; // skip if we can't resolve name
+
+        AcGePoint3d position;
+        if (acadGetObjectPosition(objId, position) != Acad::eOk)
+            continue; // skip unsupported entities
+
+        double heightDif = highest - position.y;
+        int terminalDif = std::round(heightDif / 0.25);
+
+        if (blockName == L"Junction Termination" || blockName == L"Field Device Termination") {
+            for (int j = 1; j <= 9; ++j) {
+                wchar_t tagName[32];
+                swprintf(tagName, L"FLDTAG%d", j);
+
+                std::wstring fldtag;
+                acadGetBlockAttribute(objId, tagName, fldtag);
+
+                int currentTerminal = terminalDif + j + startingTerminal - 1;
+                
+                if (j > 5) currentTerminal ++;
+                if (j > 7) currentTerminal ++;
+
+                wchar_t termText[32];
+                swprintf(termText, L"(%d)", currentTerminal);
+
+                fldtag.replace(fldtag.find('('), std::wstring::npos, termText);
+
+                acadSetBlockAttribute(objId, tagName, fldtag.c_str());
+            }
+        } else if (blockName == L"Junction Termination (7 Wire)" || blockName == L"Field Device Termination (7 Wire)") {
+            for (int j = 1; j <= 7; ++j) {
+                wchar_t tagName[32];
+                swprintf(tagName, L"FLDTAG%d", j);
+
+                std::wstring fldtag;
+                acadGetBlockAttribute(objId, tagName, fldtag);
+
+                int currentTerminal = terminalDif + j + startingTerminal - 1;
+                
+                if (j > 2) currentTerminal ++;
+                if (j > 4) currentTerminal ++;
+                if (j > 6) currentTerminal ++;
+
+                wchar_t termText[32];
+                swprintf(termText, L"(%d)", currentTerminal);
+
+                fldtag.replace(fldtag.find('('), std::wstring::npos, termText);
+
+                acadSetBlockAttribute(objId, tagName, fldtag.c_str());
+            }
+        }
     }
 }
 

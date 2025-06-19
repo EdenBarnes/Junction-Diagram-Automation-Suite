@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="GasTech_logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.1.2</span>
+   <div id="projectname">Junction Diagram Automation Suite<span id="projectnumber">&#160;1.2.0</span>
    </div>
    <div id="projectbrief">An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div>
   </td>
@@ -97,12 +97,12 @@ $(function(){initNavTree('index.html','',''); });
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> </p><h2 align="center"><a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite" target="blank_"><img src="https://raw.githubusercontent.com/EdenBarnes/Junction-Diagram-Automation-Suite/refs/heads/main/docs/images/GasTech_logo.png" alt="GasTech Logo" height="200" class="inline"/> </a> </h2>
 <div align="center"></div><div align="center"></div><h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
 <div align="center">Junction Diagram Automation Suite</div></h1>
-<div align="center"></div><div align="center">An AutoCAD 2024 plugin for the <strike>manipulation</strike> and generation of junction box wiring diagrams</div><div align="center">Proprietary - All Rights Reserved by GasTech Engineering LLC</div><div align="center"><a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.1.2"><img src="https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite" alt="Latest release" class="inline"/></a></div><div align="center"></div><h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<div align="center"></div><div align="center">An AutoCAD 2024 plugin for the manipulation and generation of junction box wiring diagrams</div><div align="center">Proprietary - All Rights Reserved by GasTech Engineering LLC</div><div align="center"><a href="https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite/releases/tag/v1.2.0"><img src="https://img.shields.io/github/v/release/edenbarnes/Junction-Diagram-Automation-Suite" alt="Latest release" class="inline"/></a></div><div align="center"></div><h2 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 Introduction</h2>
-<p>The Junction Diagram Automation Suite is an all in one tool for generating and <strike>manipulating</strike> GasTech junction box wiring diagrams in AutoCAD 2024. Users can easily create junction box diagrams directly from GasTech IO lists. <strike>Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-index batches of cables</strike>. All in a single <span class="tt">.arx</span> plugin.</p>
+<p>The Junction Diagram Automation Suite is an all in one tool for generating and manipulating GasTech junction box wiring diagrams in AutoCAD 2024. Users can easily create junction box diagrams directly from GasTech IO lists. Additionally, users can easily modify these junction box wiring diagrams using a set of tools to flip and re-index batches of cables. All in a single <span class="tt">.arx</span> plugin.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Getting Started</h2>
-<p><em>This document is for version 1.1.2</em></p>
+<p><em>This document is for version 1.2.0</em></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Installation</h3>
 <ul>
@@ -137,10 +137,55 @@ Usage</h3>
 <li>The plugin will now automatically draw the junction box you selected.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Commands</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Command  </th><th class="markdownTableHeadRight">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">`BUILDJUNCTION`  </td><td class="markdownTableBodyRight">Builds a junction box diagram using data in an IO list  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">`FLIPCABLE`  </td><td class="markdownTableBodyRight">Flips a group of cables  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">`REINDEXCABLE`  </td><td class="markdownTableBodyRight">Regenerates terminal numbers for a group of cables  </td></tr>
+</table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<span class="tt">BUILDJUNCTION</span></h3>
+<p>Builds a junction box diagram using data in an IO list.</p><ul>
+<li>Execute the command <span class="tt">BUILDJUNCTION</span>.</li>
+<li>In the <b>Junction Box Setup</b> dialog box, click <b>Browse</b>.</li>
+<li>Navigate to the location of your IO list <span class="tt">.xlsx</span> file.</li>
+<li>Select the <span class="tt">.xlsx</span> and click <b>Open</b>.</li>
+<li>The <b>Select a Junction Tag</b> box now lists every junction box defined in the IO list.</li>
+<li>Select the tag of the junction box you want to build, or click <b>Select All</b> to build every junction box in the IO list.</li>
+<li>The <b>Select a Junction Box Size</b> box now tells you how many spare terminals will exist when you build a box of the respective size.<ul>
+<li>If a certain size of junction box is not able to fit the cables defined in the IO list, the option will be greyed out.</li>
+<li>If the size associated with the template you opened is greyed out, please exit the dialog, close the drawing, and open one that is able to accomodate your junction box.</li>
+</ul>
+</li>
+<li>Select one of the sizes from the <b>Select a Junction Box Size</b> box, or select <b>Custom Box</b>. (<b>Custom Box</b> will be the only option if you previously clicked <b>Select All</b> in the <b>Select a Junction Tag</b> box)</li>
+<li>Click <b>Ok</b>.</li>
+<li>The command will now automatically draw the junction box you selected.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<span class="tt">FLIPCABLE</span></h3>
+<p>Flips a group of cables.</p><ul>
+<li>Execute the command <span class="tt">FLIPCABLE</span>.</li>
+<li>Select a group of blocks that make up the cable you want to flip.</li>
+<li>The command will flip the cable horizontally, keeping the end of the <span class="tt">Junction Termination</span> block in the same positon.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<span class="tt">REINDEXCABLE</span></h3>
+<p>Regenerates terminal numbers for a group of cables.</p><ul>
+<li>Execute the command <span class="tt">REINDEXCABLE</span>.</li>
+<li>Select a group of blocks that make up the cable you want to modify.</li>
+<li>Enter an initial terminal number. This will the the terminal number on the highest wire in the selection.</li>
+<li>The command will update each wire's terminal numbers based on their distance from the highest wire.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Building From Source</h2>
 <p><em>This is an advanced topic intended only for people who wish to modify the program in the future. If you simply wish to use the plugin, you may ignore this section.</em></p>
 <p><a href="https://edenbarnes.github.io/Junction-Diagram-Automation-Suite/html/index.html"><em>Click here for documentation</em></a></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 General Requirements</h3>
 <p>Ensure you system includes the following:</p>
 <ul>
@@ -149,25 +194,25 @@ General Requirements</h3>
 <li><b>CMake</b> (version 3.16+)</li>
 <li><b>Doxygen</b> if you wish to generate documentation.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Cloning Sources</h3>
 <p>To obtain the Junction Diagram Automation Suite source code, use the following commands:</p>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">git clone --recursive https://github.com/EdenBarnes/Junction-Diagram-Automation-Suite.git</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 Get Dependencies</h3>
 <p>The Junction Diagram Automation Suite has the following dependencies:</p>
 <ul>
 <li><a href="https://github.com/troldal/OpenXLSX">OpenXLSX</a></li>
 <li><a href="https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download">ObjectArx 2024</a></li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 Get OpenXLSX</h4>
 <p>OpenXLSX should be automatically installed when you clone the sources. If not, you can install it manually with the following commands: </p><div class="fragment"><div class="line"> bash</div>
 <div class="line">cd .\external</div>
 <div class="line">git clone https://github.com/troldal/OpenXLSX.git</div>
 </div><!-- fragment --><p>The OpenXLSX repository must be located inside of .\external.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 Get ObjectARX</h4>
 <p>Click <a href="https://help.autodesk.com/view/OARX/2024/ENU/?guid=GUID-2A0C6C5A-9C98-465F-BFB6-012A4899F53A">here</a> for system requirements and click <a href="https://www.autodesk.com/developer-network/platform-technologies/autocad/objectarx-download">here</a> to download the SDK.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Make sure you install ObjectArx 2024. Other versions may be incompatible. AutoCAD 2024 is only compatible with ObjectArx 2024.</dd></dl>
@@ -175,21 +220,13 @@ Get ObjectARX</h4>
 <div class="fragment"><div class="line"> CMake</div>
 <div class="line"># Path to ObjectARX SDK</div>
 <div class="line">set(ARX_SDK &quot;C:/Autodesk/ObjectArxSDK2024&quot;)</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 Build with CMake</h3>
 <p>To compile the Junction Diagram Automation Suite using <b>CMake</b>, use the follwing commands inside of <span class="tt">Junction-Diagram-Automation-Suite\</span>:</p>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">cmake -B ./build</div>
 <div class="line">cmake --build ./build --config RELEASE</div>
-</div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd><span class="tt">rc.exe</span> must exist in the <span class="tt">PATH</span> when building with <b>CMake</b>. If <span class="tt">rc.exe</span> (which is part of <b>MSVC</b>) is missing, the dialog boxes will not function correctly.</dd></dl>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
-Commands</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Command  </th><th class="markdownTableHeadRight">Description  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">`BUILDJUNCTION`  </td><td class="markdownTableBodyRight">Builds a junction box diagram using data in an IO list  </td></tr>
-</table>
+</div><!-- fragment --><dl class="section warning"><dt>Warning</dt><dd><span class="tt">rc.exe</span> must exist in the <span class="tt">PATH</span> when building with <b>CMake</b>. If <span class="tt">rc.exe</span> (which is part of <b>MSVC</b>) is missing, the dialog boxes will not function correctly. </dd></dl>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
