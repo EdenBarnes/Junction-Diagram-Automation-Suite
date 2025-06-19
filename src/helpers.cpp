@@ -174,6 +174,47 @@ Acad::ErrorStatus acadSetDynBlockProperty(
     return Acad::eKeyNotFound;
 }
 
+Acad::ErrorStatus acadGetDynBlockProperty(
+    const AcDbObjectId& blockRefId,
+    const wchar_t* propName,
+    AcDbEvalVariant& outValue
+) {
+    // Open block reference for reading
+    AcDbBlockReference* pBlkRef = nullptr;
+    Acad::ErrorStatus es = acdbOpenObject(pBlkRef, blockRefId, AcDb::kForRead);
+    if (es != Acad::eOk || !pBlkRef) {
+        acutPrintf(L"\nError: Could not open block reference.");
+        return es;
+    }
+
+    // Get dynamic block properties
+    AcDbDynBlockReference dynBlkRef(pBlkRef);
+    AcDbDynBlockReferencePropertyArray propArray;
+    dynBlkRef.getBlockProperties(propArray);
+
+    // Search for matching property
+    for (int i = 0; i < propArray.length(); ++i) {
+        AcDbDynBlockReferenceProperty& prop = propArray[i];
+
+        if (wcscmp(prop.propertyName(), propName) == 0) {
+            outValue = prop.value();
+            pBlkRef->close();
+
+            if (es == Acad::eOk) {
+                return Acad::eOk;
+            } else {
+                acutPrintf(L"\nError: Failed to read value for property '%ls'.", propName);
+                return es;
+            }
+        }
+    }
+
+    // Property not found
+    acutPrintf(L"\nWarning: Property '%ls' not found.", propName);
+    pBlkRef->close();
+    return Acad::eKeyNotFound;
+}
+
 Acad::ErrorStatus acadSetBlockAttribute(
     const AcDbObjectId& blockRefId,
     const wchar_t* tagName,

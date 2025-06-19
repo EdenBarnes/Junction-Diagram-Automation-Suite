@@ -57,6 +57,27 @@ Acad::ErrorStatus acadSetDynBlockProperty(
 );
 
 /**
+ * @brief Retrieve the value of a dynamic block property.
+ *
+ * This function reads the current value of a specified property from a 
+ * dynamic block reference.
+ *
+ * @param blockRefId The object ID of the block reference whose property is being read.
+ * @param propName   The name of the property to retrieve. Must exist in the
+ *                   dynamic block definition.
+ * @param outValue   Output parameter that receives the current value of the property,
+ *                   encapsulated as an AcDbEvalVariant.
+ *
+ * @return Acad::ErrorStatus indicating success or failure of the operation.
+ *         Returns Acad::eKeyNotFound if the property does not exist.
+ */
+Acad::ErrorStatus acadGetDynBlockProperty(
+    const AcDbObjectId& blockRefId,
+    const wchar_t* propName,
+    AcDbEvalVariant& outValue
+);
+
+/**
  * @brief Set a block attribute to a new value.
  *
  * This function updates the specified attribute of a block reference with a 
